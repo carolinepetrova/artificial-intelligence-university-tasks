@@ -12,19 +12,10 @@ public class Tile {
     private Optional<Tile> lowerTile;
     private Optional<Tile> leftTile;
 
-    public Tile(Position position,
-                int value,
-                int targetValue, Optional<Tile> upperTile,
-                Optional<Tile> rightTile,
-                Optional<Tile> lowerTile,
-                Optional<Tile> leftTile) {
+    public Tile(Position position, int value, int targetValue) {
         this.position = position;
         this.value = value;
         this.targetValue = targetValue;
-        this.upperTile = upperTile;
-        this.rightTile = rightTile;
-        this.lowerTile = lowerTile;
-        this.leftTile = leftTile;
     }
 
     public Position getPosition() {
