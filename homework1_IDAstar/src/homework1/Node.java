@@ -9,8 +9,8 @@ import java.util.Optional;
 public class Node {
     private List<Tile> grid;
     private int size;
-    private Optional<Move> previousMove;
-    private Optional<Node> previousNode;
+    private Optional<Move> previousMove = Optional.empty();
+    private Optional<Node> previousNode = Optional.empty();
     private Integer estimatedMinimumCost = Integer.MAX_VALUE;
 
     public Node(List<Tile> grid, int size) {
