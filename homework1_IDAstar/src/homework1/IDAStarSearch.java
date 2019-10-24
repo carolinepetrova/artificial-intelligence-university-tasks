@@ -10,11 +10,11 @@ public class IDAStarSearch {
     }
 
     public Node search() {
-        return ida_rec(this.initialState, 0, this.initialState.cost());
+        return ida_rec(this.initialState, 0, this.initialState.calculateCostToGoalState());
     }
 
     private Node ida_rec(Node node, int currentCost, int threshold) {
-        int estimatedCost = node.cost() + currentCost;
+        int estimatedCost = currentCost + node.calculateCostToGoalState();
         if (node.isSolution() || estimatedCost > threshold) {
             node.setEstimatedMinimumCost(estimatedCost);
             return node;

@@ -97,7 +97,7 @@ public class Node {
         return grid.stream().allMatch(tile -> tile.getTargetValue() == tile.getValue());
     }
 
-    public Integer cost() {
+    public Integer calculateCostToGoalState() {
         return calculateHeuristicValue();
     }
 
