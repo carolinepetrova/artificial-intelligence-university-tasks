@@ -13,9 +13,8 @@ public class BoardState {
     private Integer estimatedMinimumCost = Integer.MAX_VALUE;
 
     public boolean isSolution() {
-        return true;
+        return grid.stream().allMatch(tile -> tile.getTargetValue() == tile.getValue());
     }
-
 
 //  Since for every tile we are calculating the distance
 //  from the current state to the final one (number of required moves),
