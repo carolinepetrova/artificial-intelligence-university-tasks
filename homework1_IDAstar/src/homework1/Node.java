@@ -62,22 +62,17 @@ public class Node {
     }
 
     private static Optional<Tile> getNeighborToSwap(Tile blankTile, Move move) {
-        Optional<Tile> neighborToSwap = Optional.empty();
         switch (move) {
             case UP:
-                neighborToSwap = blankTile.getLowerTile();
-                break;
+                return blankTile.getLowerTile();
             case DOWN:
-                neighborToSwap = blankTile.getUpperTile();
-                break;
+                return blankTile.getUpperTile();
             case RIGHT:
-                neighborToSwap = blankTile.getLeftTile();
-                break;
+                return blankTile.getLeftTile();
             case LEFT:
-                neighborToSwap = blankTile.getRightTile();
-                break;
+                return blankTile.getRightTile();
         }
-        return neighborToSwap;
+        return Optional.empty();
     }
 
     public Integer getEstimatedMinimumCost() {
