@@ -3,7 +3,7 @@ package homework1;
 import org.junit.jupiter.api.Assertions;
 import org.testng.annotations.Test;
 
-public class BoardTest {
+public class Tests {
     @Test
     public void testManhattanDistanceIsCalculatedCorrectly() {
         Tile tileA = new Tile(2, 0);
