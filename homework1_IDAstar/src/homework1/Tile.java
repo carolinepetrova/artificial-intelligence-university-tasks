@@ -20,8 +20,20 @@ public class Tile {
         this.targetValue = targetValue;
     }
 
+    public Tile(Position position) {
+        this.position = position;
+    }
+
+    public Tile(int x, int y) {
+        this(new Position(x, y));
+    }
+
     public Tile(Tile other) {
         this(other.position, other.value, other.targetValue);
+        this.upperTile = other.upperTile;
+        this.leftTile = other.leftTile;
+        this.rightTile = other.rightTile;
+        this.lowerTile = other.lowerTile;
     }
 
     public static List<Move> getPossibleMoveDirectionsWithoutReversals(Node node, Tile blankTile) {
@@ -64,14 +76,6 @@ public class Tile {
             possibleMoveDirections.add(Move.UP);
         }
         return possibleMoveDirections;
-    }
-
-    public Tile(Position position) {
-        this.position = position;
-    }
-
-    public Tile(int x, int y) {
-        this(new Position(x, y));
     }
 
     public Position getPosition() {
