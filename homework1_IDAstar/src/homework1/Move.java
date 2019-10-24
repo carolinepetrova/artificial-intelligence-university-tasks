@@ -1,6 +1,6 @@
 package homework1;
 
-public enum ShiftDirection {
+public enum Move {
     LEFT,
     RIGHT,
     UP,
