@@ -16,6 +16,23 @@ public class BoardState {
         return true;
     }
 
+
+//  Since for every tile we are calculating the distance
+//  from the current state to the final one (number of required moves),
+//  the lower the heuristic value the better.
+    public Integer calculateHeuristicValue() {
+        int heuristicValue = 0;
+        for(Tile tile: grid) {
+            Tile targetTile = getTileFromTargetValue(tile.getTargetValue()).get();
+            heuristicValue += AlgorithmUtils.calculateManhattanDistance(tile, targetTile);
+        }
+        return heuristicValue;
+    }
+
+    public Optional<Tile> getTileFromTargetValue(int targetValue) {
+        return grid.stream().filter(tile -> tile.getTargetValue() == targetValue).findFirst();
+    }
+
     private List<ShiftDirection> recreatePathFrom(BoardState boardState) {
         List<ShiftDirection> moves = getMovesFrom(boardState, new ArrayList<>());
         Collections.reverse(moves);
