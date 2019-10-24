@@ -16,13 +16,6 @@ public class BoardState {
         return true;
     }
 
-    private Integer countManhattanDistance(Tile tileA, Tile tileB) {
-        int manhattanDistance = 0;
-        manhattanDistance += Math.abs(tileA.getPosition().getX() - tileB.getPosition().getX());
-        manhattanDistance += Math.abs(tileA.getPosition().getY() - tileB.getPosition().getY());
-        return manhattanDistance;
-    }
-
     private List<ShiftDirection> recreatePathFrom(BoardState boardState) {
         List<ShiftDirection> moves = getMovesFrom(boardState, new ArrayList<>());
         Collections.reverse(moves);

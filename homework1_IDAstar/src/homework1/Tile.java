@@ -18,6 +18,14 @@ public class Tile {
         this.targetValue = targetValue;
     }
 
+    public Tile(Position position) {
+        this.position = position;
+    }
+
+    public Tile(int x, int y) {
+        this(new Position(x, y));
+    }
+
     public Position getPosition() {
         return position;
     }
