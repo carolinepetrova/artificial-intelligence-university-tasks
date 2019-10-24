@@ -2,11 +2,9 @@ package homework1;
 
 public class IDAStarSearch {
     private Node initialState;
-    private Node goalState;
 
-    public IDAStarSearch(Node initialState, Node goalState) {
+    public IDAStarSearch(Node initialState) {
         this.initialState = initialState;
-        this.goalState = goalState;
     }
 
     public Node search() {
