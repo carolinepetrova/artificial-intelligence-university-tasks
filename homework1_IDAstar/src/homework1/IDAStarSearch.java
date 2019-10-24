@@ -1,7 +1,6 @@
 package homework1;
 
 public class IDAStarSearch {
-
     private Node initialState;
     private Node goalState;
 
@@ -10,7 +9,9 @@ public class IDAStarSearch {
         this.goalState = goalState;
     }
 
-
+    public Node search() {
+        return ida_rec(this.initialState, 0, this.initialState.cost());
+    }
 
     private Node ida_rec(Node node, int currentCost, int threshold) {
         int estimatedCost = node.cost() + currentCost;
