@@ -9,10 +9,10 @@ public class Tile {
     private int value;
     private int targetValue;
 
-    private Optional<Tile> upperTile;
-    private Optional<Tile> rightTile;
-    private Optional<Tile> lowerTile;
-    private Optional<Tile> leftTile;
+    private Optional<Tile> upperTile = Optional.empty();
+    private Optional<Tile> rightTile = Optional.empty();
+    private Optional<Tile> lowerTile = Optional.empty();
+    private Optional<Tile> leftTile = Optional.empty();
 
     public Tile(Position position, int value, int targetValue) {
         this.position = position;
