@@ -12,6 +12,7 @@ public class IDAStarSearch {
     }
 
     private Node ida_rec(Node node, int currentCost, int threshold) {
+        System.out.println("GRID:\n" + node + "------------------------------\n");
         int estimatedCost = currentCost + node.calculateCostToGoalState();
         if (node.isSolution() || estimatedCost > threshold) {
             node.setEstimatedMinimumCost(estimatedCost);

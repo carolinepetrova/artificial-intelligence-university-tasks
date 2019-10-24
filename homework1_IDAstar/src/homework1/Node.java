@@ -21,6 +21,21 @@ public class Node {
         this.size = size;
     }
 
+    @Override
+    public String toString() {
+        String str = "";
+        int i = 0;
+        for (Tile tile: this.grid) {
+            str += tile.getValue() + " ";
+            if(i % size == size - 1) {
+                str += '\n';
+            }
+            i++;
+        }
+
+        return str;
+    }
+
     public static Optional<Node> getChildOfNodeAndMove(Node node, Move move) {
         if (!isMovePossible(node.getBlankTile(), move)) {
             return Optional.empty();
