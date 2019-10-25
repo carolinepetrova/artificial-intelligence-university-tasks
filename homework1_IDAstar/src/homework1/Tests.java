@@ -45,7 +45,7 @@ public class Tests {
         tile5.setRightTile(Optional.of(tile6));
 
         tile6.setUpperTile(Optional.of(tile3));
-        tile6.setUpperTile(Optional.of(tile9));
+        tile6.setLowerTile(Optional.of(tile9));
         tile6.setLeftTile(Optional.of(tile5));
 
         tile7.setUpperTile(Optional.of(tile4));
