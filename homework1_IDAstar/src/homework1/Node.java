@@ -134,7 +134,7 @@ public class Node {
     }
 
     private List<Move> getMovesFrom(Node node, List<Move> moves) {
-        if(node.previousMove.isPresent()) {
+        if (node.previousMove.isPresent()) {
             moves.add(node.previousMove.get());
             return getMovesFrom(node.previousNode.get(), moves);
         } else {
