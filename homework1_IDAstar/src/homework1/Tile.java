@@ -46,18 +46,18 @@ public class Tile {
     }
 
     private static Move getReverseMove(Move move) {
-        Move reverseMove = null;
         switch(move) {
             case UP:
-                reverseMove = Move.DOWN;
+                return Move.DOWN;
             case DOWN:
-                reverseMove = Move.UP;
+                return Move.UP;
             case LEFT:
-                reverseMove = Move.RIGHT;
+                return Move.RIGHT;
             case RIGHT:
-                reverseMove = Move.LEFT;
+                return Move.LEFT;
+            default:
+                return null;
         }
-        return reverseMove;
     }
 
     // should be called only on the blank tile
