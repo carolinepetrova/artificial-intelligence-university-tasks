@@ -20,8 +20,8 @@ public class IDAStarSearch {
         }
 
         int minimumCost = Integer.MAX_VALUE;
-        for (Move move : Tile.getPossibleMoveDirectionsWithoutReversals(node, node.getBlankTile())) {
-            Node childNode = Node.getChildOfNodeAndMove(node, move).get();
+        for (Move move : node.getPossibleMoveDirectionsWithoutReversals()) {
+            Node childNode = node.getChildAfterMove(move).get();
             Node childIda = ida_rec(childNode, currentCost + 1, threshold);
             if (childIda.isSolution()) {
                 return childIda;
