@@ -12,7 +12,7 @@ import static org.testng.Assert.assertTrue;
 
 public class Tests {
 
-    public static Node createTestInitialNode() {
+    public static Node createTestInitialNode1() {
         List<List<Tile>> grid = new ArrayList<>();
 
         Tile tile1 = new Tile(new Position(0, 0), 1, 1);
@@ -56,7 +56,7 @@ public class Tests {
 
     @Test
     public void testIDAStarSearchGeneratesCorrectEndNode() {
-        IDAStarSearch algorithm = new IDAStarSearch(Tests.createTestInitialNode());
+        IDAStarSearch algorithm = new IDAStarSearch(Tests.createTestInitialNode1());
 
         List<Move> expectedMoves = new ArrayList<>();
         expectedMoves.add(Move.LEFT);
