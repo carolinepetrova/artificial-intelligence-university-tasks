@@ -1,7 +1,6 @@
 package homework1;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
@@ -197,21 +196,6 @@ public class Node {
 
     private Tile getTileFromPosition(Position position) {
         return grid.get(position.getX()).get(position.getY());
-    }
-
-    private List<Move> recreatePathFrom(Node node) {
-        List<Move> moves = getMovesFrom(node, new ArrayList<>());
-        Collections.reverse(moves);
-        return moves;
-    }
-
-    private List<Move> getMovesFrom(Node node, List<Move> moves) {
-        if (node.previousMove.isPresent()) {
-            moves.add(node.previousMove.get());
-            return getMovesFrom(node.previousNode.get(), moves);
-        } else {
-            return moves;
-        }
     }
 
     private boolean isInsideGrid(Position position) {

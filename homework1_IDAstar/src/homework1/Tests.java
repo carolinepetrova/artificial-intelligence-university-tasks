@@ -5,7 +5,9 @@ import org.testng.annotations.Test;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
+import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
 public class Tests {
@@ -55,7 +57,13 @@ public class Tests {
     @Test
     public void testIDAStarSearchGeneratesCorrectEndNode() {
         IDAStarSearch algorithm = new IDAStarSearch(Tests.createTestInitialNode());
-        Node endNode = algorithm.search();
-        assertTrue(endNode.isSolution());
+
+        List<Move> expectedMoves = new ArrayList<>();
+        expectedMoves.add(Move.LEFT);
+        expectedMoves.add(Move.LEFT);
+
+        Optional<List<Move>> optMovesToSolution = algorithm.findMovesToSolution();
+        assertTrue(optMovesToSolution.isPresent());
+        assertEquals(expectedMoves, optMovesToSolution.get());
     }
 }

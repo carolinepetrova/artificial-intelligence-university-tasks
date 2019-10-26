@@ -1,5 +1,8 @@
 package homework1;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class AlgorithmUtils {
     public static Integer calculateManhattanDistance(Tile tileA, Tile tileB) {
         int manhattanDistance = 0;
@@ -21,5 +24,14 @@ public class AlgorithmUtils {
             default:
                 return null;
         }
+    }
+
+    public static List<Move> recreateMovesTo(Node node) {
+        List<Move> moves = new ArrayList<>();
+        while (node.getPreviousMove().isPresent()) {
+            moves.add(node.getPreviousMove().get());
+            node = node.getPreviousNode().get();
+        }
+        return moves;
     }
 }

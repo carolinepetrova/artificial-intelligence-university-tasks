@@ -1,9 +1,6 @@
 package homework1;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 public class IDAStarSearch {
     private Node initialState;
@@ -12,7 +9,15 @@ public class IDAStarSearch {
         this.initialState = initialState;
     }
 
-    public Node search() {
+    public Optional<List<Move>> findMovesToSolution() {
+        Optional<Node> goalState = reachGoalState();
+        if (goalState.isPresent()) {
+            return Optional.of(AlgorithmUtils.recreateMovesTo(goalState.get()));
+        }
+        return Optional.empty();
+    }
+
+    private Optional<Node> reachGoalState() {
         int initialThreshold = initialState.calculateCostToGoalState();
         List<Node> path = new ArrayList<>();
         Set<Node> visited = new HashSet<>();
@@ -29,7 +34,7 @@ public class IDAStarSearch {
 
             // Check If Goal Node Was Found
             if (smallestEstimatedCost == 0) {
-                return path.get(path.size() - 1);
+                return Optional.of(path.get(path.size() - 1));
             }
 
             // Set New F Boundary
@@ -41,7 +46,6 @@ public class IDAStarSearch {
 
     private int ida_rec(List<Node> currentPath, Set<Node> visited, int currentCost, int threshold) {
         Node node = currentPath.get(currentPath.size() - 1);
-        System.out.println("GRID:\n" + node + "------------------------------\n");
         int estimatedCost = currentCost + node.calculateCostToGoalState();
         if (estimatedCost > threshold) {
             return estimatedCost;
