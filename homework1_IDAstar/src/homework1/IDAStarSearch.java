@@ -57,7 +57,7 @@ public class IDAStarSearch {
         for (Node successor : node.getSuccessors()) {
             if (!currentPath.contains(successor)) {
                 currentPath.add(successor);
-                int successorIda = ida_rec(currentPath, currentCost, threshold);
+                int successorIda = ida_rec(currentPath, currentCost + 1, threshold);
                 if (successorIda == 0) {
                     return 0; // goal is found
                 }

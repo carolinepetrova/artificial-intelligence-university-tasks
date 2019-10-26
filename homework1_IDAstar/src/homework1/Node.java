@@ -35,8 +35,8 @@ public class Node {
         Position blankTilePosition = getBlankTile().getPosition();
 
         List<Move> possibleMoveDirections = new ArrayList<>();
-        Position up = new Position(blankTilePosition.getX() + 1, blankTilePosition.getY());
-        Position down = new Position(blankTilePosition.getX() - 1, blankTilePosition.getY());
+        Position up = new Position(blankTilePosition.getX() - 1, blankTilePosition.getY());
+        Position down = new Position(blankTilePosition.getX() + 1, blankTilePosition.getY());
         Position right = new Position(blankTilePosition.getX(), blankTilePosition.getY() + 1);
         Position left = new Position(blankTilePosition.getX(), blankTilePosition.getY() - 1);
         if (isInsideGrid(up)) {
