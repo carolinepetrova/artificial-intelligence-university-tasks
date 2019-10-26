@@ -55,6 +55,19 @@ public class Node {
     }
 
     @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Node node = (Node) o;
+        if (size != node.size) return false;
+
+        for (int row = 0; row < size; row++) {
+            if (!grid.get(row).equals(node.grid.get(row))) return false;
+        }
+        return true;
+    }
+
+    @Override
     public String toString() {
         String str = "";
         for (List<Tile> row : this.grid) {
@@ -103,13 +116,13 @@ public class Node {
         Position blankTilePosition = getBlankTile().getPosition();
         switch (move) {
             case UP: {
-                Position lower = new Position(blankTilePosition.getX() - 1, blankTilePosition.getY());
+                Position lower = new Position(blankTilePosition.getX() + 1, blankTilePosition.getY());
                 if (isInsideGrid(lower)) {
                     return Optional.of(getTileFromPosition(lower));
                 }
             }
             case DOWN: {
-                Position upper = new Position(blankTilePosition.getX() + 1, blankTilePosition.getY());
+                Position upper = new Position(blankTilePosition.getX() - 1, blankTilePosition.getY());
                 if (isInsideGrid(upper)) {
                     return Optional.of(getTileFromPosition(upper));
                 }

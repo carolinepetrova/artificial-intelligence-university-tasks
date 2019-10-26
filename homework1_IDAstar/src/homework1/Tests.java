@@ -17,7 +17,7 @@ public class Tests {
      * 1 2 3
      * 4 5 6
      * 0 7 8
-     *
+     * <p>
      * Expected solution is LEFT LEFT
      */
     public static Node createTestInitialNode1() {
@@ -60,7 +60,7 @@ public class Tests {
      * 1 2 3
      * 0 4 6
      * 7 5 8
-     *
+     * <p>
      * Expected solution is LEFT UP LEFT
      */
     public static Node createTestInitialNode2() {
@@ -115,7 +115,7 @@ public class Tests {
 
         Optional<List<Move>> optMovesToSolution = algorithm.findMovesToSolution();
         assertTrue(optMovesToSolution.isPresent());
-        assertEquals(expectedMoves, optMovesToSolution.get());
+        assertEquals(optMovesToSolution.get(), expectedMoves);
     }
 
     @Test
@@ -129,6 +129,6 @@ public class Tests {
 
         Optional<List<Move>> optMovesToSolution = algorithm.findMovesToSolution();
         assertTrue(optMovesToSolution.isPresent());
-        assertEquals(expectedMoves, optMovesToSolution.get());
+        assertEquals(optMovesToSolution.get(), expectedMoves);
     }
 }
