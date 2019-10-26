@@ -1,6 +1,8 @@
 package homework1;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
 
 public class IDAStarSearch {
     private Node initialState;
@@ -19,14 +21,12 @@ public class IDAStarSearch {
 
     private Optional<Node> reachGoalState() {
         List<Node> path = new ArrayList<>();
-        Set<Node> visited = new HashSet<>();
         path.add(initialState);
-        visited.add(initialState);
         int threshold = initialState.calculateCostToGoalState();
         int algorithm_result;
 
         do {
-            algorithm_result = ida_rec(path, visited, 0, threshold);
+            algorithm_result = ida_rec(path, 0, threshold);
 
             final boolean goalIsFound = algorithm_result == 0;
             if (goalIsFound) {
@@ -41,10 +41,9 @@ public class IDAStarSearch {
     }
 
     /**
-     *
      * @return 0 if goal is found; otherwise the minimum cost of all values that exceeded the current threshold
      */
-    private int ida_rec(List<Node> currentPath, Set<Node> visited, int currentCost, int threshold) {
+    private int ida_rec(List<Node> currentPath, int currentCost, int threshold) {
         Node node = currentPath.get(currentPath.size() - 1);
         int estimatedCost = currentCost + node.calculateCostToGoalState();
         if (estimatedCost > threshold) {
@@ -56,10 +55,9 @@ public class IDAStarSearch {
 
         int minimumCost = Integer.MAX_VALUE;
         for (Node successor : node.getSuccessors()) {
-            if (!visited.contains(successor)) {
-                visited.add(successor);
+            if (!currentPath.contains(successor)) {
                 currentPath.add(successor);
-                int successorIda = ida_rec(currentPath, visited, currentCost, threshold);
+                int successorIda = ida_rec(currentPath, currentCost, threshold);
                 if (successorIda == 0) {
                     return 0; // goal is found
                 }
