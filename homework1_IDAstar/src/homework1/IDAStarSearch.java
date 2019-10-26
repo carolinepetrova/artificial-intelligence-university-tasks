@@ -18,32 +18,32 @@ public class IDAStarSearch {
     }
 
     private Optional<Node> reachGoalState() {
-        int initialThreshold = initialState.calculateCostToGoalState();
         List<Node> path = new ArrayList<>();
         Set<Node> visited = new HashSet<>();
         path.add(initialState);
         visited.add(initialState);
+        int threshold = initialState.calculateCostToGoalState();
+        int algorithm_result;
 
-        // Keep Retrying With Larger F Bound Until One Of The Follow:
-        // 0 Is Returned     - The Goal Node Is Found So Path Contains Optimal Path
-        // Integer.MAX_Value - No Node Was Found With A F Higher Than F Boundary So Goal Node Does Not Exist
-        int smallestEstimatedCost;
         do {
-            // Start Search
-            smallestEstimatedCost = ida_rec(path, visited, 0, initialThreshold);
+            algorithm_result = ida_rec(path, visited, 0, threshold);
 
-            // Check If Goal Node Was Found
-            if (smallestEstimatedCost == 0) {
+            final boolean goalIsFound = algorithm_result == 0;
+            if (goalIsFound) {
                 return Optional.of(path.get(path.size() - 1));
             }
 
-            // Set New F Boundary
-            initialThreshold = smallestEstimatedCost;
-        } while (initialThreshold != Integer.MAX_VALUE);
+            // set new threshold
+            threshold = algorithm_result;
+        } while (threshold != Integer.MAX_VALUE);
 
         return null;
     }
 
+    /**
+     *
+     * @return 0 if goal is found; otherwise the minimum cost of all values that exceeded the current threshold
+     */
     private int ida_rec(List<Node> currentPath, Set<Node> visited, int currentCost, int threshold) {
         Node node = currentPath.get(currentPath.size() - 1);
         int estimatedCost = currentCost + node.calculateCostToGoalState();
