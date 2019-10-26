@@ -1,6 +1,7 @@
 package homework1;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class AlgorithmUtils {
@@ -37,10 +38,12 @@ public class AlgorithmUtils {
 
     public static List<Node> recreateNodesTo(Node node) {
         List<Node> nodes = new ArrayList<>();
+        nodes.add(node);
         while (node.getPreviousNode().isPresent()) {
             nodes.add(node.getPreviousNode().get());
             node = node.getPreviousNode().get();
         }
+        Collections.reverse(nodes);
         return nodes;
     }
 }
