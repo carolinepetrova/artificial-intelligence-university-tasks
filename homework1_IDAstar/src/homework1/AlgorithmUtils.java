@@ -34,4 +34,12 @@ public class AlgorithmUtils {
         }
         return moves;
     }
+
+    public static List<Node> recreateNodesTo(Node node) {
+        List<Node> nodes = new ArrayList<>();
+        while (node.getPreviousNode().isPresent()) {
+            nodes.add(node.getPreviousNode().get());
+        }
+        return nodes;
+    }
 }
