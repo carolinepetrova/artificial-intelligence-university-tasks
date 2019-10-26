@@ -1,4 +1,4 @@
-## Implementation of algorithms for computer science course Artificial Intelligence
+## Solving problems by using various Artificial Intelligence algorithms for computer science course 
 
 1. [First homework: Solving the sliding puzzle game with algorithm IDA*](https://github.com/stiliangoranov/artificial-intelligence-university-tasks/tree/master/homework1_IDAstar)
 
