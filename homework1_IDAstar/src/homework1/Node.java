@@ -10,7 +10,6 @@ public class Node {
     private int size;
     private Optional<Move> previousMove = Optional.empty();
     private Optional<Node> previousNode = Optional.empty();
-    private Integer estimatedMinimumCost = Integer.MAX_VALUE;
 
     public Node(List<List<Tile>> grid, int size) {
         this.size = size;
@@ -66,6 +65,14 @@ public class Node {
         return str;
     }
 
+    public List<Node> getSuccessors() {
+        List<Node> successors = new ArrayList<>();
+        for (Move move : getPossibleMoveDirectionsWithoutReversals()) {
+            successors.add(getChildAfterMove(move).get());
+        }
+        return successors;
+    }
+
     public Optional<Node> getChildAfterMove(Move move) {
         if (!isMovePossible(getBlankTile(), move)) {
             return Optional.empty();
@@ -74,24 +81,26 @@ public class Node {
         Node childNode = new Node(grid, size);
         childNode.setPreviousMove(Optional.of(move));
         childNode.setPreviousNode(Optional.of(this));
-
-        Tile blankTile = childNode.getBlankTile();
-        Tile neighborToSwap = childNode.getNeighborToSwap(move).get();
-
-        // update information in the node
-        int firstTileValue = blankTile.getValue();
-        int secondTileValue = neighborToSwap.getValue();
-        neighborToSwap.setValue(firstTileValue);
-        blankTile.setValue(secondTileValue);
-
+        childNode.doMove(move);
         return Optional.of(childNode);
     }
 
-    private boolean isMovePossible(Tile blankTile, Move move) {
-        return getNeighborToSwap(move).isPresent();
+    private void doMove(Move move) {
+        Tile blankTile = getBlankTile();
+        Tile tileToMove = getTileToMove(move).get();
+
+        // swap values of blank tile and the moved tile
+        int firstTileValue = blankTile.getValue();
+        int secondTileValue = tileToMove.getValue();
+        tileToMove.setValue(firstTileValue);
+        blankTile.setValue(secondTileValue);
     }
 
-    private Optional<Tile> getNeighborToSwap(Move move) {
+    private boolean isMovePossible(Tile blankTile, Move move) {
+        return getTileToMove(move).isPresent();
+    }
+
+    private Optional<Tile> getTileToMove(Move move) {
         Position blankTilePosition = getBlankTile().getPosition();
         switch (move) {
             case UP: {
@@ -120,14 +129,6 @@ public class Node {
             }
         }
         return Optional.empty();
-    }
-
-    public Integer getEstimatedMinimumCost() {
-        return estimatedMinimumCost;
-    }
-
-    public void setEstimatedMinimumCost(Integer estimatedMinimumCost) {
-        this.estimatedMinimumCost = estimatedMinimumCost;
     }
 
     public Optional<Move> getPreviousMove() {
@@ -170,8 +171,8 @@ public class Node {
     }
 
     //  Since for every tile we are calculating the distance
-//  from the current state to the final one (number of required moves),
-//  the lower the heuristic value the better.
+    //  from the current state to the final one (number of required moves),
+    //  the lower the heuristic value the better.
     private Integer calculateHeuristicValue() {
         int heuristicValue = 0;
         for (List<Tile> row : grid) {
@@ -186,7 +187,7 @@ public class Node {
     public Optional<Tile> getTileFromTargetValue(int targetValue) {
         Optional<Tile> optTile = Optional.empty();
         for (List<Tile> row : grid) {
-            optTile = row.stream().filter(tile -> tile.getTargetValue() == targetValue).findFirst();
+            optTile = row.stream().filter(tile -> tile.getValue() == targetValue).findFirst();
             if (optTile.isPresent()) {
                 break;
             }
