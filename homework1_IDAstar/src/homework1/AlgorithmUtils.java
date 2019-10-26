@@ -33,6 +33,7 @@ public class AlgorithmUtils {
             moves.add(node.getPreviousMove().get());
             node = node.getPreviousNode().get();
         }
+        Collections.reverse(moves);
         return moves;
     }
 
