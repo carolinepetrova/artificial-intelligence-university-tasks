@@ -39,6 +39,7 @@ public class AlgorithmUtils {
         List<Node> nodes = new ArrayList<>();
         while (node.getPreviousNode().isPresent()) {
             nodes.add(node.getPreviousNode().get());
+            node = node.getPreviousNode().get();
         }
         return nodes;
     }
