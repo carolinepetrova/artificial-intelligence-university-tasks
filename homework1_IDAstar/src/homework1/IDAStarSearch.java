@@ -37,7 +37,7 @@ public class IDAStarSearch {
             threshold = algorithm_result;
         } while (threshold != Integer.MAX_VALUE);
 
-        return null;
+        return Optional.empty();
     }
 
     /**
