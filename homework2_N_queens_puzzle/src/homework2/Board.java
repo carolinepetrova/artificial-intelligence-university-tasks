@@ -22,6 +22,21 @@ public class Board {
         return matrix[row][col] == CellFilling.QUEEN.getValue();
     }
 
+    // Returns the number of queens that conflict with (row,col), not
+    // counting the queen in column col.
+    public int numberOfConflicts(int row, int col) {
+        int numberOfConflicts = 0;
+        for (int c = 0; c < size; c++) {
+            if (c == col) continue;
+            for (int r = 0; r < size; r++) {
+                if (isPositionOccupiedByQueen(r, c) && (r == row || Math.abs(r-row) == Math.abs(c-col))) {
+                    numberOfConflicts++;
+                }
+            }
+        }
+        return numberOfConflicts;
+    }
+
     // Randomly fills the board with one queen in each column.
     private void shuffle() {
         for (int col = 0; col < size; col++) {
