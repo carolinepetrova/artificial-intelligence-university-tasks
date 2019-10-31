@@ -18,8 +18,8 @@ public class Board {
         shuffle();
     }
 
-    public boolean isPositionOccupiedByQueen(int x, int y) {
-        return matrix[x][y] == CellFilling.QUEEN.getValue();
+    public boolean isPositionOccupiedByQueen(int row, int col) {
+        return matrix[row][col] == CellFilling.QUEEN.getValue();
     }
 
     // Randomly fills the board with one queen in each column.
