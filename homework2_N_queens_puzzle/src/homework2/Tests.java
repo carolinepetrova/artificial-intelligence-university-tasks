@@ -1,6 +1,7 @@
 package homework2;
 
 import org.testng.annotations.Test;
+
 import static org.testng.Assert.assertEquals;
 
 public class Tests {
@@ -9,16 +10,16 @@ public class Tests {
     }
 
     @Test
-    public void testNewlyCreatedBoardHasQueensRandomlyPlacedOnEachColumn() {
+    public void testNewlyCreatedBoardHasOneQueenInEachColumn() {
         Board board = createTestBoard(1000);
-        for(int col= 0; col < 1000; col++) {
-            int cntQueensInCol = 0;
+        for (int col = 0; col < 1000; col++) {
+            int numberOfQueensInColumn = 0;
             for (int row = 0; row < 1000; row++) {
                 if (board.isPositionOccupiedByQueen(row, col)) {
-                    cntQueensInCol++;
+                    numberOfQueensInColumn++;
                 }
             }
-            assertEquals(cntQueensInCol, 1);
+            assertEquals(numberOfQueensInColumn, 1);
         }
     }
 }

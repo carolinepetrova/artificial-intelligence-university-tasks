@@ -24,9 +24,9 @@ public class Board {
 
     // Randomly fills the board with one queen in each column.
     private void shuffle() {
-        // nextInt is normally exclusive of the top value,
-        // so no need to subtract 1 from size
         for (int col = 0; col < size; col++) {
+            // nextInt is normally exclusive of the top value,
+            // so no need to subtract 1 from size
             int randomRow = ThreadLocalRandom.current().nextInt(0, size);
             matrix[randomRow][col] = CellFilling.QUEEN.getValue();
         }
