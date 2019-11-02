@@ -2,7 +2,7 @@ package homework2;
 
 import org.testng.annotations.Test;
 
-import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.*;
 
 public class Tests {
     public static Board createTestBoard(int size) {
@@ -21,5 +21,13 @@ public class Tests {
             }
             assertEquals(numberOfQueensInColumn, 1);
         }
+    }
+
+    @Test
+    public void testAlgorithmWorksCorrectly() {
+        Board board = createTestBoard(10000);
+        assertFalse(board.isSolved());
+        board.solve();
+        assertTrue(board.isSolved());
     }
 }
