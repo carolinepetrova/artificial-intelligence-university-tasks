@@ -81,9 +81,9 @@ public class GA {
     // Mutate a tour using swap mutation
     private static void mutate(Tour tour) {
         // Loop through tour cities
-        for(int tourPos1=0; tourPos1 < tour.tourSize(); tourPos1++){
+        for (int tourPos1 = 0; tourPos1 < tour.tourSize(); tourPos1++) {
             // Apply mutation rate
-            if(Math.random() < mutationRate){
+            if (Math.random() < mutationRate) {
                 // Get a second random position in the tour
                 int tourPos2 = (int) (tour.tourSize() * Math.random());
 
