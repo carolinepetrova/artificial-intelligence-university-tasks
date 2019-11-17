@@ -206,7 +206,7 @@ std::ostream &operator<<(std::ostream &os, const Board &board)
     return os;
 }
 
-int minimax(Board board, int depth, bool isMaxTurn)
+int minimax(Board board, bool isMaxTurn, int alpha, int beta)
 {
     // std::cout << "ST_TEST\n" << board << std::endl;
     switch (board.getStatus())
@@ -238,13 +238,16 @@ int minimax(Board board, int depth, bool isMaxTurn)
                         // Make the move
                         board.setCell(i, j, Board::PLAYER1_VALUE);
 
-                        // Call minimax recursively and choose
-                        // the maximum value
+                        // Call minimax recursively and choose the maximum value
                         best = max(best,
-                                    minimax(board, depth + 1, !isMaxTurn));
+                                   minimax(board, !isMaxTurn, alpha, beta));
+                        alpha = max(alpha, best);
 
                         // Undo the move
                         board.setCell(i, j, Board::EMPTY_CELL);
+
+                        if (beta <= alpha) // no need to continue if there is already better option for the minimizer
+                            return best;
                     }
                 }
             }
@@ -263,13 +266,16 @@ int minimax(Board board, int depth, bool isMaxTurn)
                         // Make the move
                         board.setCell(i, j, Board::PLAYER2_VALUE);
 
-                        // Call minimax recursively and choose
-                        // the minimum value
+                        // Call minimax recursively and choose the minimum value
                         best = min(best,
-                                   minimax(board, depth + 1, !isMaxTurn));
+                                   minimax(board, !isMaxTurn, alpha, beta));
+                        beta = min(beta, best);
 
                         // Undo the move
                         board.setCell(i, j, Board::EMPTY_CELL);
+
+                        if (beta <= alpha) // no need to continue if there is already better option for the maximizer
+                            return best;
                     }
                 }
             }
@@ -297,7 +303,7 @@ Move findBestMove(Board board)
                 board.setCell(i, j, Board::PLAYER1_VALUE);
 
                 // Compute evaluation function for this move
-                int moveVal = minimax(board, 0, false);
+                int moveVal = minimax(board, false, -10000, +10000);
 
                 // Undo the move
                 board.setCell(i, j, Board::EMPTY_CELL);
@@ -335,8 +341,7 @@ int main()
     Move bestMove = findBestMove(board);
 
     printf("The Optimal Move is :\n");
-    printf("ROW: %d COL: %d\n\n", bestMove.row,
-           bestMove.col);
+    printf("ROW: %d COL: %d\n\n", bestMove.row, bestMove.col);
 
     return 0;
 }
