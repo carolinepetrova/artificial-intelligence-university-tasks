@@ -29,6 +29,12 @@ public:
         return arr[x][y] == EMPTY_CELL;
     }
 
+    static bool isInBoard(int x, int y)
+    {
+        return 0 <= x && x <= 2 &&
+               0 <= y && y <= 2;
+    }
+
     void setCell(int x, int y, char value)
     {
         if (value != PLAYER1_VALUE && value != PLAYER2_VALUE && value != EMPTY_CELL)
@@ -69,6 +75,11 @@ public:
         return board;
     }
 
+    static Board createEmptyBoard()
+    {
+        return Board();
+    }
+
     bool areThereAnyMovesLeft() const
     {
         for (int row = 0; row < 3; row++)
@@ -79,7 +90,6 @@ public:
                     return true;
             }
         }
-
         return false;
     }
 
@@ -276,11 +286,11 @@ int minimax(Board board, bool isMaxTurn, int alpha, int beta)
     }
 }
 
-// Given a board, finds the best possible move for player 1
-Move findBestMove(Board board)
+// Given a board, finds the best possible move
+Move findBestMove(Board board, bool isMaxTurn)
 {
-    int bestVal = -1000;
-    Move bestMove{-1, -1};
+    int bestVal = isMaxTurn ? -1000 : +1000;
+    Move bestMove;
 
     // Traverse all cells, evaluate minimax function for
     // all empty cells. And return the cell with optimal value.
@@ -294,12 +304,13 @@ Move findBestMove(Board board)
                 board.setCell(i, j, Board::PLAYER1_VALUE);
 
                 // Compute evaluation function for this move
-                int moveVal = minimax(board, false, -10000, +10000);
+                int moveVal = minimax(board, isMaxTurn, -10000, +10000);
 
                 // Undo the move
                 board.setCell(i, j, Board::EMPTY_CELL);
 
-                if (moveVal > bestVal)
+                if ((isMaxTurn && moveVal > bestVal) ||
+                    (!isMaxTurn && moveVal < bestVal))
                 {
                     bestMove.row = i;
                     bestMove.col = j;
@@ -309,29 +320,74 @@ Move findBestMove(Board board)
         }
     }
 
-    printf("The value of the best Move is : %d\n\n", bestVal);
-
+    // printf("The value of the best Move is : %d\n\n", bestVal);
     return bestMove;
 }
 
 int main()
 {
-    char boardArr[3][3] = {
-        {'x', 'o', 'x'},
-        {'o', 'o', 'x'},
-        {'_', '_', '_'}};
-
     // char boardArr[3][3] = {
-    // {'_', '_', '_'},
-    // {'_', '_', '_'},
-    // {'_', '_', '_'}};
+    //     {'x', 'o', 'x'},
+    //     {'o', 'o', 'x'},
+    //     {'_', '_', '_'}};
 
-    Board board = Board::createBoard(boardArr);
+    // Board board = Board::createBoard(boardArr);
 
-    Move bestMove = findBestMove(board);
+    // Move bestMove = findBestMove(board, true);
 
-    printf("The Optimal Move is :\n");
-    printf("ROW: %d COL: %d\n\n", bestMove.row, bestMove.col);
+    // printf("The Optimal Move is :\n");
+    // printf("ROW: %d COL: %d\n\n", bestMove.row, bestMove.col);
+
+    Board board = Board::createEmptyBoard();
+
+    while (true)
+    {
+        std::cout << "\nCurrent board state: " << std::endl;
+        board.print();
+
+        int row, col;
+        do
+        {
+            std::cout << "\nEnter your move - should be on an empty position on the board: ";
+            std::cin >> row;
+            std::cin >> col;
+        } while (!Board::isInBoard(row, col) || board.getCell(row, col) != Board::EMPTY_CELL);
+
+        board.setCell(row, col, Board::PLAYER1_VALUE);
+
+        if (board.getStatus() != Board::Status::UNFINISHED)
+            break;
+
+        Move bestMove = findBestMove(board, false);
+        board.setCell(bestMove.row, bestMove.col, Board::PLAYER2_VALUE);
+
+        if (board.getStatus() != Board::Status::UNFINISHED)
+            break;
+    }
+
+    std::cout << "\nGAME FINISHED!\n\nFinal board state:\n" << board << std::endl;
+
+    switch (board.getStatus())
+    {
+    case Board::Status::PLAYER1_WINS:
+    {
+        std::cout << "Player 1 wins!\n";
+        break;
+    }
+    case Board::Status::PLAYER2_WINS:
+    {
+        std::cout << "Player 2 wins!\n";
+        break;
+    }
+    case Board::Status::TIE:
+    {
+        std::cout << "Tie!\n";
+        break;
+    }
+    default:
+    {
+    }
+    }
 
     return 0;
 }
