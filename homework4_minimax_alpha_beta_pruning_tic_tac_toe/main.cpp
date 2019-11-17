@@ -85,29 +85,21 @@ public:
 
     Status getStatus() const
     {
-        // std::cout << "--------------\nGetStatus:\n";
-        print();
-        std::cout << std::endl;
-
         const int score = evaluate();
         switch (score)
         {
         case 10:
-            // std::cout << "player 1 wins..\n";
             return Status::PLAYER1_WINS;
         case -10:
-            // std::cout << "player 2 wins..\n";
             return Status::PLAYER2_WINS;
         default:
         {
             if (areThereAnyMovesLeft())
             {
-                // std::cout << "unfinished..\n";
                 return Status::UNFINISHED;
             }
             else
             {
-                // std::cout << "tie..\n";
                 return Status::TIE;
             }
         }
@@ -175,7 +167,7 @@ private:
                 return -10;
         }
 
-        // TIE
+        // Tie
         return 0;
     }
 
@@ -208,7 +200,6 @@ std::ostream &operator<<(std::ostream &os, const Board &board)
 
 int minimax(Board board, bool isMaxTurn, int alpha, int beta)
 {
-    // std::cout << "ST_TEST\n" << board << std::endl;
     switch (board.getStatus())
     {
     case Board::Status::PLAYER1_WINS:
@@ -318,8 +309,7 @@ Move findBestMove(Board board)
         }
     }
 
-    printf("The value of the best Move is : %d\n\n",
-           bestVal);
+    printf("The value of the best Move is : %d\n\n", bestVal);
 
     return bestMove;
 }
