@@ -227,7 +227,7 @@ int minimax(Board board, int depth, bool isMaxTurn)
     {
         if (isMaxTurn)
         {
-            int alpha = -1000;
+            int best = -1000;
 
             for (int i = 0; i < 3; i++)
             {
@@ -240,7 +240,7 @@ int minimax(Board board, int depth, bool isMaxTurn)
 
                         // Call minimax recursively and choose
                         // the maximum value
-                        alpha = max(alpha,
+                        best = max(best,
                                     minimax(board, depth + 1, !isMaxTurn));
 
                         // Undo the move
@@ -248,11 +248,11 @@ int minimax(Board board, int depth, bool isMaxTurn)
                     }
                 }
             }
-            return alpha;
+            return best;
         }
         else // minimzer move
         {
-            int beta = 1000;
+            int best = 1000;
 
             for (int i = 0; i < 3; i++)
             {
@@ -265,7 +265,7 @@ int minimax(Board board, int depth, bool isMaxTurn)
 
                         // Call minimax recursively and choose
                         // the minimum value
-                        beta = min(beta,
+                        best = min(best,
                                    minimax(board, depth + 1, !isMaxTurn));
 
                         // Undo the move
@@ -273,7 +273,7 @@ int minimax(Board board, int depth, bool isMaxTurn)
                     }
                 }
             }
-            return beta;
+            return best;
         }
     }
     }
