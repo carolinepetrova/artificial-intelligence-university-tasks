@@ -1,4 +1,5 @@
 #include <iostream>
+#include <unistd.h>
 #include <algorithm>
 
 using std::max;
@@ -12,17 +13,47 @@ struct Move
 class Board
 {
 public:
-    constexpr static char PLAYER1_VALUE = 'x';
-    constexpr static char PLAYER2_VALUE = 'o';
+    constexpr static char MAXIMIZER_VALUE = 'X';
+    constexpr static char MINIMIZER_VALUE = 'O';
     constexpr static char EMPTY_CELL = '_';
 
-    enum class Status
+    int getLevel() const
     {
-        UNFINISHED, // game has not yet finished, there are still moves left
-        PLAYER1_WINS,
-        PLAYER2_WINS,
-        TIE
-    };
+        int emptyCells = 0;
+        for (int i = 0; i < 3; i++)
+        {
+            for (int j = 0; j < 3; j++)
+            {
+                if (isEmptyCell(i, j))
+                    emptyCells++;
+            }
+        }
+        return 10 - emptyCells;
+    }
+
+    bool isTerminal() const
+    {
+        if (getLevel() == 10) // all cells are non-empty
+        {
+            return true;
+        }
+
+        for (int i = 0; i < 3; i++)
+        {
+            if (arr[i][0] != Board::EMPTY_CELL && areAllValuesInRowAreEqual(i))
+            {
+                return true;
+            }
+
+            if (arr[0][i] != Board::EMPTY_CELL && areAllValuesInColumnAreEqual(i))
+            {
+                return true;
+            }
+        }
+
+        return arr[1][1] != Board::EMPTY_CELL &&
+               (areAllValuesInPrimaryDiagonalEqual() || areAllValuesInSecondaryDiagonalEqual());
+    }
 
     bool isEmptyCell(int x, int y) const
     {
@@ -37,7 +68,7 @@ public:
 
     void setCell(int x, int y, char value)
     {
-        if (value != PLAYER1_VALUE && value != PLAYER2_VALUE && value != EMPTY_CELL)
+        if (value != MAXIMIZER_VALUE && value != MINIMIZER_VALUE && value != EMPTY_CELL)
             throw "Invalid value for cell!";
 
         arr[x][y] = value;
@@ -80,40 +111,56 @@ public:
         return Board();
     }
 
-    bool areThereAnyMovesLeft() const
+    /**
+     * Return a value based on who is winning
+     *
+     * If the maximier wins, return (100-level of the board)
+     * If the minimzer wins, return -(100-level of the board)
+     * If it is a tie return 0
+     */
+    int evaluate() const
     {
+        if (!isTerminal())
+            throw "Calling evaluate on non-terminal board!";
+
+        // Check rows for victory
         for (int row = 0; row < 3; row++)
         {
-            for (int col = 0; col < 3; col++)
+            if (arr[row][0] != Board::EMPTY_CELL && areAllValuesInRowAreEqual(row))
             {
-                if (arr[row][col] == EMPTY_CELL)
-                    return true;
+                const int valueInRow = arr[row][0];
+                if (valueInRow == MAXIMIZER_VALUE)
+                    return 100 - getLevel();
+                else if (valueInRow == MINIMIZER_VALUE)
+                    return -(100 - getLevel());
             }
         }
-        return false;
-    }
 
-    Status getStatus() const
-    {
-        const int score = evaluate();
-        switch (score)
+        // Check columns for victory
+        for (int col = 0; col < 3; col++)
         {
-        case 10:
-            return Status::PLAYER1_WINS;
-        case -10:
-            return Status::PLAYER2_WINS;
-        default:
-        {
-            if (areThereAnyMovesLeft())
+            if (arr[0][col] != Board::EMPTY_CELL && areAllValuesInColumnAreEqual(col))
             {
-                return Status::UNFINISHED;
-            }
-            else
-            {
-                return Status::TIE;
+                const int valueInColumn = arr[0][col];
+                if (valueInColumn == MAXIMIZER_VALUE)
+                    return 100 - getLevel();
+                else if (valueInColumn == MINIMIZER_VALUE)
+                    return -(100 - getLevel());
             }
         }
+
+        // Check diagonals for victory
+        if (arr[1][1] != Board::EMPTY_CELL && areAllValuesInPrimaryDiagonalEqual() || areAllValuesInSecondaryDiagonalEqual())
+        {
+            const int valueInDiagonal = arr[1][1];
+            if (valueInDiagonal == MAXIMIZER_VALUE)
+                return 100 - getLevel();
+            else if (valueInDiagonal == MINIMIZER_VALUE)
+                return -(100 - getLevel());
         }
+
+        // Tie
+        return 0;
     }
 
 private:
@@ -130,55 +177,6 @@ private:
                 arr[row][col] = EMPTY_CELL;
             }
         }
-    }
-
-    /**
-     * Return a value based on who is winning
-     *
-     * If the player wins, return 10
-     * If the opponent wins, return -10
-     * If tie, return 0
-     */
-    int evaluate() const
-    {
-        // Check rows for victory
-        for (int row = 0; row < 3; row++)
-        {
-            if (areAllValuesInRowAreEqual(row))
-            {
-                const int valueInRow = arr[row][0];
-                if (valueInRow == PLAYER1_VALUE)
-                    return 10;
-                else if (valueInRow == PLAYER2_VALUE)
-                    return -10;
-            }
-        }
-
-        // Check columns for victory
-        for (int col = 0; col < 3; col++)
-        {
-            if (areAllValuesInColumnAreEqual(col))
-            {
-                const int valueInColumn = arr[0][col];
-                if (valueInColumn == PLAYER1_VALUE)
-                    return 10;
-                else if (valueInColumn == PLAYER2_VALUE)
-                    return -10;
-            }
-        }
-
-        // Check diagonals for victory
-        if (areAllValuesInPrimaryDiagonalEqual() || areAllValuesInSecondaryDiagonalEqual())
-        {
-            const int valueInDiagonal = arr[1][1];
-            if (valueInDiagonal == PLAYER1_VALUE)
-                return 10;
-            else if (valueInDiagonal == PLAYER2_VALUE)
-                return -10;
-        }
-
-        // Tie
-        return 0;
     }
 
     bool areAllValuesInPrimaryDiagonalEqual() const
@@ -210,79 +208,66 @@ std::ostream &operator<<(std::ostream &os, const Board &board)
 
 int minimax(Board board, bool isMaxTurn, int alpha, int beta)
 {
-    switch (board.getStatus())
+    if (board.isTerminal())
     {
-    case Board::Status::PLAYER1_WINS:
-    {
-        return 10;
+        return board.evaluate();
     }
-    case Board::Status::PLAYER2_WINS:
+
+    if (isMaxTurn)
     {
-        return -10;
-    }
-    case Board::Status::TIE:
-    {
-        return 0;
-    }
-    case Board::Status::UNFINISHED:
-    {
-        if (isMaxTurn)
+        int best = -1000;
+
+        for (int i = 0; i < 3; i++)
         {
-            int best = -1000;
-
-            for (int i = 0; i < 3; i++)
+            for (int j = 0; j < 3; j++)
             {
-                for (int j = 0; j < 3; j++)
+                if (board.isEmptyCell(i, j))
                 {
-                    if (board.isEmptyCell(i, j))
-                    {
-                        // Make the move
-                        board.setCell(i, j, Board::PLAYER1_VALUE);
+                    // Make the move
+                    board.setCell(i, j, Board::MAXIMIZER_VALUE);
 
-                        // Call minimax recursively and choose the maximum value
-                        best = max(best,
-                                   minimax(board, !isMaxTurn, alpha, beta));
-                        alpha = max(alpha, best);
+                    // Call minimax recursively and choose the maximum value
+                    best = max(best,
+                               minimax(board, !isMaxTurn, alpha, beta));
+                    alpha = max(alpha, best);
 
-                        // Undo the move
-                        board.setCell(i, j, Board::EMPTY_CELL);
+                    // Undo the move
+                    board.setCell(i, j, Board::EMPTY_CELL);
 
-                        if (beta <= alpha) // no need to continue if there is already better option for the minimizer
-                            return best;
-                    }
+                    if (beta <= alpha) // no need to continue if there is already better option for the minimizer
+                        return best;
                 }
             }
-            return best;
         }
-        else // minimzer move
+        return best;
+    }
+    else // minimzer move
+    {
+        int best = 1000;
+
+        for (int i = 0; i < 3; i++)
         {
-            int best = 1000;
-
-            for (int i = 0; i < 3; i++)
+            for (int j = 0; j < 3; j++)
             {
-                for (int j = 0; j < 3; j++)
+                if (board.isEmptyCell(i, j))
                 {
-                    if (board.isEmptyCell(i, j))
-                    {
-                        // Make the move
-                        board.setCell(i, j, Board::PLAYER2_VALUE);
+                    // Make the move
+                    board.setCell(i, j, Board::MINIMIZER_VALUE);
 
-                        // Call minimax recursively and choose the minimum value
-                        best = min(best,
-                                   minimax(board, !isMaxTurn, alpha, beta));
-                        beta = min(beta, best);
+                    // Call minimax recursively and choose the minimum value
+                    best = min(best,
+                               minimax(board, !isMaxTurn, alpha, beta));
+                    beta = min(beta, best);
 
-                        // Undo the move
-                        board.setCell(i, j, Board::EMPTY_CELL);
+                    // Undo the move
+                    board.setCell(i, j, Board::EMPTY_CELL);
 
-                        if (beta <= alpha) // no need to continue if there is already better option for the maximizer
-                            return best;
-                    }
+                    if (beta <= alpha) // no need to continue if there is already better option for the maximizer
+                        return best;
                 }
             }
-            return best;
         }
-    }
+        return best;
     }
 }
 
@@ -301,7 +286,7 @@ Move findBestMove(Board board, bool isMaxTurn)
             if (board.isEmptyCell(i, j))
             {
                 // Make the move
-                board.setCell(i, j, Board::PLAYER1_VALUE);
+                board.setCell(i, j, Board::MAXIMIZER_VALUE);
 
                 // Compute evaluation function for this move
                 int moveVal = minimax(board, isMaxTurn, -10000, +10000);
@@ -326,19 +311,22 @@ Move findBestMove(Board board, bool isMaxTurn)
 
 int main()
 {
-    // char boardArr[3][3] = {
-    //     {'x', 'o', 'x'},
-    //     {'o', 'o', 'x'},
-    //     {'_', '_', '_'}};
 
-    // Board board = Board::createBoard(boardArr);
+    std::string userInput;
+    do
+    {
+        std::cout << "\nWant to play first? (y\\n): ";
+        std::cin >> userInput;
+    } while (userInput != "y" && userInput != "n");
 
-    // Move bestMove = findBestMove(board, true);
+    const auto userIsFirst = userInput == "y";
 
-    // printf("The Optimal Move is :\n");
-    // printf("ROW: %d COL: %d\n\n", bestMove.row, bestMove.col);
+    auto board = Board::createEmptyBoard();
 
-    Board board = Board::createEmptyBoard();
+    if (!userIsFirst)
+    {
+        board.setCell(0, 0, Board::MINIMIZER_VALUE);
+    }
 
     while (true)
     {
@@ -353,40 +341,38 @@ int main()
             std::cin >> col;
         } while (!Board::isInBoard(row, col) || board.getCell(row, col) != Board::EMPTY_CELL);
 
-        board.setCell(row, col, Board::PLAYER1_VALUE);
+        board.setCell(row, col, Board::MAXIMIZER_VALUE);
 
-        if (board.getStatus() != Board::Status::UNFINISHED)
+        if (board.isTerminal())
+        {
+            std::cout << "term1" << std::endl;
             break;
+        }
 
-        Move bestMove = findBestMove(board, false);
-        board.setCell(bestMove.row, bestMove.col, Board::PLAYER2_VALUE);
+        Move bestMove = findBestMove(board, false); // AI is minimizer, hence false!
+        board.setCell(bestMove.row, bestMove.col, Board::MINIMIZER_VALUE);
 
-        if (board.getStatus() != Board::Status::UNFINISHED)
+        if (board.isTerminal())
+        {
             break;
+        }
     }
 
-    std::cout << "\nGAME FINISHED!\n\nFinal board state:\n" << board << std::endl;
+    std::cout << "\nGAME FINISHED!\n\nFinal board state:\n"
+              << board << std::endl;
 
-    switch (board.getStatus())
+    const auto result = board.evaluate();
+    if (result > 0)
     {
-    case Board::Status::PLAYER1_WINS:
-    {
-        std::cout << "Player 1 wins!\n";
-        break;
+        std::cout << "Player wins!\n";
     }
-    case Board::Status::PLAYER2_WINS:
+    else if (result < 0)
     {
-        std::cout << "Player 2 wins!\n";
-        break;
+        std::cout << "AI wins!\n";
     }
-    case Board::Status::TIE:
+    else
     {
         std::cout << "Tie!\n";
-        break;
-    }
-    default:
-    {
-    }
     }
 
     return 0;
