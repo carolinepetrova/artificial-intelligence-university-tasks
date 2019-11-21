@@ -345,7 +345,6 @@ int main()
 
         if (board.isTerminal())
         {
-            std::cout << "term1" << std::endl;
             break;
         }
 
