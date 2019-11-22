@@ -235,7 +235,7 @@ int minimax(Board board, bool isMaxTurn, int alpha, int beta)
                     board.setCell(i, j, Board::EMPTY_CELL);
 
                     if (beta <= alpha) // no need to continue if there is already better option for the minimizer
-                        return best;
+                        return beta;
                 }
             }
         }
@@ -263,7 +263,7 @@ int minimax(Board board, bool isMaxTurn, int alpha, int beta)
                     board.setCell(i, j, Board::EMPTY_CELL);
 
                     if (beta <= alpha) // no need to continue if there is already better option for the maximizer
-                        return best;
+                        return alpha;
                 }
             }
         }
