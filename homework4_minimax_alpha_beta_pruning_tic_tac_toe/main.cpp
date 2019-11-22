@@ -239,7 +239,7 @@ int minimax(Board board, bool isMaxTurn, int alpha, int beta)
                 }
             }
         }
-        return best;
+        return alpha;
     }
     else // minimzer move
     {
@@ -267,7 +267,7 @@ int minimax(Board board, bool isMaxTurn, int alpha, int beta)
                 }
             }
         }
-        return best;
+        return beta;
     }
 }
 
