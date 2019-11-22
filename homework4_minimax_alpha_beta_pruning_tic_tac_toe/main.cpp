@@ -286,7 +286,7 @@ Move findBestMove(Board board, bool isMaxTurn)
             if (board.isEmptyCell(i, j))
             {
                 // Make the move
-                board.setCell(i, j, Board::MAXIMIZER_VALUE);
+                board.setCell(i, j, isMaxTurn ? Board::MAXIMIZER_VALUE : Board::MINIMIZER_VALUE);
 
                 // Compute evaluation function for this move
                 int moveVal = minimax(board, isMaxTurn, -10000, +10000);
