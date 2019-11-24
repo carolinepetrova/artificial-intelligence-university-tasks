@@ -1,6 +1,7 @@
 #include <iostream>
 #include <unistd.h>
 #include <algorithm>
+#include <fstream>
 
 using std::max;
 using std::min;
@@ -17,7 +18,7 @@ public:
     constexpr static char MINIMIZER_VALUE = 'O';
     constexpr static char EMPTY_CELL = '_';
 
-    int getLevel() const
+    int getNumberOfEmptyCells() const
     {
         int emptyCells = 0;
         for (int i = 0; i < 3; i++)
@@ -28,12 +29,12 @@ public:
                     emptyCells++;
             }
         }
-        return 10 - emptyCells;
+        return emptyCells;
     }
 
     bool isTerminal() const
     {
-        if (getLevel() == 10) // all cells are non-empty
+        if (getNumberOfEmptyCells() == 0)
         {
             return true;
         }
@@ -118,7 +119,7 @@ public:
      * If the minimzer wins, return -(100-level of the board)
      * If it is a tie return 0
      */
-    int evaluate() const
+    int evaluate(int depth) const
     {
         if (!isTerminal())
             throw "Calling evaluate on non-terminal board!";
@@ -130,9 +131,9 @@ public:
             {
                 const int valueInRow = arr[row][0];
                 if (valueInRow == MAXIMIZER_VALUE)
-                    return 100 - getLevel();
+                    return 100 - depth;
                 else if (valueInRow == MINIMIZER_VALUE)
-                    return -(100 - getLevel());
+                    return -(100 - depth);
             }
         }
 
@@ -143,9 +144,9 @@ public:
             {
                 const int valueInColumn = arr[0][col];
                 if (valueInColumn == MAXIMIZER_VALUE)
-                    return 100 - getLevel();
+                    return 100 - depth;
                 else if (valueInColumn == MINIMIZER_VALUE)
-                    return -(100 - getLevel());
+                    return -(100 - depth);
             }
         }
 
@@ -154,9 +155,9 @@ public:
         {
             const int valueInDiagonal = arr[1][1];
             if (valueInDiagonal == MAXIMIZER_VALUE)
-                return 100 - getLevel();
+                return 100 - depth;
             else if (valueInDiagonal == MINIMIZER_VALUE)
-                return -(100 - getLevel());
+                return -(100 - depth);
         }
 
         // Tie
@@ -206,11 +207,14 @@ std::ostream &operator<<(std::ostream &os, const Board &board)
     return os;
 }
 
-int minimax(Board board, bool isMaxTurn, int alpha, int beta)
+int minimax(Board board, int depth, bool isMaxTurn, int alpha, int beta, std::ostream& logOs = std::cout)
 {
+    logOs << "\nST_TEST:\n"
+              << board << std::endl;
     if (board.isTerminal())
     {
-        return board.evaluate();
+        logOs << "TERMINAL! depth: " << depth << "; evaluate: " << board.evaluate(depth) << "\n\n";
+        return board.evaluate(depth);
     }
 
     if (isMaxTurn)
@@ -228,18 +232,18 @@ int minimax(Board board, bool isMaxTurn, int alpha, int beta)
 
                     // Call minimax recursively and choose the maximum value
                     best = max(best,
-                               minimax(board, !isMaxTurn, alpha, beta));
+                               minimax(board, depth + 1, !isMaxTurn, alpha, beta, logOs));
                     alpha = max(alpha, best);
 
                     // Undo the move
                     board.setCell(i, j, Board::EMPTY_CELL);
 
                     if (beta <= alpha) // no need to continue if there is already better option for the minimizer
-                        return beta;
+                        return best;
                 }
             }
         }
-        return alpha;
+        return best;
     }
     else // minimzer move
     {
@@ -256,23 +260,23 @@ int minimax(Board board, bool isMaxTurn, int alpha, int beta)
 
                     // Call minimax recursively and choose the minimum value
                     best = min(best,
-                               minimax(board, !isMaxTurn, alpha, beta));
+                               minimax(board, depth + 1, !isMaxTurn, alpha, beta, logOs));
                     beta = min(beta, best);
 
                     // Undo the move
                     board.setCell(i, j, Board::EMPTY_CELL);
 
                     if (beta <= alpha) // no need to continue if there is already better option for the maximizer
-                        return alpha;
+                        return best;
                 }
             }
         }
-        return beta;
+        return best;
     }
 }
 
 // Given a board, finds the best possible move
-Move findBestMove(Board board, bool isMaxTurn)
+Move findBestMove(Board board, bool isMaxTurn, std::ostream& logOs = std::cout)
 {
     int bestVal = isMaxTurn ? -1000 : +1000;
     Move bestMove;
@@ -289,7 +293,7 @@ Move findBestMove(Board board, bool isMaxTurn)
                 board.setCell(i, j, isMaxTurn ? Board::MAXIMIZER_VALUE : Board::MINIMIZER_VALUE);
 
                 // Compute evaluation function for this move
-                int moveVal = minimax(board, isMaxTurn, -10000, +10000);
+                int moveVal = minimax(board, 0, !isMaxTurn, -10000, +10000, logOs);
 
                 // Undo the move
                 board.setCell(i, j, Board::EMPTY_CELL);
@@ -304,13 +308,13 @@ Move findBestMove(Board board, bool isMaxTurn)
             }
         }
     }
-
-    // printf("The value of the best Move is : %d\n\n", bestVal);
     return bestMove;
 }
 
 int main()
 {
+    std::ofstream logFile;
+    logFile.open("log.txt");
 
     std::string userInput;
     do
@@ -348,7 +352,9 @@ int main()
             break;
         }
 
-        Move bestMove = findBestMove(board, false); // AI is minimizer, hence false!
+        logFile << "\nFinding best move from this state:\n" << board << std::endl;
+        Move bestMove = findBestMove(board, false, logFile); // AI is minimizer, hence false!
+        logFile << "Best move is " << bestMove.row << " " << bestMove.col << std::endl;
         board.setCell(bestMove.row, bestMove.col, Board::MINIMIZER_VALUE);
 
         if (board.isTerminal())
@@ -360,7 +366,7 @@ int main()
     std::cout << "\nGAME FINISHED!\n\nFinal board state:\n"
               << board << std::endl;
 
-    const auto result = board.evaluate();
+    const auto result = board.evaluate(0);
     if (result > 0)
     {
         std::cout << "Player wins!\n";
@@ -373,6 +379,8 @@ int main()
     {
         std::cout << "Tie!\n";
     }
+
+    logFile.close();
 
     return 0;
 }
