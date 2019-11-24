@@ -206,10 +206,10 @@ std::ostream &operator<<(std::ostream &os, const Board &board)
     return os;
 }
 
-int minimax(Board board, int depth, bool isMaxTurn, int alpha, int beta, std::ostream& logOs = std::cout)
+int minimax(Board board, int depth, bool isMaxTurn, int alpha, int beta, std::ostream &logOs = std::cout)
 {
     logOs << "\nST_TEST:\n"
-              << board << std::endl;
+          << board << std::endl;
     if (board.isTerminal())
     {
         logOs << "TERMINAL! depth: " << depth << "; evaluate: " << board.evaluate(depth) << "\n\n";
@@ -275,7 +275,7 @@ int minimax(Board board, int depth, bool isMaxTurn, int alpha, int beta, std::os
 }
 
 // Given a board, finds the best possible move
-Move findBestMove(Board board, bool isMaxTurn, std::ostream& logOs = std::cout)
+Move findBestMove(Board board, bool isMaxTurn, std::ostream &logOs = std::cout)
 {
     int bestVal = isMaxTurn ? -1000 : +1000;
     Move bestMove;
@@ -351,7 +351,8 @@ int main()
             break;
         }
 
-        logFile << "\nFinding best move from this state:\n" << board << std::endl;
+        logFile << "\nFinding best move from this state:\n"
+                << board << std::endl;
         Move bestMove = findBestMove(board, false, logFile); // AI is minimizer, hence false!
         logFile << "Best move is " << bestMove.row << " " << bestMove.col << std::endl;
         board.setCell(bestMove.row, bestMove.col, Board::MINIMIZER_VALUE);
