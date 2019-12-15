@@ -28,6 +28,10 @@ SCENARIO("Test input data is read properly")
             {
                 REQUIRE(classesCnt[Class::DEMOCRAT][3][AttributeValue::INDETERMINATE] == 1);
             }
+            THEN("Republicans who have said no for the 14th attribute should be 2")
+            {
+                REQUIRE(classesCnt[Class::DEMOCRAT][14][AttributeValue::NO] == 2);
+            }
         }
     }
 }
