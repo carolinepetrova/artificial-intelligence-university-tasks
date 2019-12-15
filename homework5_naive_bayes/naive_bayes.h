@@ -102,7 +102,7 @@ Class classStringToEnum(string classStr)
 // For example: the number of democrats (class) which have value 'y' for the attribute "WATER_PROJECT_COST_SHARING" (index 1)
 // We can get it like this:
 // map[Class::Democrats][attributeStringToIndex("WATER_PROJECT_COST_SHARING")][AttributeValue::YES]
-// All of this is needed in order to compute the probabilities P(Xi|Ck)
+// All of this is needed in order to compute the probabilities P(Xi=v|Ck)
 unordered_map<Class,
               unordered_map<AttributeIndex,
                             unordered_map<AttributeValue, Count>>>
