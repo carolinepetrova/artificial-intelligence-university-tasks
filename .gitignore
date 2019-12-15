@@ -2,3 +2,11 @@ homework1_IDAstar/out/*
 homework2_N_queens_puzzle/out/*
 *.iml
 *.idea
+
+homework3_travelling_salesman/out/
+homework4_minimax_alpha_beta_pruning_tic_tac_toe/.vscode/
+homework4_minimax_alpha_beta_pruning_tic_tac_toe/build/
+homework5_naive_bayes/.vscode/
+homework5_naive_bayes/a.out
+konspekt_AI.doc
+test_1_prep/
