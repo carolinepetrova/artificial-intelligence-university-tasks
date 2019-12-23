@@ -166,11 +166,11 @@ public:
   {
     int maxProbabilityClassId = -1;
     double maxProbability = 0;
-    for (const auto &[currentClassId, probabilityOfCurrentClass] :
+    for (const auto &[currentClassId, currentClassProbability] :
          classToProbabilityMap)
     {
       // p(C|x) = p(C)*p(x1|C)*p(x2|C)*…
-      double pCx = probabilityOfCurrentClass;
+      double pCx = currentClassProbability;
       for (int attributeId = 0; attributeId < attributes.size(); attributeId++)
       {
         pCx *= classToAttributeProbabilityMap[currentClassId][attributeId][attributes[attributeId]];
@@ -182,13 +182,14 @@ public:
         maxProbabilityClassId = currentClassId;
       }
     }
+
     cout << "Predict Class : " << classIdToStringMap.at(maxProbabilityClassId)
-         << " P(C | x) = " << maxProbability << endl;
+         << " P(C|x1,x2,...,xN) = " << maxProbability << endl;
+
     return maxProbabilityClassId;
   }
 };
 
-// TODO:
 pair<vector<vector<int>>, NumberOfAttributes>
 generateInputDataForNaiveBayesClassifier(string inputFile)
 {
