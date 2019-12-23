@@ -85,7 +85,7 @@ private:
         classToCountMap[currentClass] += 1;
       }
 
-      for (int attributeId = 1; attributeId <= numberOfAttributes;
+      for (int attributeId = 0; attributeId < numberOfAttributes;
            attributeId++)
       {
         const int attributeValue = entry[attributeId];
@@ -120,32 +120,24 @@ private:
     unordered_map<ClassId, unordered_map<AttributeId, unordered_map<AttributeValue, Count>>>
         classToAttributeCountMap;
 
-    cout << "Before countAllClassesAndAttributes\n";
-
     countAllClassesAndAttributes(data, numberOfAttributes, classToCountMap,
                                  classToAttributeCountMap);
 
-    cout << "After countAllClassesAndAttributes\n";
-
-    int tmp = 69;
-
-    cout << "Before foreach\n";
-
-    for (auto &[currentClassId, attributeToProbabilityMap] :
-         classToAttributeProbabilityMap)
+    for (auto &[currentClassId, attributeIdToCountMap] :
+         classToAttributeCountMap)
     {
-      cout << "Inside foreach\n";
-      cout << "--- Class " << classIdToStringMap.at(currentClassId) << "---" << endl;
-      for (auto &[attributeId, attributeProbabilityMap] : attributeToProbabilityMap)
+      cout << "\n--- Class " << classIdToStringMap.at(currentClassId) << "---" << endl;
+      for (auto &[attributeId, attributeCountMap] : attributeIdToCountMap)
       {
-        for (auto &[attributeValue, probability] : attributeProbabilityMap)
+        for (int attributeValue = 0; attributeValue <= 2; attributeValue++)
         {
-          probability =
-              static_cast<double>(classToAttributeCountMap[currentClassId][attributeId][attributeValue]) /
-              classToCountMap[currentClassId];
+          auto &probability = classToAttributeProbabilityMap[currentClassId][attributeId][attributeValue];
+          probability = static_cast<double>(attributeCountMap[attributeValue]) /
+                        classToCountMap[currentClassId];
 
-          cout << "Attribute " << attributeIdToStringMap.at(attributeId) << " P(x =" << attributeValueToStringMap.at(attributeValue)
-               << "|C =" << classIdToStringMap.at(currentClassId)
+          cout << "Attribute " << attributeIdToStringMap.at(attributeId)
+               << " P(x=" << attributeValueToStringMap.at(attributeValue)
+               << "|C=" << classIdToStringMap.at(currentClassId)
                << ") = " << probability << endl;
         }
       }
@@ -153,12 +145,10 @@ private:
       classToProbabilityMap[currentClassId] =
           static_cast<double>(classToCountMap[currentClassId]) / data.size();
 
-      cout << "Class P(C ="
+      cout << "Class P(C="
            << classIdToStringMap.at(currentClassId)
            << ") = " << classToProbabilityMap[currentClassId] << endl;
     }
-
-    cout << "After foreach\n";
   }
 
 public:
@@ -264,6 +254,5 @@ int main()
 {
   auto inputData = generateInputDataForNaiveBayesClassifier("house-votes-84.data");
   NaiveBayesClassifier classifier{inputData.first, inputData.second};
-  cout << "Done...\n";
   return 0;
 }
