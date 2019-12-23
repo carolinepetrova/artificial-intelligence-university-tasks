@@ -3,6 +3,8 @@
 #include <unordered_map>
 #include <utility>
 #include <vector>
+#include <fstream>
+#include <boost/algorithm/string.hpp>
 
 using namespace std;
 
@@ -15,17 +17,7 @@ using namespace std;
 // P(Ck)*P(x1|Ck)*...*P(xN|Ck) Hence the unordered_map structures in the class
 // NaiveBayesClassifier
 
-// enum class Class { REPUBLICAN, DEMOCRAT };
 using Class = int;
-
-// enum class AttributeValue {
-//   YES,
-//   NO,
-//   INDETERMINATE,
-// };
-
-// TODO: Map classes, attributes and attributes' values to int
-
 using ClassId = int;
 using Probability = double;
 using AttributeId = int;
@@ -63,39 +55,49 @@ const unordered_map<AttributeValue, string> attributeValueToStringMap = {
     {2, "INDETERMINATE"},
 };
 
-class NaiveBayesClassifier {
+class NaiveBayesClassifier
+{
 private:
   // <class id, class probability>; <C,P(C)>
   unordered_map<ClassId, Probability> classToProbabilityMap;
 
-  // <class id, <attribute value, probability>>; <C, <x=attributevalue, P(x=attributevalue|C)>>
-  unordered_map<ClassId, unordered_map<AttributeValue, Probability>>
-      classToAttributeValueProbabilityMap;
+  // <class id, <attribute id, <attribute value, probability>>> <-> <C, <attribute x, <attribute x value, P(x=attributevalue|C)>>>
+  unordered_map<ClassId, unordered_map<AttributeId, unordered_map<AttributeValue, Probability>>>
+      classToAttributeProbabilityMap;
 
 private:
   void countAllClassesAndAttributes(
       const vector<vector<int>> &data, int numberOfAttributes,
       unordered_map<ClassId, Count> &classToCountMap,
-      unordered_map<ClassId, unordered_map<AttributeValue, Count>>
-          &classToAttributeValueCountMap) {
-    for (auto entry : data) {
+      unordered_map<ClassId, unordered_map<AttributeId, unordered_map<AttributeValue, Count>>>
+          &classToAttributeCountMap)
+  {
+    for (auto entry : data)
+    {
       const int currentClass = entry[0];
-      if (classToCountMap.find(currentClass) == classToCountMap.end()) {
+      if (classToCountMap.find(currentClass) == classToCountMap.end())
+      {
         classToCountMap[currentClass] = 1;
-        classToAttributeValueCountMap[currentClass] = {};
-      } else {
+        classToAttributeCountMap[currentClass] = {};
+      }
+      else
+      {
         classToCountMap[currentClass] += 1;
       }
 
       for (int attributeId = 1; attributeId <= numberOfAttributes;
-           attributeId++) {
+           attributeId++)
+      {
         const int attributeValue = entry[attributeId];
         auto &currentClassAttributeToCountMap =
-            classToAttributeValueCountMap[currentClass];
+            classToAttributeCountMap[currentClass][attributeId];
         if (currentClassAttributeToCountMap.find(attributeValue) ==
-            currentClassAttributeToCountMap.end()) {
+            currentClassAttributeToCountMap.end())
+        {
           currentClassAttributeToCountMap[attributeValue] = 1;
-        } else {
+        }
+        else
+        {
           currentClassAttributeToCountMap[attributeValue] += 1;
         }
       }
@@ -104,63 +106,88 @@ private:
 
   void
   calculcateProbabilityPerClassAndAttribute(const vector<vector<int>> &data,
-                                            int numberOfAttributes) {
+                                            int numberOfAttributes)
+  {
+    cout << "calculcateProbabilityPerClassAndAttribute()\n";
 
-    // count classes <C, Number of instances with class C>
+    // count classes <C, total number of instances with class C>
     unordered_map<Class, Count> classToCountMap;
 
-    // count attributes per class <C, <AttributeValue, Count>>
+    // count attributes per class <C, <AttributeId, <AttributeValue, Count>>>
     // for example:
-    // <class Apple -> <color attribute {Red -> 8}, {Green -> 23}, shape
-    // attribute {Oval -> 69}, {Heart -> 15}> >
-    unordered_map<Class, unordered_map<AttributeValue, Count>>
-        classToAttributeValueCountMap;
+    // <class Democrat -> <HANDICAPPED_INFANTS -> {"yes" -> 69, "no" -> 23, "indeterminate" -> 15},
+    //                    <PHYSICIAN_FEE_FREEZE -> {"yes" -> 123, "no" -> 4, "indeterminate" -> 67}>>
+    unordered_map<ClassId, unordered_map<AttributeId, unordered_map<AttributeValue, Count>>>
+        classToAttributeCountMap;
+
+    cout << "Before countAllClassesAndAttributes\n";
 
     countAllClassesAndAttributes(data, numberOfAttributes, classToCountMap,
-                                 classToAttributeValueCountMap);
+                                 classToAttributeCountMap);
 
-    for (auto &[currentClassId, attributeValueToProbabilityMap] :
-         classToAttributeValueProbabilityMap) {
-      cout << " - - - Class " << currentClassId << " - - - " << endl;
-      for (auto &[attributeValue, probability] : attributeValueToProbabilityMap) {
-        probability =
-            static_cast<double>(
-                classToAttributeValueCountMap[currentClassId][attributeValue]) /
-            classToCountMap[currentClassId];
-        cout << "Attribute " << attributeIdToStringMap<< " P(x =" << attributeValueToStringMap.at(attributeValue)
-             << "|C =" << classIdToStringMap.at(currentClassId)
-             << ") = " << probability << endl;
+    cout << "After countAllClassesAndAttributes\n";
+
+    int tmp = 69;
+
+    cout << "Before foreach\n";
+
+    for (auto &[currentClassId, attributeToProbabilityMap] :
+         classToAttributeProbabilityMap)
+    {
+      cout << "Inside foreach\n";
+      cout << "--- Class " << classIdToStringMap.at(currentClassId) << "---" << endl;
+      for (auto &[attributeId, attributeProbabilityMap] : attributeToProbabilityMap)
+      {
+        for (auto &[attributeValue, probability] : attributeProbabilityMap)
+        {
+          probability =
+              static_cast<double>(classToAttributeCountMap[currentClassId][attributeId][attributeValue]) /
+              classToCountMap[currentClassId];
+
+          cout << "Attribute " << attributeIdToStringMap.at(attributeId) << " P(x =" << attributeValueToStringMap.at(attributeValue)
+               << "|C =" << classIdToStringMap.at(currentClassId)
+               << ") = " << probability << endl;
+        }
       }
 
       classToProbabilityMap[currentClassId] =
           static_cast<double>(classToCountMap[currentClassId]) / data.size();
+
       cout << "Class P(C ="
-           << currentClassId // TODO: classIdToStringMap[currentClassId]
+           << classIdToStringMap.at(currentClassId)
            << ") = " << classToProbabilityMap[currentClassId] << endl;
     }
+
+    cout << "After foreach\n";
   }
 
 public:
   // input: vector< tuple<C, x1, x2, x3, x4, ...> >
   NaiveBayesClassifier(const vector<vector<int>> &data,
-                       int numberOfAttributes) {
+                       int numberOfAttributes)
+  {
+    cout << "NaiveBayesClassifier()\n";
     // start training
     calculcateProbabilityPerClassAndAttribute(data, numberOfAttributes);
   };
 
   // predict class with attributes vector< attribute id>
-  int predict(vector<int> attributes) {
+  int predict(vector<int> attributes)
+  {
     int maxProbabilityClassId = -1;
     double maxProbability = 0;
     for (const auto &[currentClassId, probabilityOfCurrentClass] :
-         classToProbabilityMap) {
+         classToProbabilityMap)
+    {
       // p(C|x) = p(C)*p(x1|C)*p(x2|C)*…
       double pCx = probabilityOfCurrentClass;
-      for (int i = 0; i < attributes.size(); i++) {
-        pCx *= classToAttributeValueProbabilityMap[currentClassId][attributes[i]];
+      for (int attributeId = 0; attributeId < attributes.size(); attributeId++)
+      {
+        pCx *= classToAttributeProbabilityMap[currentClassId][attributeId][attributes[attributeId]];
       }
 
-      if (pCx > maxProbability) {
+      if (pCx > maxProbability)
+      {
         maxProbability = pCx;
         maxProbabilityClassId = currentClassId;
       }
@@ -173,9 +200,70 @@ public:
 
 // TODO:
 pair<vector<vector<int>>, NumberOfAttributes>
-generateInputDataForNaiveBayesClassifier(string inputFile) {}
+generateInputDataForNaiveBayesClassifier(string inputFile)
+{
+  ifstream is{inputFile};
+  if (!is)
+  {
+    throw "Could not open file!";
+  }
 
-int main() {
-  cout << "TEST\n";
+  vector<vector<int>> data;
+
+  string line;
+  while (getline(is, line))
+  {
+    vector<string> strs;
+    boost::algorithm::split(strs, line, boost::is_any_of(","));
+    vector<int> dataEntry;
+
+    if (strs.size() != 17)
+    {
+      throw "Something is wrong with the input data...";
+    }
+
+    if (strs[0] == "republican")
+    {
+      dataEntry.push_back(1); // id of republican
+    }
+    else if (strs[0] == "democrat")
+    {
+      dataEntry.push_back(0); // id of democrat
+    }
+    else
+    {
+      throw "Invalid class!";
+    }
+
+    for (int i = 1; i < strs.size(); i++)
+    {
+      if (strs[i] == "y")
+      {
+        dataEntry.push_back(0);
+      }
+      else if (strs[i] == "n")
+      {
+        dataEntry.push_back(1);
+      }
+      else if (strs[i] == "?")
+      {
+        dataEntry.push_back(2);
+      }
+      else
+      {
+        throw "Invalid value for attribute!";
+      }
+    }
+
+    data.push_back(dataEntry);
+  }
+  return {data, 16}; // number of attributes are 16 - hardcoded...
+}
+
+int main()
+{
+  auto inputData = generateInputDataForNaiveBayesClassifier("house-votes-84.data");
+  NaiveBayesClassifier classifier{inputData.first, inputData.second};
+  cout << "Done...\n";
   return 0;
 }
