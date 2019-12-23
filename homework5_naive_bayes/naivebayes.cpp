@@ -26,25 +26,57 @@ using Class = int;
 
 // TODO: Map classes, attributes and attributes' values to int
 
+using ClassId = int;
 using Probability = double;
 using AttributeId = int;
 using Count = int;
 using AttributeValue = int;
+using NumberOfAttributes = int;
+
+const unordered_map<ClassId, string> classIdToStringMap = {
+    {0, "democrat"},
+    {1, "republican"},
+};
+
+const unordered_map<AttributeId, string> attributeIdToStringMap = {
+    {0, "HANDICAPPED_INFANTS"},
+    {1, "WATER_PROJECT_COST_SHARING"},
+    {2, "ADOPTION_OF_THE_BUDGET_RESOLUTION"},
+    {3, "PHYSICIAN_FEE_FREEZE"},
+    {4, "EL_SALVADOR_AID"},
+    {5, "RELIGIOUS_GROUPS_IN_SCHOOLS"},
+    {6, "ANTI_SATELLITE_TEST_BAN"},
+    {7, "AID_TO_NICARAGUAN_CONTRAS"},
+    {8, "MX_MISSILE"},
+    {9, "IMMIGRATION"},
+    {10, "SYNFUELS_CORPORATION_CUTBACK"},
+    {11, "EDUCATION_SPENDING"},
+    {12, "SUPERFUND_RIGHT_TO_SUE"},
+    {13, "CRIME"},
+    {14, "DUTY_FREE_EXPORTS"},
+    {15, "EXPORT_ADMINISTRATION_ACT_SOUTH_AFRICA"},
+};
+
+const unordered_map<AttributeValue, string> attributeValueToStringMap = {
+    {0, "YES"},
+    {1, "NO"},
+    {2, "INDETERMINATE"},
+};
 
 class NaiveBayesClassifier {
 private:
   // <class id, class probability>; <C,P(C)>
-  unordered_map<Class, Probability> classToProbabilityMap;
+  unordered_map<ClassId, Probability> classToProbabilityMap;
 
-  // <class id, <attribute id, probability>>; <C, <x, P(x|C)>>
-  unordered_map<Class, unordered_map<AttributeId, Probability>>
-      classToAttributeProbabilityMap;
+  // <class id, <attribute value, probability>>; <C, <x=attributevalue, P(x=attributevalue|C)>>
+  unordered_map<ClassId, unordered_map<AttributeValue, Probability>>
+      classToAttributeValueProbabilityMap;
 
 private:
   void countAllClassesAndAttributes(
       const vector<vector<int>> &data, int numberOfAttributes,
-      unordered_map<Class, Count> &classToCountMap,
-      unordered_map<Class, unordered_map<AttributeValue, Count>>
+      unordered_map<ClassId, Count> &classToCountMap,
+      unordered_map<ClassId, unordered_map<AttributeValue, Count>>
           &classToAttributeValueCountMap) {
     for (auto entry : data) {
       const int currentClass = entry[0];
@@ -87,16 +119,16 @@ private:
     countAllClassesAndAttributes(data, numberOfAttributes, classToCountMap,
                                  classToAttributeValueCountMap);
 
-    for (auto &[currentClassId, attributeToProbabilityMap] :
-         classToAttributeProbabilityMap) {
+    for (auto &[currentClassId, attributeValueToProbabilityMap] :
+         classToAttributeValueProbabilityMap) {
       cout << " - - - Class " << currentClassId << " - - - " << endl;
-      for (auto &[attributeId, probability] : attributeToProbabilityMap) {
+      for (auto &[attributeValue, probability] : attributeValueToProbabilityMap) {
         probability =
             static_cast<double>(
-                classToAttributeValueCountMap[currentClassId][attributeId]) /
+                classToAttributeValueCountMap[currentClassId][attributeValue]) /
             classToCountMap[currentClassId];
-        cout << "Attribute P(x =" << attributeId << "|C ="
-             << currentClassId // TODO: attributeIdToStringMap[attributeId]
+        cout << "Attribute " << attributeIdToStringMap<< " P(x =" << attributeValueToStringMap.at(attributeValue)
+             << "|C =" << classIdToStringMap.at(currentClassId)
              << ") = " << probability << endl;
       }
 
@@ -125,7 +157,7 @@ public:
       // p(C|x) = p(C)*p(x1|C)*p(x2|C)*…
       double pCx = probabilityOfCurrentClass;
       for (int i = 0; i < attributes.size(); i++) {
-        pCx *= classToAttributeProbabilityMap[currentClassId][attributes[i]];
+        pCx *= classToAttributeValueProbabilityMap[currentClassId][attributes[i]];
       }
 
       if (pCx > maxProbability) {
@@ -133,15 +165,11 @@ public:
         maxProbabilityClassId = currentClassId;
       }
     }
-    cout << "Predict Class : "
-         << maxProbabilityClassId // TODO:
-                                  // classIdToStringMap[maxProbabilityClassId]
+    cout << "Predict Class : " << classIdToStringMap.at(maxProbabilityClassId)
          << " P(C | x) = " << maxProbability << endl;
     return maxProbabilityClassId;
   }
 };
-
-using NumberOfAttributes = int;
 
 // TODO:
 pair<vector<vector<int>>, NumberOfAttributes>
