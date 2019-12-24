@@ -1,37 +1,96 @@
 #define CATCH_CONFIG_MAIN
-#include "catch.hpp"
+#include <cmath>
+#include <sstream>
 
+#include "catch.hpp"
 #include "naive_bayes.h"
 
-const string testFileContent = "republican,n,y,n,y,y,y,n,n,n,y,?,y,y,y,n,y\n"
-                               "republican,n,y,n,y,y,y,n,n,n,n,n,y,y,y,n,?\n"
-                               "democrat,?,y,y,?,y,y,n,n,n,n,y,n,y,y,n,n\n"
-                               "democrat,n,y,y,n,?,y,n,n,n,n,y,n,y,n,n,y\n";
+const string testFileContent =
+    "republican,n,y,n,y,y,y,n,n,n,y,?,y,y,y,n,y\n"
+    "republican,n,y,n,y,y,y,n,n,n,n,n,y,y,y,n,?\n"
+    "democrat,?,y,y,?,y,y,n,n,n,n,y,n,y,y,n,n\n"
+    "democrat,n,y,y,n,?,y,n,n,n,n,y,n,y,n,n,y\n"
+    "democrat,n,?,y,n,y,y,n,y,n,n,y,n,n,n,n,?\n"
+    "democrat,y,y,y,n,y,y,n,y,y,n,y,n,n,y,n,?\n"
+    "democrat,n,y,y,y,y,y,n,n,n,n,n,y,y,y,n,?\n"
+    "democrat,y,n,y,n,n,n,y,y,y,?,y,n,n,n,y,?\n"
+    "democrat,?,?,n,n,?,y,?,n,n,n,y,y,n,y,n,?\n"
+    "democrat,y,y,n,n,n,n,n,y,y,n,y,n,n,n,y,n\n"
+    "republican,y,y,n,y,y,y,n,n,n,n,y,y,y,y,n,y\n"
+    "republican,?,?,?,?,n,y,n,y,y,n,n,y,y,n,n,?\n"
+    "democrat,y,y,?,?,?,y,n,n,n,n,y,n,y,n,n,y\n"
+    "democrat,y,y,y,?,n,n,n,y,n,n,y,?,n,n,y,y\n"
+    "democrat,y,y,y,n,y,y,n,y,n,n,y,n,y,n,y,y\n"
+    "democrat,y,y,n,n,y,?,n,n,n,n,y,n,y,y,n,y\n"
+    "democrat,n,y,y,n,y,y,n,y,n,n,n,n,n,n,n,y\n"
+    "republican,n,y,n,y,?,y,n,n,n,y,n,y,y,y,n,n\n"
+    "republican,n,y,n,y,y,y,n,?,n,n,?,?,?,y,n,?\n"
+    "republican,n,y,n,y,y,y,n,n,n,y,y,y,y,y,n,n\n"
+    "republican,?,n,y,y,n,y,y,y,y,y,n,y,n,y,n,y\n"
+    "republican,n,y,n,y,y,y,n,n,n,y,n,y,?,y,n,n\n"
+    "republican,y,y,n,y,y,y,n,n,n,y,n,y,y,y,n,y\n"
+    "republican,n,n,n,y,y,y,n,n,n,n,n,y,y,y,n,y\n"
+    "democrat,y,n,y,n,y,y,n,n,y,y,n,n,y,y,n,y\n"
+    "democrat,n,n,n,y,y,y,n,n,n,n,y,y,y,y,n,n\n"
+    "democrat,y,n,y,n,n,y,y,y,y,n,n,y,?,y,y,y\n"
+    "republican,n,n,n,y,y,y,n,n,n,n,n,y,y,y,n,n\n"
+    "republican,n,n,n,y,y,y,n,n,n,n,y,y,y,y,n,y\n"
+    "democrat,y,n,y,n,n,y,y,y,y,y,y,n,n,n,n,y\n"
+    "republican,n,n,n,y,y,y,n,n,n,y,n,y,y,y,n,y\n"
+    "republican,y,y,y,y,y,y,y,y,n,y,?,?,?,y,n,y\n"
+    "democrat,y,y,y,n,n,n,y,y,y,n,n,n,n,n,n,y\n"
+    "democrat,n,y,y,n,n,y,y,y,?,y,n,n,n,n,n,y\n"
+    "republican,y,y,n,y,y,y,n,n,n,y,n,n,y,y,n,y\n"
+    "democrat,y,y,y,n,n,n,y,y,y,y,y,n,y,n,n,y\n"
+    "democrat,y,y,y,n,n,n,y,y,n,y,n,n,n,n,n,y\n"
+    "democrat,y,y,y,n,n,n,y,y,y,n,n,n,n,n,n,y\n"
+    "republican,y,y,y,y,y,y,y,y,n,y,n,n,y,y,n,y\n"
+    "democrat,n,y,y,n,y,y,y,y,n,n,y,n,y,n,y,y\n"
+    "democrat,n,n,y,n,n,y,y,y,y,n,y,n,n,n,y,y\n"
+    "democrat,n,y,y,n,n,y,y,y,y,n,y,n,n,y,y,y\n"
+    "democrat,n,y,y,n,n,?,y,y,y,y,y,n,?,y,y,y\n"
+    "democrat,n,n,y,n,n,n,y,y,n,y,y,n,n,n,y,?\n"
+    "democrat,y,n,y,n,n,n,y,y,y,y,n,n,n,n,y,y\n"
+    "republican,n,n,n,y,y,y,y,y,n,y,n,y,y,y,n,y\n"
+    "democrat,?,?,?,n,n,n,y,y,y,y,n,n,y,n,y,y\n"
+    "democrat,y,n,y,n,?,n,y,y,y,y,n,y,n,?,y,y\n"
+    "republican,n,n,y,y,y,y,n,n,y,y,n,y,y,y,n,y\n"
+    "democrat,n,n,y,n,n,n,y,y,y,y,n,n,n,n,n,y\n"
+    "republican,n,?,n,y,y,y,n,n,n,n,y,y,y,y,n,y\n"
+    "republican,n,n,n,y,y,y,?,?,?,?,n,y,y,y,n,y\n"
+    "republican,n,y,n,y,y,y,n,n,n,y,n,y,y,y,?,n\n";
 
-SCENARIO("Test input data is read properly")
-{
-    GIVEN("A test stream with input data")
-    {
-        istringstream testInputStream{testFileContent};
-        WHEN("We create a map from the data in the input stream")
-        {
-            auto classesCnt = createStatisticsMapFromStream(testInputStream);
-            THEN("Democrats who have said yes for the 0th attribute should be 0")
-            {
-                REQUIRE(classesCnt[Class::DEMOCRAT][0][AttributeValue::YES] == 0);
+bool double_equals(double a, double b, double epsilon = 0.001) {
+  return std::abs(a - b) < epsilon;
+}
+
+SCENARIO("Calculations of NaiveBayesClassifier are valid") {
+  GIVEN("A test input data for the clasifier") {
+    istringstream iss{testFileContent};
+    const auto& [inputData, numberOfAttributes] =
+        naivebayes::generateInputDataForNaiveBayesClassifier(iss);
+    WHEN("The model gets trained with the input data") {
+      naivebayes::NaiveBayesClassifier classifier{inputData,
+                                                  numberOfAttributes};
+      THEN(
+          "The sum of conditional probabilities for all attributes' values "
+          "given a class should be 1") {
+        for (int classId = 0; classId <= 1; classId++) {
+          for (int attributeId = 0; attributeId <= 15; attributeId++) {
+            auto attributeValueToProbabilityMap =
+                classifier.classToAttributeProbabilityMap[classId][attributeId];
+            double sum{0};
+            for (int attributeValue = 0; attributeValue <= 2;
+                 attributeValue++) {
+              sum += attributeValueToProbabilityMap[attributeValue];
             }
-            THEN("Republicans who have said yes for the 15th attribute should be 1")
-            {
-                REQUIRE(classesCnt[Class::REPUBLICAN][15][AttributeValue::YES] == 1);
-            }
-            THEN("Democrats who have indeterminate value for the 3rd attribute should be 1")
-            {
-                REQUIRE(classesCnt[Class::DEMOCRAT][3][AttributeValue::INDETERMINATE] == 1);
-            }
-            THEN("Republicans who have said no for the 14th attribute should be 2")
-            {
-                REQUIRE(classesCnt[Class::DEMOCRAT][14][AttributeValue::NO] == 2);
-            }
+            CAPTURE(sum, naivebayes::classIdToStringMap.at(classId),
+                    attributeId, classId,
+                    naivebayes::attributeIdToStringMap.at(attributeId));
+            REQUIRE(double_equals(sum, 1.0));
+          }
         }
+      }
     }
+  }
 }
