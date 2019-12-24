@@ -171,7 +171,8 @@ class NaiveBayesClassifier {
       for (int attributeId = 0; attributeId < attributes.size();
            attributeId++) {
         pCx *= classToAttributeProbabilityMap[currentClassId][attributeId]
-                                             [attributes[attributeId]];
+                                             [attributes[attributeId]] +
+               1;  // laplace smoothing
       }
 
       if (pCx > maxProbability) {
@@ -180,8 +181,11 @@ class NaiveBayesClassifier {
       }
     }
 
-    cout << "Predict Class : " << classIdToStringMap.at(maxProbabilityClassId)
-         << " P(C|x1,x2,...,xN) = " << maxProbability << endl;
+    // cout << "maxProbabilityClassId = [" << maxProbabilityClassId << "]\n";
+    // cout << "maxProbability = [" << maxProbability << "]\n";
+    // cout << "Predict Class : " <<
+    // classIdToStringMap.at(maxProbabilityClassId)
+    //  << " P(C|x1,x2,...,xN) = " << maxProbability << endl;
 
     return classIdToStringMap.at(maxProbabilityClassId);
   }
@@ -256,6 +260,7 @@ vector<InputEntries> splitIntoSubsets(InputEntries data, int numberOfSubsets) {
   }
 
   // fill last subset
+  cout << "Filling subset number " << numberOfSubsets << endl;
   const int startIndex = (numberOfSubsets - 1) * numberOfElementsInSubset;
   const int endIndex = data.size() - 1;
   InputEntries inputEntries;

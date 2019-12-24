@@ -142,4 +142,13 @@ TEST_CASE("Splitting to subsets is correct") {
            [](const naivebayes::InputEntries& subset) {
              REQUIRE(subset.size() == 3);
            });
+
+  // ----------
+  // we want 9 subsets, each with 1 element
+  subsets = naivebayes::splitIntoSubsets(inputData, 9);
+  REQUIRE(subsets.size() == 9);
+  for_each(subsets.begin(), subsets.end(),
+           [](const naivebayes::InputEntries& subset) {
+             REQUIRE(subset.size() == 1);
+           });
 }
