@@ -15,6 +15,8 @@ int main() {
   cout << "Splitting data into subsets...\n";
   auto subsets = naivebayes::splitIntoSubsets(inputData, 10);
 
+  vector<double> accuracies;
+
   for (int testSubset = 0; testSubset <= 9; testSubset++) {
     // testSubset will be used for testing, all the other subsets will be used
     // for training
@@ -53,15 +55,24 @@ int main() {
            << "; predicted class: " << predictedClass << endl;
 
       totalPredictions++;
-      if(actualClass == predictedClass) successfulPredictions++;
+      if (actualClass == predictedClass) successfulPredictions++;
     }
 
     cout << "Results:\n";
     cout << "Successful predictions: " << successfulPredictions << endl;
     cout << "Total predictions: " << totalPredictions << endl;
+    double accuracy =
+        (static_cast<double>(successfulPredictions) / totalPredictions);
+    accuracies.push_back(accuracy);
+    cout << "Accuracy: " << accuracy << endl;
     cout << "--------------------- TEST FINISH FOR SUBSET " << testSubset
          << " ---------------------\n\n";
   }
+
+  auto accuraciesSum = accumulate(accuracies.begin(), accuracies.end(), 0.0);
+
+  cout << "Mean of all accuracies: " << (accuraciesSum / accuracies.size())
+       << endl;
 
   return 0;
 }
