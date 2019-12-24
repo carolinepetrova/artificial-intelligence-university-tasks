@@ -13,5 +13,8 @@ int main() {
       naivebayes::generateInputDataForNaiveBayesClassifier(is);
 
   naivebayes::NaiveBayesClassifier classifier{inputData, numberOfAttributes};
+
+  auto subsets = naivebayes::splitIntoSubsets(inputData, 10);
+
   return 0;
 }

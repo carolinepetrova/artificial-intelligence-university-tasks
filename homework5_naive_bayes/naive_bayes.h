@@ -1,5 +1,8 @@
+#include <algorithm>
 #include <boost/algorithm/string.hpp>
+#include <cmath>
 #include <iostream>
+#include <random>
 #include <string>
 #include <unordered_map>
 #include <utility>
@@ -25,6 +28,7 @@ using AttributeId = int;
 using Count = int;
 using AttributeValue = int;
 using NumberOfAttributes = int;
+using InputEntries = vector<vector<int>>;
 
 const unordered_map<ClassId, string> classIdToStringMap = {
     {0, "democrat"},
@@ -183,9 +187,9 @@ class NaiveBayesClassifier {
   }
 };
 
-pair<vector<vector<int>>, NumberOfAttributes>
-generateInputDataForNaiveBayesClassifier(istream& is) {
-  vector<vector<int>> data;
+pair<InputEntries, NumberOfAttributes> generateInputDataForNaiveBayesClassifier(
+    istream &is) {
+  InputEntries data;
 
   string line;
   while (getline(is, line)) {
@@ -220,6 +224,47 @@ generateInputDataForNaiveBayesClassifier(istream& is) {
     data.push_back(dataEntry);
   }
   return {data, 16};  // number of attributes are 16 - hardcoded...
+}
+
+vector<InputEntries> splitIntoSubsets(InputEntries data, int numberOfSubsets) {
+  cout << "Input data size: [" << data.size() << "]\n";
+  cout << "Number of subsets: [" << numberOfSubsets << "]\n";
+  auto rng = std::default_random_engine{};
+  std::shuffle(std::begin(data), std::end(data), rng);
+
+  int numberOfElementsInSubset =
+      ceil(static_cast<double>(data.size()) / numberOfSubsets);
+  cout << "numberOfElementsInSubset = [" << numberOfElementsInSubset << "]\n";
+
+  int numberOfElementsInLastSubset = data.size() - (numberOfElementsInSubset * (numberOfSubsets - 1));
+  cout << "Number of elements in last subset should be equal to [" << numberOfElementsInLastSubset
+       << "]\n";
+
+  vector<InputEntries> result;
+
+  // fill all but the last subset
+  for (int chunk = 0; chunk < numberOfSubsets - 1; chunk++) {
+    cout << "Filling subset number " << (chunk + 1) << endl;
+    int startIndex = chunk * numberOfElementsInSubset;
+    int endIndex = startIndex + numberOfElementsInSubset - 1;
+    InputEntries inputEntries;
+    for (int i = startIndex; i <= endIndex; i++) {
+      inputEntries.push_back(data[i]);
+    }
+    result.push_back(inputEntries);
+  }
+
+  // fill last subset
+  const int startIndex = (numberOfSubsets - 1) * numberOfElementsInSubset;
+  const int endIndex = data.size() - 1;
+  InputEntries inputEntries;
+  for (int i = startIndex; i <= endIndex; i++) {
+    inputEntries.push_back(data[i]);
+  }
+  result.push_back(inputEntries);
+  cout << "Number of elements in last subset is equal to: [" << inputEntries.size() << "]\n";
+
+  return result;
 }
 
 }  // namespace naivebayes

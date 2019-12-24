@@ -94,3 +94,52 @@ SCENARIO("Calculations of NaiveBayesClassifier are valid") {
     }
   }
 }
+
+TEST_CASE("Splitting to subsets is correct") {
+  std::string testInput =
+      "democrat,y,n,y,n,n,n,y,y,y,y,n,n,n,n,y,y\n"
+      "republican,n,n,n,y,y,y,y,y,n,y,n,y,y,y,n,y\n"
+      "democrat,?,?,?,n,n,n,y,y,y,y,n,n,y,n,y,y\n"
+      "democrat,y,n,y,n,?,n,y,y,y,y,n,y,n,?,y,y\n"
+      "republican,n,n,y,y,y,y,n,n,y,y,n,y,y,y,n,y\n"
+      "democrat,n,n,y,n,n,n,y,y,y,y,n,n,n,n,n,y\n"
+      "republican,n,?,n,y,y,y,n,n,n,n,y,y,y,y,n,y\n"
+      "republican,n,n,n,y,y,y,?,?,?,?,n,y,y,y,n,y\n"
+      "republican,n,y,n,y,y,y,n,n,n,y,n,y,y,y,?,n\n";
+
+  istringstream iss{testInput};
+  const auto& [inputData, numberOfAttributes] =
+      naivebayes::generateInputDataForNaiveBayesClassifier(iss);
+
+  auto subsets = naivebayes::splitIntoSubsets(inputData, 5);
+
+  // we want 4 subsets with 2 elements, and the last one (5th) should have 1
+  // element
+  for (int i = 0; i < 4; i++) {
+    REQUIRE(subsets[i].size() == 2);
+  }
+
+  REQUIRE(subsets.back().size() == 1);
+
+  // ----------
+  // we want 1 subset with 9 elements
+  subsets = naivebayes::splitIntoSubsets(inputData, 1);
+  REQUIRE(subsets.size() == 1);
+  REQUIRE(subsets[0].size() == 9);
+
+  // ----------
+  // we want 2 subsets, the 1st one with 5 elements, the 2nd one with 4 elements
+  subsets = naivebayes::splitIntoSubsets(inputData, 2);
+  REQUIRE(subsets.size() == 2);
+  REQUIRE(subsets[0].size() == 5);
+  REQUIRE(subsets[1].size() == 4);
+
+  // ----------
+  // we want 3 subsets, each with 3 elements
+  subsets = naivebayes::splitIntoSubsets(inputData, 3);
+  REQUIRE(subsets.size() == 3);
+  for_each(subsets.begin(), subsets.end(),
+           [](const naivebayes::InputEntries& subset) {
+             REQUIRE(subset.size() == 3);
+           });
+}
