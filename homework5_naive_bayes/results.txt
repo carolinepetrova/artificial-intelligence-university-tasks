@@ -1,0 +1,1602 @@
+Splitting data into subsets...
+Input data size: [435]
+Number of subsets: [10]
+numberOfElementsInSubset = [44]
+Number of elements in last subset should be equal to [39]
+Filling subset number 1
+Filling subset number 2
+Filling subset number 3
+Filling subset number 4
+Filling subset number 5
+Filling subset number 6
+Filling subset number 7
+Filling subset number 8
+Filling subset number 9
+Filling subset number 10
+Number of elements in last subset is equal to: [39]
+
+--------------------- TEST SUBSET WILL BE 0 ---------------------
+
+NaiveBayesClassifier()
+calculcateProbabilityPerClassAndAttribute()
+
+--- Class republican---
+Attribute EXPORT_ADMINISTRATION_ACT_SOUTH_AFRICA P(x=YES|C=republican) = 0.0805369
+Attribute EXPORT_ADMINISTRATION_ACT_SOUTH_AFRICA P(x=NO|C=republican) = 0.845638
+Attribute EXPORT_ADMINISTRATION_ACT_SOUTH_AFRICA P(x=INDETERMINATE|C=republican) = 0.0738255
+Attribute DUTY_FREE_EXPORTS P(x=YES|C=republican) = 0.946309
+Attribute DUTY_FREE_EXPORTS P(x=NO|C=republican) = 0.0201342
+Attribute DUTY_FREE_EXPORTS P(x=INDETERMINATE|C=republican) = 0.033557
+Attribute CRIME P(x=YES|C=republican) = 0.812081
+Attribute CRIME P(x=NO|C=republican) = 0.127517
+Attribute CRIME P(x=INDETERMINATE|C=republican) = 0.0604027
+Attribute SUPERFUND_RIGHT_TO_SUE P(x=YES|C=republican) = 0.798658
+Attribute SUPERFUND_RIGHT_TO_SUE P(x=NO|C=republican) = 0.127517
+Attribute SUPERFUND_RIGHT_TO_SUE P(x=INDETERMINATE|C=republican) = 0.0738255
+Attribute EDUCATION_SPENDING P(x=YES|C=republican) = 0.127517
+Attribute EDUCATION_SPENDING P(x=NO|C=republican) = 0.818792
+Attribute EDUCATION_SPENDING P(x=INDETERMINATE|C=republican) = 0.0536913
+Attribute EL_SALVADOR_AID P(x=YES|C=republican) = 0.979866
+Attribute EL_SALVADOR_AID P(x=NO|C=republican) = 0.00671141
+Attribute EL_SALVADOR_AID P(x=INDETERMINATE|C=republican) = 0.0134228
+Attribute PHYSICIAN_FEE_FREEZE P(x=YES|C=republican) = 0.134228
+Attribute PHYSICIAN_FEE_FREEZE P(x=NO|C=republican) = 0.845638
+Attribute PHYSICIAN_FEE_FREEZE P(x=INDETERMINATE|C=republican) = 0.0201342
+Attribute ADOPTION_OF_THE_BUDGET_RESOLUTION P(x=YES|C=republican) = 0.442953
+Attribute ADOPTION_OF_THE_BUDGET_RESOLUTION P(x=NO|C=republican) = 0.42953
+Attribute ADOPTION_OF_THE_BUDGET_RESOLUTION P(x=INDETERMINATE|C=republican) = 0.127517
+Attribute HANDICAPPED_INFANTS P(x=YES|C=republican) = 0
+Attribute HANDICAPPED_INFANTS P(x=NO|C=republican) = 1
+Attribute HANDICAPPED_INFANTS P(x=INDETERMINATE|C=republican) = 0
+Attribute WATER_PROJECT_COST_SHARING P(x=YES|C=republican) = 0.201342
+Attribute WATER_PROJECT_COST_SHARING P(x=NO|C=republican) = 0.778523
+Attribute WATER_PROJECT_COST_SHARING P(x=INDETERMINATE|C=republican) = 0.0201342
+Attribute RELIGIOUS_GROUPS_IN_SCHOOLS P(x=YES|C=republican) = 0.932886
+Attribute RELIGIOUS_GROUPS_IN_SCHOOLS P(x=NO|C=republican) = 0.0536913
+Attribute RELIGIOUS_GROUPS_IN_SCHOOLS P(x=INDETERMINATE|C=republican) = 0.0134228
+Attribute ANTI_SATELLITE_TEST_BAN P(x=YES|C=republican) = 0.879195
+Attribute ANTI_SATELLITE_TEST_BAN P(x=NO|C=republican) = 0.114094
+Attribute ANTI_SATELLITE_TEST_BAN P(x=INDETERMINATE|C=republican) = 0.00671141
+Attribute AID_TO_NICARAGUAN_CONTRAS P(x=YES|C=republican) = 0.234899
+Attribute AID_TO_NICARAGUAN_CONTRAS P(x=NO|C=republican) = 0.731544
+Attribute AID_TO_NICARAGUAN_CONTRAS P(x=INDETERMINATE|C=republican) = 0.033557
+Attribute MX_MISSILE P(x=YES|C=republican) = 0.147651
+Attribute MX_MISSILE P(x=NO|C=republican) = 0.785235
+Attribute MX_MISSILE P(x=INDETERMINATE|C=republican) = 0.0671141
+Attribute IMMIGRATION P(x=YES|C=republican) = 0.114094
+Attribute IMMIGRATION P(x=NO|C=republican) = 0.872483
+Attribute IMMIGRATION P(x=INDETERMINATE|C=republican) = 0.0134228
+Attribute SYNFUELS_CORPORATION_CUTBACK P(x=YES|C=republican) = 0.536913
+Attribute SYNFUELS_CORPORATION_CUTBACK P(x=NO|C=republican) = 0.449664
+Attribute SYNFUELS_CORPORATION_CUTBACK P(x=INDETERMINATE|C=republican) = 0.0134228
+Class P(C=republican) = 0.381074
+
+--- Class democrat---
+Attribute EXPORT_ADMINISTRATION_ACT_SOUTH_AFRICA P(x=YES|C=democrat) = 0.595041
+Attribute EXPORT_ADMINISTRATION_ACT_SOUTH_AFRICA P(x=NO|C=democrat) = 0.342975
+Attribute EXPORT_ADMINISTRATION_ACT_SOUTH_AFRICA P(x=INDETERMINATE|C=democrat) = 0.0619835
+Attribute DUTY_FREE_EXPORTS P(x=YES|C=democrat) = 0.338843
+Attribute DUTY_FREE_EXPORTS P(x=NO|C=democrat) = 0.619835
+Attribute DUTY_FREE_EXPORTS P(x=INDETERMINATE|C=democrat) = 0.0413223
+Attribute CRIME P(x=YES|C=democrat) = 0.272727
+Attribute CRIME P(x=NO|C=democrat) = 0.669421
+Attribute CRIME P(x=INDETERMINATE|C=democrat) = 0.0578512
+Attribute SUPERFUND_RIGHT_TO_SUE P(x=YES|C=democrat) = 0.136364
+Attribute SUPERFUND_RIGHT_TO_SUE P(x=NO|C=democrat) = 0.793388
+Attribute SUPERFUND_RIGHT_TO_SUE P(x=INDETERMINATE|C=democrat) = 0.0702479
+Attribute EDUCATION_SPENDING P(x=YES|C=democrat) = 0.454545
+Attribute EDUCATION_SPENDING P(x=NO|C=democrat) = 0.5
+Attribute EDUCATION_SPENDING P(x=INDETERMINATE|C=democrat) = 0.0454545
+Attribute EL_SALVADOR_AID P(x=YES|C=democrat) = 0.0454545
+Attribute EL_SALVADOR_AID P(x=NO|C=democrat) = 0.92562
+Attribute EL_SALVADOR_AID P(x=INDETERMINATE|C=democrat) = 0.0289256
+Attribute PHYSICIAN_FEE_FREEZE P(x=YES|C=democrat) = 0.863636
+Attribute PHYSICIAN_FEE_FREEZE P(x=NO|C=democrat) = 0.107438
+Attribute PHYSICIAN_FEE_FREEZE P(x=INDETERMINATE|C=democrat) = 0.0289256
+Attribute ADOPTION_OF_THE_BUDGET_RESOLUTION P(x=YES|C=democrat) = 0.442149
+Attribute ADOPTION_OF_THE_BUDGET_RESOLUTION P(x=NO|C=democrat) = 0.450413
+Attribute ADOPTION_OF_THE_BUDGET_RESOLUTION P(x=INDETERMINATE|C=democrat) = 0.107438
+Attribute HANDICAPPED_INFANTS P(x=YES|C=democrat) = 1
+Attribute HANDICAPPED_INFANTS P(x=NO|C=democrat) = 0
+Attribute HANDICAPPED_INFANTS P(x=INDETERMINATE|C=democrat) = 0
+Attribute WATER_PROJECT_COST_SHARING P(x=YES|C=democrat) = 0.570248
+Attribute WATER_PROJECT_COST_SHARING P(x=NO|C=democrat) = 0.392562
+Attribute WATER_PROJECT_COST_SHARING P(x=INDETERMINATE|C=democrat) = 0.0371901
+Attribute RELIGIOUS_GROUPS_IN_SCHOOLS P(x=YES|C=democrat) = 0.206612
+Attribute RELIGIOUS_GROUPS_IN_SCHOOLS P(x=NO|C=democrat) = 0.752066
+Attribute RELIGIOUS_GROUPS_IN_SCHOOLS P(x=INDETERMINATE|C=democrat) = 0.0413223
+Attribute ANTI_SATELLITE_TEST_BAN P(x=YES|C=democrat) = 0.458678
+Attribute ANTI_SATELLITE_TEST_BAN P(x=NO|C=democrat) = 0.504132
+Attribute ANTI_SATELLITE_TEST_BAN P(x=INDETERMINATE|C=democrat) = 0.0371901
+Attribute AID_TO_NICARAGUAN_CONTRAS P(x=YES|C=democrat) = 0.752066
+Attribute AID_TO_NICARAGUAN_CONTRAS P(x=NO|C=democrat) = 0.219008
+Attribute AID_TO_NICARAGUAN_CONTRAS P(x=INDETERMINATE|C=democrat) = 0.0289256
+Attribute MX_MISSILE P(x=YES|C=democrat) = 0.822314
+Attribute MX_MISSILE P(x=NO|C=democrat) = 0.161157
+Attribute MX_MISSILE P(x=INDETERMINATE|C=democrat) = 0.0165289
+Attribute IMMIGRATION P(x=YES|C=democrat) = 0.714876
+Attribute IMMIGRATION P(x=NO|C=democrat) = 0.214876
+Attribute IMMIGRATION P(x=INDETERMINATE|C=democrat) = 0.0702479
+Attribute SYNFUELS_CORPORATION_CUTBACK P(x=YES|C=democrat) = 0.458678
+Attribute SYNFUELS_CORPORATION_CUTBACK P(x=NO|C=democrat) = 0.524793
+Attribute SYNFUELS_CORPORATION_CUTBACK P(x=INDETERMINATE|C=democrat) = 0.0165289
+Class P(C=democrat) = 0.618926
+
+ ------------ PREDICTIONS START ------------
+Attributes: [0,1,0,1,1,1,0,0,0,0,0,1,1,1,0,0,]; actual class: democrat; predicted class: democrat
+Attributes: [0,0,0,1,1,1,0,0,0,1,0,1,1,1,0,0,]; actual class: democrat; predicted class: democrat
+Attributes: [1,0,0,1,1,0,0,0,0,0,0,1,0,1,0,2,]; actual class: democrat; predicted class: democrat
+Attributes: [1,0,1,0,0,0,1,1,1,0,1,0,0,0,1,1,]; actual class: republican; predicted class: republican
+Attributes: [1,1,1,1,0,0,0,1,1,1,1,2,1,0,0,0,]; actual class: republican; predicted class: republican
+Attributes: [0,0,1,0,0,0,1,1,1,0,1,1,0,0,1,0,]; actual class: republican; predicted class: democrat
+Attributes: [0,1,0,1,1,1,0,0,2,1,0,1,1,1,0,0,]; actual class: democrat; predicted class: democrat
+Attributes: [1,0,0,0,0,0,1,1,1,0,0,0,0,0,0,2,]; actual class: democrat; predicted class: republican
+Attributes: [0,0,1,0,0,0,1,1,1,1,0,1,0,0,1,2,]; actual class: democrat; predicted class: republican
+Attributes: [0,2,0,1,1,0,0,0,0,0,1,1,1,1,0,2,]; actual class: democrat; predicted class: democrat
+Attributes: [0,1,0,1,1,0,0,0,0,1,1,1,1,1,0,0,]; actual class: democrat; predicted class: democrat
+Attributes: [0,1,0,1,1,1,0,0,0,1,1,1,1,1,0,2,]; actual class: democrat; predicted class: democrat
+Attributes: [1,1,1,0,0,0,1,1,1,0,1,0,0,0,1,1,]; actual class: republican; predicted class: republican
+Attributes: [1,0,0,1,2,0,1,1,1,1,0,1,0,1,1,0,]; actual class: democrat; predicted class: republican
+Attributes: [1,1,1,0,0,0,0,0,0,0,1,0,0,0,1,0,]; actual class: republican; predicted class: democrat
+Attributes: [0,1,0,1,1,1,0,0,0,1,0,1,1,1,0,0,]; actual class: democrat; predicted class: democrat
+Attributes: [1,1,0,1,1,1,0,0,0,1,1,1,1,0,0,0,]; actual class: democrat; predicted class: democrat
+Attributes: [1,1,0,1,1,0,2,0,2,0,0,0,1,0,0,2,]; actual class: democrat; predicted class: republican
+Attributes: [0,2,0,1,1,1,0,0,0,1,1,1,1,1,0,2,]; actual class: democrat; predicted class: democrat
+Attributes: [1,1,1,0,0,0,1,1,1,1,0,0,0,0,1,0,]; actual class: republican; predicted class: republican
+Attributes: [1,0,1,0,0,0,1,1,1,1,1,0,0,2,1,0,]; actual class: republican; predicted class: republican
+Attributes: [1,0,1,0,0,0,1,1,1,1,1,0,0,0,1,0,]; actual class: republican; predicted class: republican
+Attributes: [0,1,0,1,1,1,0,0,0,0,0,1,1,0,0,0,]; actual class: democrat; predicted class: democrat
+Attributes: [0,0,0,1,0,0,1,1,1,0,0,1,0,0,1,0,]; actual class: democrat; predicted class: republican
+Attributes: [1,0,0,0,0,0,0,0,0,1,1,0,0,0,1,0,]; actual class: republican; predicted class: republican
+Attributes: [0,0,0,1,1,1,1,0,0,1,0,1,1,1,0,0,]; actual class: democrat; predicted class: democrat
+Attributes: [0,1,1,1,0,0,0,1,1,0,0,1,1,0,1,0,]; actual class: democrat; predicted class: republican
+Attributes: [1,1,1,0,0,0,1,1,1,0,1,0,0,0,1,2,]; actual class: republican; predicted class: republican
+Attributes: [1,0,0,0,0,0,1,1,1,1,0,0,2,0,1,1,]; actual class: democrat; predicted class: republican
+Attributes: [1,2,2,2,2,2,2,2,2,2,2,2,2,0,2,2,]; actual class: republican; predicted class: republican
+Attributes: [0,1,0,1,1,1,0,0,1,0,0,1,1,1,1,2,]; actual class: democrat; predicted class: democrat
+Attributes: [1,1,1,0,0,0,0,1,1,0,1,0,1,0,0,0,]; actual class: republican; predicted class: republican
+Attributes: [0,0,0,1,1,1,0,0,0,0,0,1,1,1,1,0,]; actual class: democrat; predicted class: democrat
+Attributes: [1,0,1,0,0,0,1,1,1,0,1,0,0,2,1,2,]; actual class: republican; predicted class: republican
+Attributes: [1,1,1,0,0,0,1,1,1,0,1,0,1,0,1,0,]; actual class: republican; predicted class: democrat
+Attributes: [1,1,1,0,0,0,1,1,1,1,1,0,0,0,1,1,]; actual class: republican; predicted class: republican
+Attributes: [1,0,1,0,0,0,1,1,1,0,0,0,0,0,1,0,]; actual class: republican; predicted class: republican
+Attributes: [1,0,1,0,0,0,1,1,1,0,1,0,0,0,1,0,]; actual class: republican; predicted class: republican
+Attributes: [1,1,1,0,0,0,1,1,1,0,1,0,0,0,1,1,]; actual class: republican; predicted class: republican
+Attributes: [1,0,0,0,0,0,1,1,1,0,1,0,0,0,1,0,]; actual class: republican; predicted class: republican
+Attributes: [1,0,1,1,1,1,0,0,0,0,0,1,1,1,0,0,]; actual class: democrat; predicted class: democrat
+Attributes: [0,0,0,1,2,0,0,0,1,0,2,2,1,1,0,0,]; actual class: democrat; predicted class: democrat
+Attributes: [0,0,0,2,1,0,0,0,0,1,0,1,0,1,2,0,]; actual class: democrat; predicted class: democrat
+Attributes: [0,0,0,1,1,1,0,0,0,0,0,1,0,1,1,0,]; actual class: democrat; predicted class: democrat
+Results:
+Successful predictions: 34
+Total predictions: 44
+Accuracy: 0.772727
+--------------------- TEST FINISH FOR SUBSET 0 ---------------------
+
+
+--------------------- TEST SUBSET WILL BE 1 ---------------------
+
+NaiveBayesClassifier()
+calculcateProbabilityPerClassAndAttribute()
+
+--- Class republican---
+Attribute EXPORT_ADMINISTRATION_ACT_SOUTH_AFRICA P(x=YES|C=republican) = 0.0794702
+Attribute EXPORT_ADMINISTRATION_ACT_SOUTH_AFRICA P(x=NO|C=republican) = 0.847682
+Attribute EXPORT_ADMINISTRATION_ACT_SOUTH_AFRICA P(x=INDETERMINATE|C=republican) = 0.0728477
+Attribute DUTY_FREE_EXPORTS P(x=YES|C=republican) = 0.933775
+Attribute DUTY_FREE_EXPORTS P(x=NO|C=republican) = 0.0198675
+Attribute DUTY_FREE_EXPORTS P(x=INDETERMINATE|C=republican) = 0.0463576
+Attribute CRIME P(x=YES|C=republican) = 0.807947
+Attribute CRIME P(x=NO|C=republican) = 0.125828
+Attribute CRIME P(x=INDETERMINATE|C=republican) = 0.0662252
+Attribute SUPERFUND_RIGHT_TO_SUE P(x=YES|C=republican) = 0.794702
+Attribute SUPERFUND_RIGHT_TO_SUE P(x=NO|C=republican) = 0.119205
+Attribute SUPERFUND_RIGHT_TO_SUE P(x=INDETERMINATE|C=republican) = 0.0860927
+Attribute EDUCATION_SPENDING P(x=YES|C=republican) = 0.119205
+Attribute EDUCATION_SPENDING P(x=NO|C=republican) = 0.821192
+Attribute EDUCATION_SPENDING P(x=INDETERMINATE|C=republican) = 0.0596026
+Attribute EL_SALVADOR_AID P(x=YES|C=republican) = 0.966887
+Attribute EL_SALVADOR_AID P(x=NO|C=republican) = 0.013245
+Attribute EL_SALVADOR_AID P(x=INDETERMINATE|C=republican) = 0.0198675
+Attribute PHYSICIAN_FEE_FREEZE P(x=YES|C=republican) = 0.125828
+Attribute PHYSICIAN_FEE_FREEZE P(x=NO|C=republican) = 0.847682
+Attribute PHYSICIAN_FEE_FREEZE P(x=INDETERMINATE|C=republican) = 0.0264901
+Attribute ADOPTION_OF_THE_BUDGET_RESOLUTION P(x=YES|C=republican) = 0.456954
+Attribute ADOPTION_OF_THE_BUDGET_RESOLUTION P(x=NO|C=republican) = 0.430464
+Attribute ADOPTION_OF_THE_BUDGET_RESOLUTION P(x=INDETERMINATE|C=republican) = 0.112583
+Attribute HANDICAPPED_INFANTS P(x=YES|C=republican) = 0
+Attribute HANDICAPPED_INFANTS P(x=NO|C=republican) = 1
+Attribute HANDICAPPED_INFANTS P(x=INDETERMINATE|C=republican) = 0
+Attribute WATER_PROJECT_COST_SHARING P(x=YES|C=republican) = 0.165563
+Attribute WATER_PROJECT_COST_SHARING P(x=NO|C=republican) = 0.81457
+Attribute WATER_PROJECT_COST_SHARING P(x=INDETERMINATE|C=republican) = 0.0198675
+Attribute RELIGIOUS_GROUPS_IN_SCHOOLS P(x=YES|C=republican) = 0.940397
+Attribute RELIGIOUS_GROUPS_IN_SCHOOLS P(x=NO|C=republican) = 0.0397351
+Attribute RELIGIOUS_GROUPS_IN_SCHOOLS P(x=INDETERMINATE|C=republican) = 0.0198675
+Attribute ANTI_SATELLITE_TEST_BAN P(x=YES|C=republican) = 0.880795
+Attribute ANTI_SATELLITE_TEST_BAN P(x=NO|C=republican) = 0.10596
+Attribute ANTI_SATELLITE_TEST_BAN P(x=INDETERMINATE|C=republican) = 0.013245
+Attribute AID_TO_NICARAGUAN_CONTRAS P(x=YES|C=republican) = 0.245033
+Attribute AID_TO_NICARAGUAN_CONTRAS P(x=NO|C=republican) = 0.715232
+Attribute AID_TO_NICARAGUAN_CONTRAS P(x=INDETERMINATE|C=republican) = 0.0397351
+Attribute MX_MISSILE P(x=YES|C=republican) = 0.139073
+Attribute MX_MISSILE P(x=NO|C=republican) = 0.801325
+Attribute MX_MISSILE P(x=INDETERMINATE|C=republican) = 0.0596026
+Attribute IMMIGRATION P(x=YES|C=republican) = 0.10596
+Attribute IMMIGRATION P(x=NO|C=republican) = 0.874172
+Attribute IMMIGRATION P(x=INDETERMINATE|C=republican) = 0.0198675
+Attribute SYNFUELS_CORPORATION_CUTBACK P(x=YES|C=republican) = 0.543046
+Attribute SYNFUELS_CORPORATION_CUTBACK P(x=NO|C=republican) = 0.437086
+Attribute SYNFUELS_CORPORATION_CUTBACK P(x=INDETERMINATE|C=republican) = 0.0198675
+Class P(C=republican) = 0.386189
+
+--- Class democrat---
+Attribute EXPORT_ADMINISTRATION_ACT_SOUTH_AFRICA P(x=YES|C=democrat) = 0.595833
+Attribute EXPORT_ADMINISTRATION_ACT_SOUTH_AFRICA P(x=NO|C=democrat) = 0.341667
+Attribute EXPORT_ADMINISTRATION_ACT_SOUTH_AFRICA P(x=INDETERMINATE|C=democrat) = 0.0625
+Attribute DUTY_FREE_EXPORTS P(x=YES|C=democrat) = 0.341667
+Attribute DUTY_FREE_EXPORTS P(x=NO|C=democrat) = 0.620833
+Attribute DUTY_FREE_EXPORTS P(x=INDETERMINATE|C=democrat) = 0.0375
+Attribute CRIME P(x=YES|C=democrat) = 0.283333
+Attribute CRIME P(x=NO|C=democrat) = 0.666667
+Attribute CRIME P(x=INDETERMINATE|C=democrat) = 0.05
+Attribute SUPERFUND_RIGHT_TO_SUE P(x=YES|C=democrat) = 0.145833
+Attribute SUPERFUND_RIGHT_TO_SUE P(x=NO|C=democrat) = 0.7875
+Attribute SUPERFUND_RIGHT_TO_SUE P(x=INDETERMINATE|C=democrat) = 0.0666667
+Attribute EDUCATION_SPENDING P(x=YES|C=democrat) = 0.491667
+Attribute EDUCATION_SPENDING P(x=NO|C=democrat) = 0.458333
+Attribute EDUCATION_SPENDING P(x=INDETERMINATE|C=democrat) = 0.05
+Attribute EL_SALVADOR_AID P(x=YES|C=democrat) = 0.05
+Attribute EL_SALVADOR_AID P(x=NO|C=democrat) = 0.920833
+Attribute EL_SALVADOR_AID P(x=INDETERMINATE|C=democrat) = 0.0291667
+Attribute PHYSICIAN_FEE_FREEZE P(x=YES|C=democrat) = 0.866667
+Attribute PHYSICIAN_FEE_FREEZE P(x=NO|C=democrat) = 0.108333
+Attribute PHYSICIAN_FEE_FREEZE P(x=INDETERMINATE|C=democrat) = 0.025
+Attribute ADOPTION_OF_THE_BUDGET_RESOLUTION P(x=YES|C=democrat) = 0.445833
+Attribute ADOPTION_OF_THE_BUDGET_RESOLUTION P(x=NO|C=democrat) = 0.445833
+Attribute ADOPTION_OF_THE_BUDGET_RESOLUTION P(x=INDETERMINATE|C=democrat) = 0.108333
+Attribute HANDICAPPED_INFANTS P(x=YES|C=democrat) = 1
+Attribute HANDICAPPED_INFANTS P(x=NO|C=democrat) = 0
+Attribute HANDICAPPED_INFANTS P(x=INDETERMINATE|C=democrat) = 0
+Attribute WATER_PROJECT_COST_SHARING P(x=YES|C=democrat) = 0.575
+Attribute WATER_PROJECT_COST_SHARING P(x=NO|C=democrat) = 0.391667
+Attribute WATER_PROJECT_COST_SHARING P(x=INDETERMINATE|C=democrat) = 0.0333333
+Attribute RELIGIOUS_GROUPS_IN_SCHOOLS P(x=YES|C=democrat) = 0.216667
+Attribute RELIGIOUS_GROUPS_IN_SCHOOLS P(x=NO|C=democrat) = 0.741667
+Attribute RELIGIOUS_GROUPS_IN_SCHOOLS P(x=INDETERMINATE|C=democrat) = 0.0416667
+Attribute ANTI_SATELLITE_TEST_BAN P(x=YES|C=democrat) = 0.466667
+Attribute ANTI_SATELLITE_TEST_BAN P(x=NO|C=democrat) = 0.495833
+Attribute ANTI_SATELLITE_TEST_BAN P(x=INDETERMINATE|C=democrat) = 0.0375
+Attribute AID_TO_NICARAGUAN_CONTRAS P(x=YES|C=democrat) = 0.7375
+Attribute AID_TO_NICARAGUAN_CONTRAS P(x=NO|C=democrat) = 0.2375
+Attribute AID_TO_NICARAGUAN_CONTRAS P(x=INDETERMINATE|C=democrat) = 0.025
+Attribute MX_MISSILE P(x=YES|C=democrat) = 0.804167
+Attribute MX_MISSILE P(x=NO|C=democrat) = 0.179167
+Attribute MX_MISSILE P(x=INDETERMINATE|C=democrat) = 0.0166667
+Attribute IMMIGRATION P(x=YES|C=democrat) = 0.679167
+Attribute IMMIGRATION P(x=NO|C=democrat) = 0.245833
+Attribute IMMIGRATION P(x=INDETERMINATE|C=democrat) = 0.075
+Attribute SYNFUELS_CORPORATION_CUTBACK P(x=YES|C=democrat) = 0.4625
+Attribute SYNFUELS_CORPORATION_CUTBACK P(x=NO|C=democrat) = 0.520833
+Attribute SYNFUELS_CORPORATION_CUTBACK P(x=INDETERMINATE|C=democrat) = 0.0166667
+Class P(C=democrat) = 0.613811
+
+ ------------ PREDICTIONS START ------------
+Attributes: [1,2,0,2,1,0,0,0,0,0,0,1,2,2,0,0,]; actual class: democrat; predicted class: democrat
+Attributes: [1,2,1,1,1,0,0,0,0,0,1,1,1,0,1,2,]; actual class: democrat; predicted class: democrat
+Attributes: [0,1,0,1,2,0,2,0,0,0,1,1,0,0,1,0,]; actual class: democrat; predicted class: democrat
+Attributes: [1,1,1,0,0,0,1,1,1,0,0,0,0,0,1,2,]; actual class: republican; predicted class: republican
+Attributes: [0,1,0,0,1,1,1,0,0,0,1,1,1,0,0,0,]; actual class: republican; predicted class: democrat
+Attributes: [1,1,0,1,1,1,0,0,0,1,1,1,1,1,0,0,]; actual class: democrat; predicted class: democrat
+Attributes: [1,1,1,0,0,0,1,1,1,0,1,0,1,0,1,0,]; actual class: republican; predicted class: democrat
+Attributes: [0,0,0,1,1,1,0,0,0,1,1,1,1,1,0,0,]; actual class: democrat; predicted class: democrat
+Attributes: [0,1,0,1,1,1,0,0,0,0,1,1,1,1,0,0,]; actual class: democrat; predicted class: democrat
+Attributes: [1,2,0,0,0,0,1,1,1,0,1,1,1,0,1,0,]; actual class: republican; predicted class: republican
+Attributes: [0,0,0,1,1,0,2,0,0,1,0,1,0,1,0,0,]; actual class: democrat; predicted class: democrat
+Attributes: [2,0,1,1,1,1,0,0,0,0,0,1,1,0,0,0,]; actual class: democrat; predicted class: democrat
+Attributes: [0,1,1,0,0,0,1,1,1,0,1,0,0,0,1,1,]; actual class: republican; predicted class: republican
+Attributes: [1,1,0,1,1,1,0,0,0,0,1,1,1,1,0,0,]; actual class: democrat; predicted class: democrat
+Attributes: [0,1,0,1,1,1,0,0,0,0,1,1,1,1,1,0,]; actual class: democrat; predicted class: democrat
+Attributes: [1,1,0,1,1,0,0,0,0,1,1,1,1,1,0,0,]; actual class: democrat; predicted class: democrat
+Attributes: [0,0,1,0,0,0,1,1,1,0,1,0,0,0,1,1,]; actual class: republican; predicted class: democrat
+Attributes: [0,1,0,1,1,0,0,0,0,1,1,1,1,0,1,2,]; actual class: democrat; predicted class: democrat
+Attributes: [0,2,1,0,0,0,1,0,1,1,1,0,0,0,1,0,]; actual class: republican; predicted class: democrat
+Attributes: [1,1,0,0,0,0,1,1,1,0,1,0,0,0,0,0,]; actual class: republican; predicted class: republican
+Attributes: [1,1,0,1,1,1,0,0,0,0,0,1,2,1,0,2,]; actual class: democrat; predicted class: democrat
+Attributes: [0,1,0,1,1,1,0,0,0,0,1,2,1,1,0,0,]; actual class: democrat; predicted class: democrat
+Attributes: [1,0,1,0,0,0,1,1,1,1,1,0,0,0,1,0,]; actual class: republican; predicted class: republican
+Attributes: [1,0,1,0,0,0,1,1,1,1,1,0,0,0,1,0,]; actual class: republican; predicted class: republican
+Attributes: [0,0,0,1,1,1,0,0,0,1,0,1,1,1,0,0,]; actual class: democrat; predicted class: democrat
+Attributes: [0,0,1,0,0,0,1,1,1,0,1,0,0,0,1,0,]; actual class: republican; predicted class: democrat
+Attributes: [0,0,2,0,0,0,1,1,0,1,0,2,0,0,1,1,]; actual class: democrat; predicted class: democrat
+Attributes: [1,1,1,0,0,0,0,0,0,0,1,0,0,0,2,0,]; actual class: republican; predicted class: republican
+Attributes: [1,1,1,0,1,0,0,2,0,1,1,0,0,0,1,0,]; actual class: republican; predicted class: democrat
+Attributes: [1,2,1,0,0,0,1,1,1,1,0,0,0,0,1,0,]; actual class: republican; predicted class: republican
+Attributes: [0,0,0,1,1,1,0,0,0,1,0,1,1,1,0,0,]; actual class: democrat; predicted class: democrat
+Attributes: [0,0,0,1,1,0,0,0,0,0,1,1,2,1,0,2,]; actual class: democrat; predicted class: democrat
+Attributes: [1,1,0,1,1,0,0,0,0,1,0,1,1,0,0,0,]; actual class: democrat; predicted class: republican
+Attributes: [1,0,0,0,0,0,1,0,0,0,0,0,0,0,1,0,]; actual class: democrat; predicted class: democrat
+Attributes: [0,1,0,1,0,0,0,1,1,1,0,1,1,0,1,0,]; actual class: democrat; predicted class: republican
+Attributes: [0,0,0,1,1,1,0,0,0,0,1,1,0,1,1,0,]; actual class: democrat; predicted class: democrat
+Attributes: [0,0,0,1,2,1,0,0,0,0,1,1,1,1,0,2,]; actual class: democrat; predicted class: democrat
+Attributes: [0,0,1,0,0,0,1,1,1,1,0,0,0,0,1,0,]; actual class: republican; predicted class: democrat
+Attributes: [0,1,0,1,1,1,0,0,0,1,1,1,1,1,1,0,]; actual class: democrat; predicted class: democrat
+Attributes: [0,0,1,1,1,1,0,0,2,1,0,1,1,1,0,2,]; actual class: democrat; predicted class: democrat
+Attributes: [1,1,1,0,0,0,1,1,1,0,1,0,0,0,1,0,]; actual class: republican; predicted class: republican
+Attributes: [1,0,1,0,0,0,1,2,1,1,1,0,0,0,1,0,]; actual class: republican; predicted class: republican
+Attributes: [0,0,0,1,1,1,0,0,0,1,1,1,1,1,0,0,]; actual class: democrat; predicted class: democrat
+Attributes: [0,0,0,1,1,1,0,0,0,1,1,1,1,1,2,2,]; actual class: democrat; predicted class: democrat
+Results:
+Successful predictions: 35
+Total predictions: 44
+Accuracy: 0.795455
+--------------------- TEST FINISH FOR SUBSET 1 ---------------------
+
+
+--------------------- TEST SUBSET WILL BE 2 ---------------------
+
+NaiveBayesClassifier()
+calculcateProbabilityPerClassAndAttribute()
+
+--- Class republican---
+Attribute EXPORT_ADMINISTRATION_ACT_SOUTH_AFRICA P(x=YES|C=republican) = 0.08
+Attribute EXPORT_ADMINISTRATION_ACT_SOUTH_AFRICA P(x=NO|C=republican) = 0.853333
+Attribute EXPORT_ADMINISTRATION_ACT_SOUTH_AFRICA P(x=INDETERMINATE|C=republican) = 0.0666667
+Attribute DUTY_FREE_EXPORTS P(x=YES|C=republican) = 0.94
+Attribute DUTY_FREE_EXPORTS P(x=NO|C=republican) = 0.02
+Attribute DUTY_FREE_EXPORTS P(x=INDETERMINATE|C=republican) = 0.04
+Attribute CRIME P(x=YES|C=republican) = 0.806667
+Attribute CRIME P(x=NO|C=republican) = 0.126667
+Attribute CRIME P(x=INDETERMINATE|C=republican) = 0.0666667
+Attribute SUPERFUND_RIGHT_TO_SUE P(x=YES|C=republican) = 0.813333
+Attribute SUPERFUND_RIGHT_TO_SUE P(x=NO|C=republican) = 0.12
+Attribute SUPERFUND_RIGHT_TO_SUE P(x=INDETERMINATE|C=republican) = 0.0666667
+Attribute EDUCATION_SPENDING P(x=YES|C=republican) = 0.12
+Attribute EDUCATION_SPENDING P(x=NO|C=republican) = 0.826667
+Attribute EDUCATION_SPENDING P(x=INDETERMINATE|C=republican) = 0.0533333
+Attribute EL_SALVADOR_AID P(x=YES|C=republican) = 0.966667
+Attribute EL_SALVADOR_AID P(x=NO|C=republican) = 0.0133333
+Attribute EL_SALVADOR_AID P(x=INDETERMINATE|C=republican) = 0.02
+Attribute PHYSICIAN_FEE_FREEZE P(x=YES|C=republican) = 0.106667
+Attribute PHYSICIAN_FEE_FREEZE P(x=NO|C=republican) = 0.866667
+Attribute PHYSICIAN_FEE_FREEZE P(x=INDETERMINATE|C=republican) = 0.0266667
+Attribute ADOPTION_OF_THE_BUDGET_RESOLUTION P(x=YES|C=republican) = 0.446667
+Attribute ADOPTION_OF_THE_BUDGET_RESOLUTION P(x=NO|C=republican) = 0.433333
+Attribute ADOPTION_OF_THE_BUDGET_RESOLUTION P(x=INDETERMINATE|C=republican) = 0.12
+Attribute HANDICAPPED_INFANTS P(x=YES|C=republican) = 0
+Attribute HANDICAPPED_INFANTS P(x=NO|C=republican) = 1
+Attribute HANDICAPPED_INFANTS P(x=INDETERMINATE|C=republican) = 0
+Attribute WATER_PROJECT_COST_SHARING P(x=YES|C=republican) = 0.173333
+Attribute WATER_PROJECT_COST_SHARING P(x=NO|C=republican) = 0.806667
+Attribute WATER_PROJECT_COST_SHARING P(x=INDETERMINATE|C=republican) = 0.02
+Attribute RELIGIOUS_GROUPS_IN_SCHOOLS P(x=YES|C=republican) = 0.933333
+Attribute RELIGIOUS_GROUPS_IN_SCHOOLS P(x=NO|C=republican) = 0.0466667
+Attribute RELIGIOUS_GROUPS_IN_SCHOOLS P(x=INDETERMINATE|C=republican) = 0.02
+Attribute ANTI_SATELLITE_TEST_BAN P(x=YES|C=republican) = 0.9
+Attribute ANTI_SATELLITE_TEST_BAN P(x=NO|C=republican) = 0.0866667
+Attribute ANTI_SATELLITE_TEST_BAN P(x=INDETERMINATE|C=republican) = 0.0133333
+Attribute AID_TO_NICARAGUAN_CONTRAS P(x=YES|C=republican) = 0.213333
+Attribute AID_TO_NICARAGUAN_CONTRAS P(x=NO|C=republican) = 0.76
+Attribute AID_TO_NICARAGUAN_CONTRAS P(x=INDETERMINATE|C=republican) = 0.0266667
+Attribute MX_MISSILE P(x=YES|C=republican) = 0.133333
+Attribute MX_MISSILE P(x=NO|C=republican) = 0.8
+Attribute MX_MISSILE P(x=INDETERMINATE|C=republican) = 0.0666667
+Attribute IMMIGRATION P(x=YES|C=republican) = 0.106667
+Attribute IMMIGRATION P(x=NO|C=republican) = 0.873333
+Attribute IMMIGRATION P(x=INDETERMINATE|C=republican) = 0.02
+Attribute SYNFUELS_CORPORATION_CUTBACK P(x=YES|C=republican) = 0.546667
+Attribute SYNFUELS_CORPORATION_CUTBACK P(x=NO|C=republican) = 0.433333
+Attribute SYNFUELS_CORPORATION_CUTBACK P(x=INDETERMINATE|C=republican) = 0.02
+Class P(C=republican) = 0.383632
+
+--- Class democrat---
+Attribute EXPORT_ADMINISTRATION_ACT_SOUTH_AFRICA P(x=YES|C=democrat) = 0.589212
+Attribute EXPORT_ADMINISTRATION_ACT_SOUTH_AFRICA P(x=NO|C=democrat) = 0.344398
+Attribute EXPORT_ADMINISTRATION_ACT_SOUTH_AFRICA P(x=INDETERMINATE|C=democrat) = 0.06639
+Attribute DUTY_FREE_EXPORTS P(x=YES|C=democrat) = 0.33195
+Attribute DUTY_FREE_EXPORTS P(x=NO|C=democrat) = 0.630705
+Attribute DUTY_FREE_EXPORTS P(x=INDETERMINATE|C=democrat) = 0.0373444
+Attribute CRIME P(x=YES|C=democrat) = 0.278008
+Attribute CRIME P(x=NO|C=democrat) = 0.6639
+Attribute CRIME P(x=INDETERMINATE|C=democrat) = 0.0580913
+Attribute SUPERFUND_RIGHT_TO_SUE P(x=YES|C=democrat) = 0.141079
+Attribute SUPERFUND_RIGHT_TO_SUE P(x=NO|C=democrat) = 0.788382
+Attribute SUPERFUND_RIGHT_TO_SUE P(x=INDETERMINATE|C=democrat) = 0.0705394
+Attribute EDUCATION_SPENDING P(x=YES|C=democrat) = 0.493776
+Attribute EDUCATION_SPENDING P(x=NO|C=democrat) = 0.460581
+Attribute EDUCATION_SPENDING P(x=INDETERMINATE|C=democrat) = 0.0456432
+Attribute EL_SALVADOR_AID P(x=YES|C=democrat) = 0.0539419
+Attribute EL_SALVADOR_AID P(x=NO|C=democrat) = 0.912863
+Attribute EL_SALVADOR_AID P(x=INDETERMINATE|C=democrat) = 0.033195
+Attribute PHYSICIAN_FEE_FREEZE P(x=YES|C=democrat) = 0.858921
+Attribute PHYSICIAN_FEE_FREEZE P(x=NO|C=democrat) = 0.112033
+Attribute PHYSICIAN_FEE_FREEZE P(x=INDETERMINATE|C=democrat) = 0.0290456
+Attribute ADOPTION_OF_THE_BUDGET_RESOLUTION P(x=YES|C=democrat) = 0.452282
+Attribute ADOPTION_OF_THE_BUDGET_RESOLUTION P(x=NO|C=democrat) = 0.443983
+Attribute ADOPTION_OF_THE_BUDGET_RESOLUTION P(x=INDETERMINATE|C=democrat) = 0.103734
+Attribute HANDICAPPED_INFANTS P(x=YES|C=democrat) = 1
+Attribute HANDICAPPED_INFANTS P(x=NO|C=democrat) = 0
+Attribute HANDICAPPED_INFANTS P(x=INDETERMINATE|C=democrat) = 0
+Attribute WATER_PROJECT_COST_SHARING P(x=YES|C=democrat) = 0.568465
+Attribute WATER_PROJECT_COST_SHARING P(x=NO|C=democrat) = 0.394191
+Attribute WATER_PROJECT_COST_SHARING P(x=INDETERMINATE|C=democrat) = 0.0373444
+Attribute RELIGIOUS_GROUPS_IN_SCHOOLS P(x=YES|C=democrat) = 0.211618
+Attribute RELIGIOUS_GROUPS_IN_SCHOOLS P(x=NO|C=democrat) = 0.742739
+Attribute RELIGIOUS_GROUPS_IN_SCHOOLS P(x=INDETERMINATE|C=democrat) = 0.0456432
+Attribute ANTI_SATELLITE_TEST_BAN P(x=YES|C=democrat) = 0.46473
+Attribute ANTI_SATELLITE_TEST_BAN P(x=NO|C=democrat) = 0.502075
+Attribute ANTI_SATELLITE_TEST_BAN P(x=INDETERMINATE|C=democrat) = 0.033195
+Attribute AID_TO_NICARAGUAN_CONTRAS P(x=YES|C=democrat) = 0.738589
+Attribute AID_TO_NICARAGUAN_CONTRAS P(x=NO|C=democrat) = 0.228216
+Attribute AID_TO_NICARAGUAN_CONTRAS P(x=INDETERMINATE|C=democrat) = 0.033195
+Attribute MX_MISSILE P(x=YES|C=democrat) = 0.813278
+Attribute MX_MISSILE P(x=NO|C=democrat) = 0.170124
+Attribute MX_MISSILE P(x=INDETERMINATE|C=democrat) = 0.0165975
+Attribute IMMIGRATION P(x=YES|C=democrat) = 0.692946
+Attribute IMMIGRATION P(x=NO|C=democrat) = 0.228216
+Attribute IMMIGRATION P(x=INDETERMINATE|C=democrat) = 0.0788382
+Attribute SYNFUELS_CORPORATION_CUTBACK P(x=YES|C=democrat) = 0.443983
+Attribute SYNFUELS_CORPORATION_CUTBACK P(x=NO|C=democrat) = 0.539419
+Attribute SYNFUELS_CORPORATION_CUTBACK P(x=INDETERMINATE|C=democrat) = 0.0165975
+Class P(C=democrat) = 0.616368
+
+ ------------ PREDICTIONS START ------------
+Attributes: [1,0,1,0,0,0,1,1,1,1,1,0,0,0,1,2,]; actual class: republican; predicted class: republican
+Attributes: [1,1,0,0,0,0,0,1,1,0,0,0,0,0,1,0,]; actual class: republican; predicted class: republican
+Attributes: [0,1,0,1,1,1,0,0,0,0,1,1,1,0,0,0,]; actual class: democrat; predicted class: democrat
+Attributes: [1,0,0,1,1,0,1,0,0,0,0,1,0,1,0,0,]; actual class: democrat; predicted class: democrat
+Attributes: [0,0,1,1,0,0,1,1,1,0,0,0,0,0,1,2,]; actual class: democrat; predicted class: republican
+Attributes: [1,1,0,0,0,0,0,1,1,1,1,0,0,0,1,0,]; actual class: republican; predicted class: republican
+Attributes: [1,0,1,0,0,0,2,2,1,1,2,2,0,2,2,2,]; actual class: republican; predicted class: republican
+Attributes: [0,1,0,1,1,1,0,0,0,0,1,1,1,1,0,0,]; actual class: democrat; predicted class: democrat
+Attributes: [0,1,0,1,1,1,0,0,0,1,1,1,1,1,0,2,]; actual class: democrat; predicted class: democrat
+Attributes: [1,0,0,1,0,0,0,1,0,0,0,1,0,0,1,0,]; actual class: democrat; predicted class: republican
+Attributes: [0,1,1,1,1,0,0,0,0,0,1,1,1,0,0,0,]; actual class: democrat; predicted class: democrat
+Attributes: [0,0,0,1,1,1,0,0,1,0,1,1,1,1,1,0,]; actual class: democrat; predicted class: democrat
+Attributes: [1,0,1,0,0,0,1,1,1,1,1,1,0,0,2,0,]; actual class: republican; predicted class: republican
+Attributes: [0,0,0,0,1,1,0,0,0,0,0,1,1,0,1,0,]; actual class: republican; predicted class: democrat
+Attributes: [1,0,1,0,0,0,2,1,1,1,1,2,0,0,1,1,]; actual class: republican; predicted class: republican
+Attributes: [0,1,0,1,1,1,0,0,0,0,1,1,2,1,0,0,]; actual class: democrat; predicted class: democrat
+Attributes: [0,0,0,1,1,1,0,0,0,0,1,1,1,1,0,0,]; actual class: democrat; predicted class: democrat
+Attributes: [0,1,0,1,1,0,0,0,1,0,0,1,0,0,0,0,]; actual class: democrat; predicted class: republican
+Attributes: [1,1,1,0,0,0,1,1,1,0,1,0,0,0,1,0,]; actual class: republican; predicted class: republican
+Attributes: [1,1,1,0,0,1,1,1,1,1,1,0,1,0,1,1,]; actual class: republican; predicted class: republican
+Attributes: [0,0,0,1,1,1,0,0,0,1,1,1,1,1,0,0,]; actual class: democrat; predicted class: democrat
+Attributes: [1,0,0,1,1,1,1,0,0,1,0,1,1,0,0,0,]; actual class: democrat; predicted class: democrat
+Attributes: [1,1,0,1,1,0,0,0,0,0,1,1,1,0,1,0,]; actual class: democrat; predicted class: democrat
+Attributes: [0,2,0,1,1,1,0,0,0,1,2,1,1,1,0,2,]; actual class: democrat; predicted class: democrat
+Attributes: [0,1,0,1,1,1,0,0,0,1,1,1,1,1,0,0,]; actual class: democrat; predicted class: democrat
+Attributes: [0,2,0,1,1,1,0,0,0,1,1,2,1,1,0,0,]; actual class: democrat; predicted class: democrat
+Attributes: [0,0,0,0,0,0,1,1,1,1,0,0,0,0,1,0,]; actual class: democrat; predicted class: democrat
+Attributes: [0,1,0,0,0,0,0,0,1,0,0,0,1,0,0,0,]; actual class: republican; predicted class: democrat
+Attributes: [1,0,1,0,0,0,1,1,1,0,1,0,0,0,1,1,]; actual class: republican; predicted class: republican
+Attributes: [0,1,1,0,0,0,1,1,1,0,1,2,0,0,1,1,]; actual class: republican; predicted class: republican
+Attributes: [0,1,1,0,0,1,0,0,0,1,1,0,0,0,1,0,]; actual class: republican; predicted class: democrat
+Attributes: [0,1,0,1,1,0,0,0,0,0,0,1,1,1,1,0,]; actual class: democrat; predicted class: democrat
+Attributes: [0,1,0,1,1,1,0,0,0,1,0,1,1,1,0,2,]; actual class: democrat; predicted class: democrat
+Attributes: [1,0,1,0,0,0,1,1,1,0,1,0,0,0,1,0,]; actual class: republican; predicted class: republican
+Attributes: [1,2,1,0,0,0,1,1,1,0,1,0,0,0,1,1,]; actual class: republican; predicted class: republican
+Attributes: [1,0,0,1,2,0,0,0,0,0,0,1,1,2,1,2,]; actual class: democrat; predicted class: democrat
+Attributes: [0,0,0,1,1,2,0,0,1,1,0,1,1,1,0,0,]; actual class: democrat; predicted class: democrat
+Attributes: [0,1,0,1,1,1,0,0,0,0,1,1,1,1,0,2,]; actual class: democrat; predicted class: democrat
+Attributes: [0,1,0,1,0,0,0,1,0,0,1,1,0,0,1,2,]; actual class: democrat; predicted class: republican
+Attributes: [1,0,0,1,1,1,0,0,0,0,1,1,1,1,0,0,]; actual class: democrat; predicted class: democrat
+Attributes: [1,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,]; actual class: republican; predicted class: republican
+Attributes: [0,0,0,0,0,1,0,1,1,1,1,0,0,0,1,0,]; actual class: republican; predicted class: democrat
+Attributes: [1,2,0,1,1,0,0,0,0,0,1,1,1,0,0,0,]; actual class: democrat; predicted class: democrat
+Attributes: [1,2,1,0,0,0,1,1,1,0,1,0,0,0,1,0,]; actual class: republican; predicted class: republican
+Results:
+Successful predictions: 36
+Total predictions: 44
+Accuracy: 0.818182
+--------------------- TEST FINISH FOR SUBSET 2 ---------------------
+
+
+--------------------- TEST SUBSET WILL BE 3 ---------------------
+
+NaiveBayesClassifier()
+calculcateProbabilityPerClassAndAttribute()
+
+--- Class republican---
+Attribute EXPORT_ADMINISTRATION_ACT_SOUTH_AFRICA P(x=YES|C=republican) = 0.0927152
+Attribute EXPORT_ADMINISTRATION_ACT_SOUTH_AFRICA P(x=NO|C=republican) = 0.84106
+Attribute EXPORT_ADMINISTRATION_ACT_SOUTH_AFRICA P(x=INDETERMINATE|C=republican) = 0.0662252
+Attribute DUTY_FREE_EXPORTS P(x=YES|C=republican) = 0.940397
+Attribute DUTY_FREE_EXPORTS P(x=NO|C=republican) = 0.0198675
+Attribute DUTY_FREE_EXPORTS P(x=INDETERMINATE|C=republican) = 0.0397351
+Attribute CRIME P(x=YES|C=republican) = 0.801325
+Attribute CRIME P(x=NO|C=republican) = 0.139073
+Attribute CRIME P(x=INDETERMINATE|C=republican) = 0.0596026
+Attribute SUPERFUND_RIGHT_TO_SUE P(x=YES|C=republican) = 0.788079
+Attribute SUPERFUND_RIGHT_TO_SUE P(x=NO|C=republican) = 0.125828
+Attribute SUPERFUND_RIGHT_TO_SUE P(x=INDETERMINATE|C=republican) = 0.0860927
+Attribute EDUCATION_SPENDING P(x=YES|C=republican) = 0.125828
+Attribute EDUCATION_SPENDING P(x=NO|C=republican) = 0.827815
+Attribute EDUCATION_SPENDING P(x=INDETERMINATE|C=republican) = 0.0463576
+Attribute EL_SALVADOR_AID P(x=YES|C=republican) = 0.966887
+Attribute EL_SALVADOR_AID P(x=NO|C=republican) = 0.013245
+Attribute EL_SALVADOR_AID P(x=INDETERMINATE|C=republican) = 0.0198675
+Attribute PHYSICIAN_FEE_FREEZE P(x=YES|C=republican) = 0.13245
+Attribute PHYSICIAN_FEE_FREEZE P(x=NO|C=republican) = 0.84106
+Attribute PHYSICIAN_FEE_FREEZE P(x=INDETERMINATE|C=republican) = 0.0264901
+Attribute ADOPTION_OF_THE_BUDGET_RESOLUTION P(x=YES|C=republican) = 0.443709
+Attribute ADOPTION_OF_THE_BUDGET_RESOLUTION P(x=NO|C=republican) = 0.430464
+Attribute ADOPTION_OF_THE_BUDGET_RESOLUTION P(x=INDETERMINATE|C=republican) = 0.125828
+Attribute HANDICAPPED_INFANTS P(x=YES|C=republican) = 0
+Attribute HANDICAPPED_INFANTS P(x=NO|C=republican) = 1
+Attribute HANDICAPPED_INFANTS P(x=INDETERMINATE|C=republican) = 0
+Attribute WATER_PROJECT_COST_SHARING P(x=YES|C=republican) = 0.178808
+Attribute WATER_PROJECT_COST_SHARING P(x=NO|C=republican) = 0.801325
+Attribute WATER_PROJECT_COST_SHARING P(x=INDETERMINATE|C=republican) = 0.0198675
+Attribute RELIGIOUS_GROUPS_IN_SCHOOLS P(x=YES|C=republican) = 0.927152
+Attribute RELIGIOUS_GROUPS_IN_SCHOOLS P(x=NO|C=republican) = 0.0529801
+Attribute RELIGIOUS_GROUPS_IN_SCHOOLS P(x=INDETERMINATE|C=republican) = 0.0198675
+Attribute ANTI_SATELLITE_TEST_BAN P(x=YES|C=republican) = 0.887417
+Attribute ANTI_SATELLITE_TEST_BAN P(x=NO|C=republican) = 0.0993377
+Attribute ANTI_SATELLITE_TEST_BAN P(x=INDETERMINATE|C=republican) = 0.013245
+Attribute AID_TO_NICARAGUAN_CONTRAS P(x=YES|C=republican) = 0.225166
+Attribute AID_TO_NICARAGUAN_CONTRAS P(x=NO|C=republican) = 0.741722
+Attribute AID_TO_NICARAGUAN_CONTRAS P(x=INDETERMINATE|C=republican) = 0.0331126
+Attribute MX_MISSILE P(x=YES|C=republican) = 0.139073
+Attribute MX_MISSILE P(x=NO|C=republican) = 0.794702
+Attribute MX_MISSILE P(x=INDETERMINATE|C=republican) = 0.0662252
+Attribute IMMIGRATION P(x=YES|C=republican) = 0.112583
+Attribute IMMIGRATION P(x=NO|C=republican) = 0.86755
+Attribute IMMIGRATION P(x=INDETERMINATE|C=republican) = 0.0198675
+Attribute SYNFUELS_CORPORATION_CUTBACK P(x=YES|C=republican) = 0.536424
+Attribute SYNFUELS_CORPORATION_CUTBACK P(x=NO|C=republican) = 0.443709
+Attribute SYNFUELS_CORPORATION_CUTBACK P(x=INDETERMINATE|C=republican) = 0.0198675
+Class P(C=republican) = 0.386189
+
+--- Class democrat---
+Attribute EXPORT_ADMINISTRATION_ACT_SOUTH_AFRICA P(x=YES|C=democrat) = 0.6
+Attribute EXPORT_ADMINISTRATION_ACT_SOUTH_AFRICA P(x=NO|C=democrat) = 0.333333
+Attribute EXPORT_ADMINISTRATION_ACT_SOUTH_AFRICA P(x=INDETERMINATE|C=democrat) = 0.0666667
+Attribute DUTY_FREE_EXPORTS P(x=YES|C=democrat) = 0.329167
+Attribute DUTY_FREE_EXPORTS P(x=NO|C=democrat) = 0.629167
+Attribute DUTY_FREE_EXPORTS P(x=INDETERMINATE|C=democrat) = 0.0416667
+Attribute CRIME P(x=YES|C=democrat) = 0.258333
+Attribute CRIME P(x=NO|C=democrat) = 0.683333
+Attribute CRIME P(x=INDETERMINATE|C=democrat) = 0.0583333
+Attribute SUPERFUND_RIGHT_TO_SUE P(x=YES|C=democrat) = 0.116667
+Attribute SUPERFUND_RIGHT_TO_SUE P(x=NO|C=democrat) = 0.8125
+Attribute SUPERFUND_RIGHT_TO_SUE P(x=INDETERMINATE|C=democrat) = 0.0708333
+Attribute EDUCATION_SPENDING P(x=YES|C=democrat) = 0.4875
+Attribute EDUCATION_SPENDING P(x=NO|C=democrat) = 0.4625
+Attribute EDUCATION_SPENDING P(x=INDETERMINATE|C=democrat) = 0.05
+Attribute EL_SALVADOR_AID P(x=YES|C=democrat) = 0.0583333
+Attribute EL_SALVADOR_AID P(x=NO|C=democrat) = 0.908333
+Attribute EL_SALVADOR_AID P(x=INDETERMINATE|C=democrat) = 0.0333333
+Attribute PHYSICIAN_FEE_FREEZE P(x=YES|C=democrat) = 0.870833
+Attribute PHYSICIAN_FEE_FREEZE P(x=NO|C=democrat) = 0.108333
+Attribute PHYSICIAN_FEE_FREEZE P(x=INDETERMINATE|C=democrat) = 0.0208333
+Attribute ADOPTION_OF_THE_BUDGET_RESOLUTION P(x=YES|C=democrat) = 0.45
+Attribute ADOPTION_OF_THE_BUDGET_RESOLUTION P(x=NO|C=democrat) = 0.441667
+Attribute ADOPTION_OF_THE_BUDGET_RESOLUTION P(x=INDETERMINATE|C=democrat) = 0.108333
+Attribute HANDICAPPED_INFANTS P(x=YES|C=democrat) = 1
+Attribute HANDICAPPED_INFANTS P(x=NO|C=democrat) = 0
+Attribute HANDICAPPED_INFANTS P(x=INDETERMINATE|C=democrat) = 0
+Attribute WATER_PROJECT_COST_SHARING P(x=YES|C=democrat) = 0.6
+Attribute WATER_PROJECT_COST_SHARING P(x=NO|C=democrat) = 0.366667
+Attribute WATER_PROJECT_COST_SHARING P(x=INDETERMINATE|C=democrat) = 0.0333333
+Attribute RELIGIOUS_GROUPS_IN_SCHOOLS P(x=YES|C=democrat) = 0.208333
+Attribute RELIGIOUS_GROUPS_IN_SCHOOLS P(x=NO|C=democrat) = 0.741667
+Attribute RELIGIOUS_GROUPS_IN_SCHOOLS P(x=INDETERMINATE|C=democrat) = 0.05
+Attribute ANTI_SATELLITE_TEST_BAN P(x=YES|C=democrat) = 0.454167
+Attribute ANTI_SATELLITE_TEST_BAN P(x=NO|C=democrat) = 0.5125
+Attribute ANTI_SATELLITE_TEST_BAN P(x=INDETERMINATE|C=democrat) = 0.0333333
+Attribute AID_TO_NICARAGUAN_CONTRAS P(x=YES|C=democrat) = 0.745833
+Attribute AID_TO_NICARAGUAN_CONTRAS P(x=NO|C=democrat) = 0.220833
+Attribute AID_TO_NICARAGUAN_CONTRAS P(x=INDETERMINATE|C=democrat) = 0.0333333
+Attribute MX_MISSILE P(x=YES|C=democrat) = 0.8125
+Attribute MX_MISSILE P(x=NO|C=democrat) = 0.170833
+Attribute MX_MISSILE P(x=INDETERMINATE|C=democrat) = 0.0166667
+Attribute IMMIGRATION P(x=YES|C=democrat) = 0.708333
+Attribute IMMIGRATION P(x=NO|C=democrat) = 0.225
+Attribute IMMIGRATION P(x=INDETERMINATE|C=democrat) = 0.0666667
+Attribute SYNFUELS_CORPORATION_CUTBACK P(x=YES|C=democrat) = 0.470833
+Attribute SYNFUELS_CORPORATION_CUTBACK P(x=NO|C=democrat) = 0.5125
+Attribute SYNFUELS_CORPORATION_CUTBACK P(x=INDETERMINATE|C=democrat) = 0.0166667
+Class P(C=democrat) = 0.613811
+
+ ------------ PREDICTIONS START ------------
+Attributes: [0,0,0,1,1,0,0,0,0,0,0,0,0,0,1,2,]; actual class: democrat; predicted class: democrat
+Attributes: [0,1,0,1,0,0,1,1,1,1,1,1,1,1,1,0,]; actual class: democrat; predicted class: republican
+Attributes: [1,1,1,1,0,0,0,1,1,1,1,0,0,0,1,0,]; actual class: democrat; predicted class: republican
+Attributes: [1,1,1,1,1,1,0,0,0,0,1,0,0,0,0,0,]; actual class: democrat; predicted class: democrat
+Attributes: [1,1,1,0,0,1,0,0,1,0,1,0,0,0,2,0,]; actual class: republican; predicted class: republican
+Attributes: [1,0,0,1,1,1,1,0,0,0,0,1,1,1,0,0,]; actual class: democrat; predicted class: democrat
+Attributes: [1,2,1,0,0,0,1,1,1,0,1,0,0,0,1,0,]; actual class: republican; predicted class: republican
+Attributes: [0,1,1,0,0,0,1,1,1,1,0,0,0,0,1,1,]; actual class: republican; predicted class: republican
+Attributes: [1,1,2,1,1,0,0,0,0,1,1,1,1,1,0,0,]; actual class: democrat; predicted class: republican
+Attributes: [1,0,1,0,0,0,1,1,1,1,1,0,0,0,1,1,]; actual class: republican; predicted class: republican
+Attributes: [1,1,0,1,1,1,0,0,0,1,1,1,1,1,0,0,]; actual class: democrat; predicted class: democrat
+Attributes: [1,0,0,0,0,0,0,1,0,0,1,0,0,0,1,0,]; actual class: republican; predicted class: democrat
+Attributes: [1,1,0,1,1,0,0,0,0,0,0,1,0,0,1,0,]; actual class: democrat; predicted class: republican
+Attributes: [1,2,0,1,1,1,0,0,0,0,0,1,1,0,0,0,]; actual class: democrat; predicted class: democrat
+Attributes: [1,0,0,1,1,0,0,0,0,0,1,1,0,0,0,0,]; actual class: democrat; predicted class: republican
+Attributes: [1,1,0,1,1,1,0,0,0,1,1,1,1,1,0,2,]; actual class: democrat; predicted class: democrat
+Attributes: [1,0,1,0,0,0,1,1,1,0,0,0,0,0,1,1,]; actual class: republican; predicted class: republican
+Attributes: [1,0,1,0,0,0,1,1,1,0,2,0,0,0,1,0,]; actual class: republican; predicted class: republican
+Attributes: [0,0,0,1,1,1,0,0,2,1,0,1,1,1,0,2,]; actual class: democrat; predicted class: democrat
+Attributes: [2,2,2,1,1,1,0,0,0,0,1,1,0,1,0,0,]; actual class: democrat; predicted class: democrat
+Attributes: [1,0,0,1,1,0,0,0,2,1,0,0,1,1,0,0,]; actual class: democrat; predicted class: democrat
+Attributes: [0,0,1,0,0,0,1,1,1,0,1,0,0,0,1,0,]; actual class: republican; predicted class: democrat
+Attributes: [0,0,0,1,0,0,1,0,2,0,1,1,0,0,1,2,]; actual class: democrat; predicted class: democrat
+Attributes: [1,1,1,0,0,0,1,1,1,1,1,0,0,0,1,1,]; actual class: republican; predicted class: republican
+Attributes: [0,1,0,1,1,1,0,0,0,0,1,0,1,1,0,2,]; actual class: democrat; predicted class: democrat
+Attributes: [0,0,0,1,1,1,0,0,1,1,1,1,1,0,1,0,]; actual class: democrat; predicted class: democrat
+Attributes: [0,0,0,1,1,1,0,0,0,1,0,2,1,1,1,0,]; actual class: democrat; predicted class: democrat
+Attributes: [1,1,0,1,1,0,0,0,0,0,0,1,1,1,0,0,]; actual class: democrat; predicted class: democrat
+Attributes: [1,0,0,1,0,0,1,1,1,0,0,0,0,0,1,2,]; actual class: democrat; predicted class: republican
+Attributes: [1,1,0,1,1,0,0,0,0,1,0,1,1,1,0,0,]; actual class: democrat; predicted class: republican
+Attributes: [1,1,1,0,0,0,1,1,1,0,1,0,0,0,1,1,]; actual class: republican; predicted class: republican
+Attributes: [1,1,1,0,0,0,1,1,1,0,2,0,0,0,1,0,]; actual class: republican; predicted class: republican
+Attributes: [0,1,0,1,1,0,0,0,0,1,1,0,2,0,0,0,]; actual class: democrat; predicted class: democrat
+Attributes: [1,0,1,0,0,0,1,1,1,1,1,0,0,0,1,0,]; actual class: republican; predicted class: republican
+Attributes: [0,1,0,0,0,0,0,0,1,1,1,1,1,0,1,2,]; actual class: republican; predicted class: republican
+Attributes: [1,0,1,0,0,0,2,2,1,0,1,0,2,2,2,2,]; actual class: republican; predicted class: republican
+Attributes: [1,1,1,0,0,1,0,0,0,0,1,0,0,0,1,0,]; actual class: republican; predicted class: democrat
+Attributes: [1,1,1,0,0,0,1,1,1,0,1,0,0,0,1,1,]; actual class: republican; predicted class: republican
+Attributes: [0,1,0,1,1,0,0,0,1,1,1,0,0,1,1,0,]; actual class: democrat; predicted class: democrat
+Attributes: [1,0,0,1,1,0,1,0,0,1,0,1,0,1,0,0,]; actual class: democrat; predicted class: democrat
+Attributes: [0,1,0,1,1,1,0,0,0,1,1,1,1,1,0,2,]; actual class: democrat; predicted class: democrat
+Attributes: [0,0,0,1,1,1,0,0,0,1,1,1,1,1,1,0,]; actual class: democrat; predicted class: democrat
+Attributes: [0,0,1,1,0,2,1,1,1,1,0,1,0,0,1,0,]; actual class: democrat; predicted class: republican
+Attributes: [0,0,1,0,0,0,0,1,1,1,1,0,0,0,1,1,]; actual class: republican; predicted class: republican
+Results:
+Successful predictions: 33
+Total predictions: 44
+Accuracy: 0.75
+--------------------- TEST FINISH FOR SUBSET 3 ---------------------
+
+
+--------------------- TEST SUBSET WILL BE 4 ---------------------
+
+NaiveBayesClassifier()
+calculcateProbabilityPerClassAndAttribute()
+
+--- Class republican---
+Attribute EXPORT_ADMINISTRATION_ACT_SOUTH_AFRICA P(x=YES|C=republican) = 0.0844156
+Attribute EXPORT_ADMINISTRATION_ACT_SOUTH_AFRICA P(x=NO|C=republican) = 0.857143
+Attribute EXPORT_ADMINISTRATION_ACT_SOUTH_AFRICA P(x=INDETERMINATE|C=republican) = 0.0584416
+Attribute DUTY_FREE_EXPORTS P(x=YES|C=republican) = 0.948052
+Attribute DUTY_FREE_EXPORTS P(x=NO|C=republican) = 0.0194805
+Attribute DUTY_FREE_EXPORTS P(x=INDETERMINATE|C=republican) = 0.0324675
+Attribute CRIME P(x=YES|C=republican) = 0.818182
+Attribute CRIME P(x=NO|C=republican) = 0.136364
+Attribute CRIME P(x=INDETERMINATE|C=republican) = 0.0454545
+Attribute SUPERFUND_RIGHT_TO_SUE P(x=YES|C=republican) = 0.811688
+Attribute SUPERFUND_RIGHT_TO_SUE P(x=NO|C=republican) = 0.116883
+Attribute SUPERFUND_RIGHT_TO_SUE P(x=INDETERMINATE|C=republican) = 0.0714286
+Attribute EDUCATION_SPENDING P(x=YES|C=republican) = 0.123377
+Attribute EDUCATION_SPENDING P(x=NO|C=republican) = 0.824675
+Attribute EDUCATION_SPENDING P(x=INDETERMINATE|C=republican) = 0.0519481
+Attribute EL_SALVADOR_AID P(x=YES|C=republican) = 0.980519
+Attribute EL_SALVADOR_AID P(x=NO|C=republican) = 0.00649351
+Attribute EL_SALVADOR_AID P(x=INDETERMINATE|C=republican) = 0.012987
+Attribute PHYSICIAN_FEE_FREEZE P(x=YES|C=republican) = 0.136364
+Attribute PHYSICIAN_FEE_FREEZE P(x=NO|C=republican) = 0.844156
+Attribute PHYSICIAN_FEE_FREEZE P(x=INDETERMINATE|C=republican) = 0.0194805
+Attribute ADOPTION_OF_THE_BUDGET_RESOLUTION P(x=YES|C=republican) = 0.435065
+Attribute ADOPTION_OF_THE_BUDGET_RESOLUTION P(x=NO|C=republican) = 0.461039
+Attribute ADOPTION_OF_THE_BUDGET_RESOLUTION P(x=INDETERMINATE|C=republican) = 0.103896
+Attribute HANDICAPPED_INFANTS P(x=YES|C=republican) = 0
+Attribute HANDICAPPED_INFANTS P(x=NO|C=republican) = 1
+Attribute HANDICAPPED_INFANTS P(x=INDETERMINATE|C=republican) = 0
+Attribute WATER_PROJECT_COST_SHARING P(x=YES|C=republican) = 0.175325
+Attribute WATER_PROJECT_COST_SHARING P(x=NO|C=republican) = 0.811688
+Attribute WATER_PROJECT_COST_SHARING P(x=INDETERMINATE|C=republican) = 0.012987
+Attribute RELIGIOUS_GROUPS_IN_SCHOOLS P(x=YES|C=republican) = 0.941558
+Attribute RELIGIOUS_GROUPS_IN_SCHOOLS P(x=NO|C=republican) = 0.0454545
+Attribute RELIGIOUS_GROUPS_IN_SCHOOLS P(x=INDETERMINATE|C=republican) = 0.012987
+Attribute ANTI_SATELLITE_TEST_BAN P(x=YES|C=republican) = 0.88961
+Attribute ANTI_SATELLITE_TEST_BAN P(x=NO|C=republican) = 0.103896
+Attribute ANTI_SATELLITE_TEST_BAN P(x=INDETERMINATE|C=republican) = 0.00649351
+Attribute AID_TO_NICARAGUAN_CONTRAS P(x=YES|C=republican) = 0.227273
+Attribute AID_TO_NICARAGUAN_CONTRAS P(x=NO|C=republican) = 0.74026
+Attribute AID_TO_NICARAGUAN_CONTRAS P(x=INDETERMINATE|C=republican) = 0.0324675
+Attribute MX_MISSILE P(x=YES|C=republican) = 0.142857
+Attribute MX_MISSILE P(x=NO|C=republican) = 0.805195
+Attribute MX_MISSILE P(x=INDETERMINATE|C=republican) = 0.0519481
+Attribute IMMIGRATION P(x=YES|C=republican) = 0.11039
+Attribute IMMIGRATION P(x=NO|C=republican) = 0.876623
+Attribute IMMIGRATION P(x=INDETERMINATE|C=republican) = 0.012987
+Attribute SYNFUELS_CORPORATION_CUTBACK P(x=YES|C=republican) = 0.571429
+Attribute SYNFUELS_CORPORATION_CUTBACK P(x=NO|C=republican) = 0.415584
+Attribute SYNFUELS_CORPORATION_CUTBACK P(x=INDETERMINATE|C=republican) = 0.012987
+Class P(C=republican) = 0.393862
+
+--- Class democrat---
+Attribute EXPORT_ADMINISTRATION_ACT_SOUTH_AFRICA P(x=YES|C=democrat) = 0.603376
+Attribute EXPORT_ADMINISTRATION_ACT_SOUTH_AFRICA P(x=NO|C=democrat) = 0.333333
+Attribute EXPORT_ADMINISTRATION_ACT_SOUTH_AFRICA P(x=INDETERMINATE|C=democrat) = 0.0632911
+Attribute DUTY_FREE_EXPORTS P(x=YES|C=democrat) = 0.345992
+Attribute DUTY_FREE_EXPORTS P(x=NO|C=democrat) = 0.611814
+Attribute DUTY_FREE_EXPORTS P(x=INDETERMINATE|C=democrat) = 0.0421941
+Attribute CRIME P(x=YES|C=democrat) = 0.274262
+Attribute CRIME P(x=NO|C=democrat) = 0.662447
+Attribute CRIME P(x=INDETERMINATE|C=democrat) = 0.0632911
+Attribute SUPERFUND_RIGHT_TO_SUE P(x=YES|C=democrat) = 0.130802
+Attribute SUPERFUND_RIGHT_TO_SUE P(x=NO|C=democrat) = 0.801688
+Attribute SUPERFUND_RIGHT_TO_SUE P(x=INDETERMINATE|C=democrat) = 0.0675105
+Attribute EDUCATION_SPENDING P(x=YES|C=democrat) = 0.476793
+Attribute EDUCATION_SPENDING P(x=NO|C=democrat) = 0.472574
+Attribute EDUCATION_SPENDING P(x=INDETERMINATE|C=democrat) = 0.0506329
+Attribute EL_SALVADOR_AID P(x=YES|C=democrat) = 0.0548523
+Attribute EL_SALVADOR_AID P(x=NO|C=democrat) = 0.911392
+Attribute EL_SALVADOR_AID P(x=INDETERMINATE|C=democrat) = 0.0337553
+Attribute PHYSICIAN_FEE_FREEZE P(x=YES|C=democrat) = 0.864979
+Attribute PHYSICIAN_FEE_FREEZE P(x=NO|C=democrat) = 0.105485
+Attribute PHYSICIAN_FEE_FREEZE P(x=INDETERMINATE|C=democrat) = 0.0295359
+Attribute ADOPTION_OF_THE_BUDGET_RESOLUTION P(x=YES|C=democrat) = 0.447257
+Attribute ADOPTION_OF_THE_BUDGET_RESOLUTION P(x=NO|C=democrat) = 0.438819
+Attribute ADOPTION_OF_THE_BUDGET_RESOLUTION P(x=INDETERMINATE|C=democrat) = 0.113924
+Attribute HANDICAPPED_INFANTS P(x=YES|C=democrat) = 1
+Attribute HANDICAPPED_INFANTS P(x=NO|C=democrat) = 0
+Attribute HANDICAPPED_INFANTS P(x=INDETERMINATE|C=democrat) = 0
+Attribute WATER_PROJECT_COST_SHARING P(x=YES|C=democrat) = 0.590717
+Attribute WATER_PROJECT_COST_SHARING P(x=NO|C=democrat) = 0.371308
+Attribute WATER_PROJECT_COST_SHARING P(x=INDETERMINATE|C=democrat) = 0.0379747
+Attribute RELIGIOUS_GROUPS_IN_SCHOOLS P(x=YES|C=democrat) = 0.202532
+Attribute RELIGIOUS_GROUPS_IN_SCHOOLS P(x=NO|C=democrat) = 0.746835
+Attribute RELIGIOUS_GROUPS_IN_SCHOOLS P(x=INDETERMINATE|C=democrat) = 0.0506329
+Attribute ANTI_SATELLITE_TEST_BAN P(x=YES|C=democrat) = 0.455696
+Attribute ANTI_SATELLITE_TEST_BAN P(x=NO|C=democrat) = 0.506329
+Attribute ANTI_SATELLITE_TEST_BAN P(x=INDETERMINATE|C=democrat) = 0.0379747
+Attribute AID_TO_NICARAGUAN_CONTRAS P(x=YES|C=democrat) = 0.751055
+Attribute AID_TO_NICARAGUAN_CONTRAS P(x=NO|C=democrat) = 0.21519
+Attribute AID_TO_NICARAGUAN_CONTRAS P(x=INDETERMINATE|C=democrat) = 0.0337553
+Attribute MX_MISSILE P(x=YES|C=democrat) = 0.814346
+Attribute MX_MISSILE P(x=NO|C=democrat) = 0.168776
+Attribute MX_MISSILE P(x=INDETERMINATE|C=democrat) = 0.0168776
+Attribute IMMIGRATION P(x=YES|C=democrat) = 0.696203
+Attribute IMMIGRATION P(x=NO|C=democrat) = 0.227848
+Attribute IMMIGRATION P(x=INDETERMINATE|C=democrat) = 0.0759494
+Attribute SYNFUELS_CORPORATION_CUTBACK P(x=YES|C=democrat) = 0.451477
+Attribute SYNFUELS_CORPORATION_CUTBACK P(x=NO|C=democrat) = 0.531646
+Attribute SYNFUELS_CORPORATION_CUTBACK P(x=INDETERMINATE|C=democrat) = 0.0168776
+Class P(C=democrat) = 0.606138
+
+ ------------ PREDICTIONS START ------------
+Attributes: [1,0,1,0,0,0,1,1,1,0,1,0,0,0,1,0,]; actual class: republican; predicted class: republican
+Attributes: [1,1,0,1,1,1,0,0,0,0,0,2,1,1,0,0,]; actual class: democrat; predicted class: democrat
+Attributes: [1,0,1,0,0,0,1,1,1,1,1,0,0,0,1,1,]; actual class: republican; predicted class: republican
+Attributes: [1,1,0,1,0,0,1,1,1,0,0,0,0,0,1,0,]; actual class: democrat; predicted class: republican
+Attributes: [0,0,0,1,0,0,0,0,0,0,0,1,0,0,1,2,]; actual class: democrat; predicted class: democrat
+Attributes: [0,0,1,1,1,1,1,0,0,1,0,1,1,1,0,1,]; actual class: democrat; predicted class: democrat
+Attributes: [0,1,1,1,1,1,0,0,0,0,1,1,1,0,1,0,]; actual class: republican; predicted class: democrat
+Attributes: [1,0,1,0,0,0,1,1,1,1,1,0,0,0,1,1,]; actual class: republican; predicted class: republican
+Attributes: [1,1,0,1,1,0,0,0,0,1,0,0,1,0,0,2,]; actual class: democrat; predicted class: republican
+Attributes: [1,1,0,1,1,0,1,0,0,0,1,1,1,0,1,0,]; actual class: democrat; predicted class: democrat
+Attributes: [2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,]; actual class: republican; predicted class: democrat
+Attributes: [1,1,0,1,1,1,0,0,1,0,0,1,1,1,0,2,]; actual class: democrat; predicted class: democrat
+Attributes: [1,2,1,0,0,0,1,1,1,1,1,0,0,0,1,1,]; actual class: republican; predicted class: republican
+Attributes: [0,0,0,1,1,1,0,0,0,1,0,1,1,1,0,2,]; actual class: democrat; predicted class: democrat
+Attributes: [0,1,0,1,1,1,0,1,0,0,0,1,1,1,0,0,]; actual class: democrat; predicted class: democrat
+Attributes: [0,0,1,0,0,0,0,1,1,1,1,0,0,0,1,0,]; actual class: republican; predicted class: republican
+Attributes: [0,0,0,1,1,0,0,0,0,0,0,0,0,1,1,0,]; actual class: democrat; predicted class: democrat
+Attributes: [0,0,0,1,0,0,1,0,1,0,0,1,0,0,0,0,]; actual class: democrat; predicted class: republican
+Attributes: [0,0,0,1,0,0,1,0,0,0,0,1,1,1,1,0,]; actual class: democrat; predicted class: democrat
+Attributes: [1,0,1,0,0,0,1,1,0,0,1,0,0,0,1,0,]; actual class: republican; predicted class: democrat
+Attributes: [1,1,0,1,1,0,0,0,0,0,1,1,0,1,1,0,]; actual class: democrat; predicted class: democrat
+Attributes: [0,1,1,1,1,1,0,0,0,0,1,1,1,1,0,0,]; actual class: democrat; predicted class: democrat
+Attributes: [0,1,1,1,0,0,1,1,1,1,0,0,1,0,1,0,]; actual class: democrat; predicted class: republican
+Attributes: [0,1,0,1,1,1,0,0,0,0,1,1,1,1,0,0,]; actual class: democrat; predicted class: democrat
+Attributes: [0,0,0,1,1,1,0,0,0,1,0,1,1,1,0,2,]; actual class: democrat; predicted class: democrat
+Attributes: [1,2,1,0,0,0,1,1,1,0,1,0,0,0,1,0,]; actual class: republican; predicted class: republican
+Attributes: [1,0,1,0,0,0,1,1,1,1,0,2,0,0,2,2,]; actual class: republican; predicted class: republican
+Attributes: [0,1,0,1,1,1,0,0,0,1,1,1,1,1,2,0,]; actual class: democrat; predicted class: democrat
+Attributes: [0,2,1,0,0,0,0,0,1,1,1,0,2,0,2,2,]; actual class: republican; predicted class: republican
+Attributes: [1,0,0,0,0,0,0,2,1,1,1,1,2,2,0,2,]; actual class: republican; predicted class: republican
+Attributes: [0,0,0,1,1,1,0,0,0,1,1,1,1,1,1,0,]; actual class: democrat; predicted class: democrat
+Attributes: [1,0,0,1,1,0,0,0,0,0,1,2,1,1,0,0,]; actual class: democrat; predicted class: democrat
+Attributes: [1,0,0,1,0,0,1,1,1,1,1,1,0,0,0,0,]; actual class: democrat; predicted class: republican
+Attributes: [1,1,1,0,0,0,1,1,1,1,1,0,0,0,1,0,]; actual class: republican; predicted class: republican
+Attributes: [1,1,0,1,1,0,0,0,0,0,1,0,1,1,1,0,]; actual class: democrat; predicted class: democrat
+Attributes: [0,1,0,1,1,1,0,0,0,0,1,1,1,1,0,0,]; actual class: democrat; predicted class: democrat
+Attributes: [1,0,0,1,0,0,1,1,1,1,0,1,1,1,0,2,]; actual class: democrat; predicted class: republican
+Attributes: [1,0,1,0,1,0,0,0,0,1,0,1,0,1,0,2,]; actual class: democrat; predicted class: democrat
+Attributes: [1,0,0,1,1,0,0,0,2,0,1,1,1,1,1,0,]; actual class: democrat; predicted class: democrat
+Attributes: [0,0,1,0,0,0,1,2,1,1,0,0,0,0,1,1,]; actual class: republican; predicted class: republican
+Attributes: [1,1,0,1,1,1,0,0,0,0,1,1,1,0,1,0,]; actual class: democrat; predicted class: democrat
+Attributes: [0,2,0,1,1,1,0,0,0,1,1,1,0,1,0,0,]; actual class: democrat; predicted class: democrat
+Attributes: [1,1,0,1,1,1,0,0,0,1,1,1,1,1,0,2,]; actual class: democrat; predicted class: democrat
+Attributes: [0,0,0,1,1,1,0,0,0,1,0,1,1,1,1,0,]; actual class: democrat; predicted class: democrat
+Results:
+Successful predictions: 35
+Total predictions: 44
+Accuracy: 0.795455
+--------------------- TEST FINISH FOR SUBSET 4 ---------------------
+
+
+--------------------- TEST SUBSET WILL BE 5 ---------------------
+
+NaiveBayesClassifier()
+calculcateProbabilityPerClassAndAttribute()
+
+--- Class republican---
+Attribute EXPORT_ADMINISTRATION_ACT_SOUTH_AFRICA P(x=YES|C=republican) = 0.0849673
+Attribute EXPORT_ADMINISTRATION_ACT_SOUTH_AFRICA P(x=NO|C=republican) = 0.843137
+Attribute EXPORT_ADMINISTRATION_ACT_SOUTH_AFRICA P(x=INDETERMINATE|C=republican) = 0.0718954
+Attribute DUTY_FREE_EXPORTS P(x=YES|C=republican) = 0.941176
+Attribute DUTY_FREE_EXPORTS P(x=NO|C=republican) = 0.0130719
+Attribute DUTY_FREE_EXPORTS P(x=INDETERMINATE|C=republican) = 0.0457516
+Attribute CRIME P(x=YES|C=republican) = 0.803922
+Attribute CRIME P(x=NO|C=republican) = 0.143791
+Attribute CRIME P(x=INDETERMINATE|C=republican) = 0.0522876
+Attribute SUPERFUND_RIGHT_TO_SUE P(x=YES|C=republican) = 0.810458
+Attribute SUPERFUND_RIGHT_TO_SUE P(x=NO|C=republican) = 0.117647
+Attribute SUPERFUND_RIGHT_TO_SUE P(x=INDETERMINATE|C=republican) = 0.0718954
+Attribute EDUCATION_SPENDING P(x=YES|C=republican) = 0.117647
+Attribute EDUCATION_SPENDING P(x=NO|C=republican) = 0.830065
+Attribute EDUCATION_SPENDING P(x=INDETERMINATE|C=republican) = 0.0522876
+Attribute EL_SALVADOR_AID P(x=YES|C=republican) = 0.96732
+Attribute EL_SALVADOR_AID P(x=NO|C=republican) = 0.0130719
+Attribute EL_SALVADOR_AID P(x=INDETERMINATE|C=republican) = 0.0196078
+Attribute PHYSICIAN_FEE_FREEZE P(x=YES|C=republican) = 0.137255
+Attribute PHYSICIAN_FEE_FREEZE P(x=NO|C=republican) = 0.836601
+Attribute PHYSICIAN_FEE_FREEZE P(x=INDETERMINATE|C=republican) = 0.0261438
+Attribute ADOPTION_OF_THE_BUDGET_RESOLUTION P(x=YES|C=republican) = 0.405229
+Attribute ADOPTION_OF_THE_BUDGET_RESOLUTION P(x=NO|C=republican) = 0.477124
+Attribute ADOPTION_OF_THE_BUDGET_RESOLUTION P(x=INDETERMINATE|C=republican) = 0.117647
+Attribute HANDICAPPED_INFANTS P(x=YES|C=republican) = 0
+Attribute HANDICAPPED_INFANTS P(x=NO|C=republican) = 1
+Attribute HANDICAPPED_INFANTS P(x=INDETERMINATE|C=republican) = 0
+Attribute WATER_PROJECT_COST_SHARING P(x=YES|C=republican) = 0.183007
+Attribute WATER_PROJECT_COST_SHARING P(x=NO|C=republican) = 0.797386
+Attribute WATER_PROJECT_COST_SHARING P(x=INDETERMINATE|C=republican) = 0.0196078
+Attribute RELIGIOUS_GROUPS_IN_SCHOOLS P(x=YES|C=republican) = 0.928105
+Attribute RELIGIOUS_GROUPS_IN_SCHOOLS P(x=NO|C=republican) = 0.0522876
+Attribute RELIGIOUS_GROUPS_IN_SCHOOLS P(x=INDETERMINATE|C=republican) = 0.0196078
+Attribute ANTI_SATELLITE_TEST_BAN P(x=YES|C=republican) = 0.875817
+Attribute ANTI_SATELLITE_TEST_BAN P(x=NO|C=republican) = 0.111111
+Attribute ANTI_SATELLITE_TEST_BAN P(x=INDETERMINATE|C=republican) = 0.0130719
+Attribute AID_TO_NICARAGUAN_CONTRAS P(x=YES|C=republican) = 0.235294
+Attribute AID_TO_NICARAGUAN_CONTRAS P(x=NO|C=republican) = 0.72549
+Attribute AID_TO_NICARAGUAN_CONTRAS P(x=INDETERMINATE|C=republican) = 0.0392157
+Attribute MX_MISSILE P(x=YES|C=republican) = 0.143791
+Attribute MX_MISSILE P(x=NO|C=republican) = 0.784314
+Attribute MX_MISSILE P(x=INDETERMINATE|C=republican) = 0.0718954
+Attribute IMMIGRATION P(x=YES|C=republican) = 0.124183
+Attribute IMMIGRATION P(x=NO|C=republican) = 0.856209
+Attribute IMMIGRATION P(x=INDETERMINATE|C=republican) = 0.0196078
+Attribute SYNFUELS_CORPORATION_CUTBACK P(x=YES|C=republican) = 0.562092
+Attribute SYNFUELS_CORPORATION_CUTBACK P(x=NO|C=republican) = 0.418301
+Attribute SYNFUELS_CORPORATION_CUTBACK P(x=INDETERMINATE|C=republican) = 0.0196078
+Class P(C=republican) = 0.391304
+
+--- Class democrat---
+Attribute EXPORT_ADMINISTRATION_ACT_SOUTH_AFRICA P(x=YES|C=democrat) = 0.60084
+Attribute EXPORT_ADMINISTRATION_ACT_SOUTH_AFRICA P(x=NO|C=democrat) = 0.352941
+Attribute EXPORT_ADMINISTRATION_ACT_SOUTH_AFRICA P(x=INDETERMINATE|C=democrat) = 0.0462185
+Attribute DUTY_FREE_EXPORTS P(x=YES|C=democrat) = 0.336134
+Attribute DUTY_FREE_EXPORTS P(x=NO|C=democrat) = 0.630252
+Attribute DUTY_FREE_EXPORTS P(x=INDETERMINATE|C=democrat) = 0.0336134
+Attribute CRIME P(x=YES|C=democrat) = 0.264706
+Attribute CRIME P(x=NO|C=democrat) = 0.680672
+Attribute CRIME P(x=INDETERMINATE|C=democrat) = 0.0546218
+Attribute SUPERFUND_RIGHT_TO_SUE P(x=YES|C=democrat) = 0.138655
+Attribute SUPERFUND_RIGHT_TO_SUE P(x=NO|C=democrat) = 0.798319
+Attribute SUPERFUND_RIGHT_TO_SUE P(x=INDETERMINATE|C=democrat) = 0.0630252
+Attribute EDUCATION_SPENDING P(x=YES|C=democrat) = 0.478992
+Attribute EDUCATION_SPENDING P(x=NO|C=democrat) = 0.491597
+Attribute EDUCATION_SPENDING P(x=INDETERMINATE|C=democrat) = 0.0294118
+Attribute EL_SALVADOR_AID P(x=YES|C=democrat) = 0.0546218
+Attribute EL_SALVADOR_AID P(x=NO|C=democrat) = 0.92437
+Attribute EL_SALVADOR_AID P(x=INDETERMINATE|C=democrat) = 0.0210084
+Attribute PHYSICIAN_FEE_FREEZE P(x=YES|C=democrat) = 0.865546
+Attribute PHYSICIAN_FEE_FREEZE P(x=NO|C=democrat) = 0.105042
+Attribute PHYSICIAN_FEE_FREEZE P(x=INDETERMINATE|C=democrat) = 0.0294118
+Attribute ADOPTION_OF_THE_BUDGET_RESOLUTION P(x=YES|C=democrat) = 0.445378
+Attribute ADOPTION_OF_THE_BUDGET_RESOLUTION P(x=NO|C=democrat) = 0.445378
+Attribute ADOPTION_OF_THE_BUDGET_RESOLUTION P(x=INDETERMINATE|C=democrat) = 0.109244
+Attribute HANDICAPPED_INFANTS P(x=YES|C=democrat) = 1
+Attribute HANDICAPPED_INFANTS P(x=NO|C=democrat) = 0
+Attribute HANDICAPPED_INFANTS P(x=INDETERMINATE|C=democrat) = 0
+Attribute WATER_PROJECT_COST_SHARING P(x=YES|C=democrat) = 0.579832
+Attribute WATER_PROJECT_COST_SHARING P(x=NO|C=democrat) = 0.394958
+Attribute WATER_PROJECT_COST_SHARING P(x=INDETERMINATE|C=democrat) = 0.0252101
+Attribute RELIGIOUS_GROUPS_IN_SCHOOLS P(x=YES|C=democrat) = 0.205882
+Attribute RELIGIOUS_GROUPS_IN_SCHOOLS P(x=NO|C=democrat) = 0.747899
+Attribute RELIGIOUS_GROUPS_IN_SCHOOLS P(x=INDETERMINATE|C=democrat) = 0.0462185
+Attribute ANTI_SATELLITE_TEST_BAN P(x=YES|C=democrat) = 0.466387
+Attribute ANTI_SATELLITE_TEST_BAN P(x=NO|C=democrat) = 0.5
+Attribute ANTI_SATELLITE_TEST_BAN P(x=INDETERMINATE|C=democrat) = 0.0336134
+Attribute AID_TO_NICARAGUAN_CONTRAS P(x=YES|C=democrat) = 0.760504
+Attribute AID_TO_NICARAGUAN_CONTRAS P(x=NO|C=democrat) = 0.210084
+Attribute AID_TO_NICARAGUAN_CONTRAS P(x=INDETERMINATE|C=democrat) = 0.0294118
+Attribute MX_MISSILE P(x=YES|C=democrat) = 0.810924
+Attribute MX_MISSILE P(x=NO|C=democrat) = 0.176471
+Attribute MX_MISSILE P(x=INDETERMINATE|C=democrat) = 0.012605
+Attribute IMMIGRATION P(x=YES|C=democrat) = 0.714286
+Attribute IMMIGRATION P(x=NO|C=democrat) = 0.210084
+Attribute IMMIGRATION P(x=INDETERMINATE|C=democrat) = 0.0756303
+Attribute SYNFUELS_CORPORATION_CUTBACK P(x=YES|C=democrat) = 0.487395
+Attribute SYNFUELS_CORPORATION_CUTBACK P(x=NO|C=democrat) = 0.504202
+Attribute SYNFUELS_CORPORATION_CUTBACK P(x=INDETERMINATE|C=democrat) = 0.00840336
+Class P(C=democrat) = 0.608696
+
+ ------------ PREDICTIONS START ------------
+Attributes: [0,1,0,1,1,1,0,0,0,0,0,1,1,0,1,0,]; actual class: democrat; predicted class: democrat
+Attributes: [2,0,0,2,0,0,1,1,1,1,0,1,0,0,1,1,]; actual class: democrat; predicted class: republican
+Attributes: [0,0,0,0,0,0,0,0,1,0,2,2,2,0,1,0,]; actual class: republican; predicted class: democrat
+Attributes: [0,0,0,1,1,0,0,0,0,0,1,1,1,1,1,0,]; actual class: democrat; predicted class: democrat
+Attributes: [0,2,1,0,0,0,1,1,1,0,1,0,2,0,1,0,]; actual class: republican; predicted class: democrat
+Attributes: [0,0,0,1,1,1,0,0,0,1,1,1,1,1,0,2,]; actual class: democrat; predicted class: democrat
+Attributes: [0,1,0,1,1,1,0,0,0,1,1,1,0,1,0,2,]; actual class: democrat; predicted class: democrat
+Attributes: [0,0,0,1,1,1,0,0,0,1,2,1,1,1,1,2,]; actual class: democrat; predicted class: democrat
+Attributes: [0,1,0,1,1,1,0,0,0,1,0,1,1,1,0,2,]; actual class: democrat; predicted class: democrat
+Attributes: [0,0,0,1,0,0,1,0,1,1,0,1,0,1,0,0,]; actual class: democrat; predicted class: republican
+Attributes: [0,1,0,1,1,1,0,0,0,0,0,1,0,1,0,0,]; actual class: democrat; predicted class: democrat
+Attributes: [0,0,1,1,0,0,1,1,1,1,0,0,0,0,0,1,]; actual class: democrat; predicted class: republican
+Attributes: [0,1,0,1,1,2,0,0,0,1,2,2,1,2,2,2,]; actual class: democrat; predicted class: democrat
+Attributes: [1,1,0,1,1,1,0,0,0,0,0,1,1,1,0,0,]; actual class: democrat; predicted class: democrat
+Attributes: [0,0,1,0,0,0,1,1,1,1,0,1,0,0,1,0,]; actual class: republican; predicted class: republican
+Attributes: [1,0,1,0,0,0,1,1,1,0,1,0,0,0,1,1,]; actual class: republican; predicted class: republican
+Attributes: [1,0,1,0,0,0,1,1,1,0,1,0,0,0,2,1,]; actual class: republican; predicted class: republican
+Attributes: [2,2,0,1,1,1,0,0,0,2,2,1,1,1,2,2,]; actual class: democrat; predicted class: democrat
+Attributes: [1,0,1,0,0,0,1,1,1,1,1,0,0,0,1,0,]; actual class: republican; predicted class: republican
+Attributes: [0,0,0,1,1,1,0,0,0,0,1,1,0,1,0,0,]; actual class: democrat; predicted class: democrat
+Attributes: [1,0,1,0,0,0,1,1,1,1,1,2,0,0,1,1,]; actual class: republican; predicted class: republican
+Attributes: [1,0,1,0,0,0,1,1,1,1,1,1,0,0,1,0,]; actual class: republican; predicted class: republican
+Attributes: [1,1,0,1,1,0,0,0,1,1,0,1,1,0,2,0,]; actual class: democrat; predicted class: republican
+Attributes: [1,0,0,1,0,0,0,0,1,1,0,1,0,1,0,0,]; actual class: democrat; predicted class: republican
+Attributes: [0,1,0,1,1,1,1,0,0,0,1,1,1,1,0,0,]; actual class: democrat; predicted class: democrat
+Attributes: [1,0,1,0,0,0,1,1,1,1,1,0,0,0,1,1,]; actual class: republican; predicted class: republican
+Attributes: [1,0,1,0,0,0,1,1,1,1,1,0,0,0,1,1,]; actual class: republican; predicted class: republican
+Attributes: [0,1,0,1,1,0,0,0,0,0,1,0,1,0,1,2,]; actual class: democrat; predicted class: democrat
+Attributes: [1,0,1,0,0,0,0,0,1,1,0,0,0,0,0,0,]; actual class: republican; predicted class: republican
+Attributes: [1,2,1,0,0,0,1,1,1,1,1,0,0,0,1,1,]; actual class: republican; predicted class: republican
+Attributes: [0,0,0,2,1,1,1,0,1,1,0,2,1,1,0,0,]; actual class: democrat; predicted class: democrat
+Attributes: [1,0,1,0,0,0,1,1,1,1,1,1,2,0,0,0,]; actual class: democrat; predicted class: republican
+Attributes: [1,0,1,0,0,0,0,1,1,1,1,0,0,0,1,0,]; actual class: republican; predicted class: republican
+Attributes: [1,0,1,0,0,0,1,1,1,0,1,0,0,0,1,0,]; actual class: republican; predicted class: republican
+Attributes: [1,0,0,2,0,0,1,0,1,0,2,1,0,0,2,0,]; actual class: democrat; predicted class: republican
+Attributes: [1,1,1,1,1,0,1,0,0,1,0,0,0,0,0,1,]; actual class: democrat; predicted class: republican
+Attributes: [0,1,0,1,1,1,0,0,0,1,1,1,1,1,0,2,]; actual class: democrat; predicted class: democrat
+Attributes: [1,0,1,0,0,0,1,1,1,0,0,0,0,1,1,0,]; actual class: republican; predicted class: democrat
+Attributes: [2,2,0,1,1,1,0,0,2,1,2,2,2,2,2,2,]; actual class: democrat; predicted class: democrat
+Attributes: [1,0,0,1,1,1,0,0,1,1,0,1,1,1,0,2,]; actual class: democrat; predicted class: democrat
+Attributes: [0,0,0,1,2,0,1,2,1,1,0,1,0,0,1,2,]; actual class: democrat; predicted class: republican
+Attributes: [1,1,1,1,1,0,0,0,0,1,0,1,1,0,0,0,]; actual class: democrat; predicted class: republican
+Attributes: [0,1,0,1,1,1,2,0,0,2,1,1,1,1,0,2,]; actual class: democrat; predicted class: democrat
+Attributes: [0,0,0,1,1,1,0,0,0,1,0,1,1,1,1,0,]; actual class: democrat; predicted class: democrat
+Results:
+Successful predictions: 31
+Total predictions: 44
+Accuracy: 0.704545
+--------------------- TEST FINISH FOR SUBSET 5 ---------------------
+
+
+--------------------- TEST SUBSET WILL BE 6 ---------------------
+
+NaiveBayesClassifier()
+calculcateProbabilityPerClassAndAttribute()
+
+--- Class republican---
+Attribute EXPORT_ADMINISTRATION_ACT_SOUTH_AFRICA P(x=YES|C=republican) = 0.0844156
+Attribute EXPORT_ADMINISTRATION_ACT_SOUTH_AFRICA P(x=NO|C=republican) = 0.844156
+Attribute EXPORT_ADMINISTRATION_ACT_SOUTH_AFRICA P(x=INDETERMINATE|C=republican) = 0.0714286
+Attribute DUTY_FREE_EXPORTS P(x=YES|C=republican) = 0.935065
+Attribute DUTY_FREE_EXPORTS P(x=NO|C=republican) = 0.0194805
+Attribute DUTY_FREE_EXPORTS P(x=INDETERMINATE|C=republican) = 0.0454545
+Attribute CRIME P(x=YES|C=republican) = 0.824675
+Attribute CRIME P(x=NO|C=republican) = 0.116883
+Attribute CRIME P(x=INDETERMINATE|C=republican) = 0.0584416
+Attribute SUPERFUND_RIGHT_TO_SUE P(x=YES|C=republican) = 0.805195
+Attribute SUPERFUND_RIGHT_TO_SUE P(x=NO|C=republican) = 0.11039
+Attribute SUPERFUND_RIGHT_TO_SUE P(x=INDETERMINATE|C=republican) = 0.0844156
+Attribute EDUCATION_SPENDING P(x=YES|C=republican) = 0.12987
+Attribute EDUCATION_SPENDING P(x=NO|C=republican) = 0.811688
+Attribute EDUCATION_SPENDING P(x=INDETERMINATE|C=republican) = 0.0584416
+Attribute EL_SALVADOR_AID P(x=YES|C=republican) = 0.967532
+Attribute EL_SALVADOR_AID P(x=NO|C=republican) = 0.012987
+Attribute EL_SALVADOR_AID P(x=INDETERMINATE|C=republican) = 0.0194805
+Attribute PHYSICIAN_FEE_FREEZE P(x=YES|C=republican) = 0.12987
+Attribute PHYSICIAN_FEE_FREEZE P(x=NO|C=republican) = 0.844156
+Attribute PHYSICIAN_FEE_FREEZE P(x=INDETERMINATE|C=republican) = 0.025974
+Attribute ADOPTION_OF_THE_BUDGET_RESOLUTION P(x=YES|C=republican) = 0.461039
+Attribute ADOPTION_OF_THE_BUDGET_RESOLUTION P(x=NO|C=republican) = 0.415584
+Attribute ADOPTION_OF_THE_BUDGET_RESOLUTION P(x=INDETERMINATE|C=republican) = 0.123377
+Attribute HANDICAPPED_INFANTS P(x=YES|C=republican) = 0
+Attribute HANDICAPPED_INFANTS P(x=NO|C=republican) = 1
+Attribute HANDICAPPED_INFANTS P(x=INDETERMINATE|C=republican) = 0
+Attribute WATER_PROJECT_COST_SHARING P(x=YES|C=republican) = 0.188312
+Attribute WATER_PROJECT_COST_SHARING P(x=NO|C=republican) = 0.792208
+Attribute WATER_PROJECT_COST_SHARING P(x=INDETERMINATE|C=republican) = 0.0194805
+Attribute RELIGIOUS_GROUPS_IN_SCHOOLS P(x=YES|C=republican) = 0.935065
+Attribute RELIGIOUS_GROUPS_IN_SCHOOLS P(x=NO|C=republican) = 0.0454545
+Attribute RELIGIOUS_GROUPS_IN_SCHOOLS P(x=INDETERMINATE|C=republican) = 0.0194805
+Attribute ANTI_SATELLITE_TEST_BAN P(x=YES|C=republican) = 0.909091
+Attribute ANTI_SATELLITE_TEST_BAN P(x=NO|C=republican) = 0.0779221
+Attribute ANTI_SATELLITE_TEST_BAN P(x=INDETERMINATE|C=republican) = 0.012987
+Attribute AID_TO_NICARAGUAN_CONTRAS P(x=YES|C=republican) = 0.233766
+Attribute AID_TO_NICARAGUAN_CONTRAS P(x=NO|C=republican) = 0.727273
+Attribute AID_TO_NICARAGUAN_CONTRAS P(x=INDETERMINATE|C=republican) = 0.038961
+Attribute MX_MISSILE P(x=YES|C=republican) = 0.149351
+Attribute MX_MISSILE P(x=NO|C=republican) = 0.779221
+Attribute MX_MISSILE P(x=INDETERMINATE|C=republican) = 0.0714286
+Attribute IMMIGRATION P(x=YES|C=republican) = 0.103896
+Attribute IMMIGRATION P(x=NO|C=republican) = 0.876623
+Attribute IMMIGRATION P(x=INDETERMINATE|C=republican) = 0.0194805
+Attribute SYNFUELS_CORPORATION_CUTBACK P(x=YES|C=republican) = 0.545455
+Attribute SYNFUELS_CORPORATION_CUTBACK P(x=NO|C=republican) = 0.435065
+Attribute SYNFUELS_CORPORATION_CUTBACK P(x=INDETERMINATE|C=republican) = 0.0194805
+Class P(C=republican) = 0.393862
+
+--- Class democrat---
+Attribute EXPORT_ADMINISTRATION_ACT_SOUTH_AFRICA P(x=YES|C=democrat) = 0.594937
+Attribute EXPORT_ADMINISTRATION_ACT_SOUTH_AFRICA P(x=NO|C=democrat) = 0.35443
+Attribute EXPORT_ADMINISTRATION_ACT_SOUTH_AFRICA P(x=INDETERMINATE|C=democrat) = 0.0506329
+Attribute DUTY_FREE_EXPORTS P(x=YES|C=democrat) = 0.324895
+Attribute DUTY_FREE_EXPORTS P(x=NO|C=democrat) = 0.632911
+Attribute DUTY_FREE_EXPORTS P(x=INDETERMINATE|C=democrat) = 0.0421941
+Attribute CRIME P(x=YES|C=democrat) = 0.265823
+Attribute CRIME P(x=NO|C=democrat) = 0.675105
+Attribute CRIME P(x=INDETERMINATE|C=democrat) = 0.0590717
+Attribute SUPERFUND_RIGHT_TO_SUE P(x=YES|C=democrat) = 0.14346
+Attribute SUPERFUND_RIGHT_TO_SUE P(x=NO|C=democrat) = 0.78903
+Attribute SUPERFUND_RIGHT_TO_SUE P(x=INDETERMINATE|C=democrat) = 0.0675105
+Attribute EDUCATION_SPENDING P(x=YES|C=democrat) = 0.481013
+Attribute EDUCATION_SPENDING P(x=NO|C=democrat) = 0.481013
+Attribute EDUCATION_SPENDING P(x=INDETERMINATE|C=democrat) = 0.0379747
+Attribute EL_SALVADOR_AID P(x=YES|C=democrat) = 0.0548523
+Attribute EL_SALVADOR_AID P(x=NO|C=democrat) = 0.911392
+Attribute EL_SALVADOR_AID P(x=INDETERMINATE|C=democrat) = 0.0337553
+Attribute PHYSICIAN_FEE_FREEZE P(x=YES|C=democrat) = 0.864979
+Attribute PHYSICIAN_FEE_FREEZE P(x=NO|C=democrat) = 0.105485
+Attribute PHYSICIAN_FEE_FREEZE P(x=INDETERMINATE|C=democrat) = 0.0295359
+Attribute ADOPTION_OF_THE_BUDGET_RESOLUTION P(x=YES|C=democrat) = 0.459916
+Attribute ADOPTION_OF_THE_BUDGET_RESOLUTION P(x=NO|C=democrat) = 0.447257
+Attribute ADOPTION_OF_THE_BUDGET_RESOLUTION P(x=INDETERMINATE|C=democrat) = 0.092827
+Attribute HANDICAPPED_INFANTS P(x=YES|C=democrat) = 1
+Attribute HANDICAPPED_INFANTS P(x=NO|C=democrat) = 0
+Attribute HANDICAPPED_INFANTS P(x=INDETERMINATE|C=democrat) = 0
+Attribute WATER_PROJECT_COST_SHARING P(x=YES|C=democrat) = 0.599156
+Attribute WATER_PROJECT_COST_SHARING P(x=NO|C=democrat) = 0.367089
+Attribute WATER_PROJECT_COST_SHARING P(x=INDETERMINATE|C=democrat) = 0.0337553
+Attribute RELIGIOUS_GROUPS_IN_SCHOOLS P(x=YES|C=democrat) = 0.198312
+Attribute RELIGIOUS_GROUPS_IN_SCHOOLS P(x=NO|C=democrat) = 0.755274
+Attribute RELIGIOUS_GROUPS_IN_SCHOOLS P(x=INDETERMINATE|C=democrat) = 0.0464135
+Attribute ANTI_SATELLITE_TEST_BAN P(x=YES|C=democrat) = 0.472574
+Attribute ANTI_SATELLITE_TEST_BAN P(x=NO|C=democrat) = 0.50211
+Attribute ANTI_SATELLITE_TEST_BAN P(x=INDETERMINATE|C=democrat) = 0.0253165
+Attribute AID_TO_NICARAGUAN_CONTRAS P(x=YES|C=democrat) = 0.734177
+Attribute AID_TO_NICARAGUAN_CONTRAS P(x=NO|C=democrat) = 0.236287
+Attribute AID_TO_NICARAGUAN_CONTRAS P(x=INDETERMINATE|C=democrat) = 0.0295359
+Attribute MX_MISSILE P(x=YES|C=democrat) = 0.822785
+Attribute MX_MISSILE P(x=NO|C=democrat) = 0.160338
+Attribute MX_MISSILE P(x=INDETERMINATE|C=democrat) = 0.0168776
+Attribute IMMIGRATION P(x=YES|C=democrat) = 0.704641
+Attribute IMMIGRATION P(x=NO|C=democrat) = 0.232068
+Attribute IMMIGRATION P(x=INDETERMINATE|C=democrat) = 0.0632911
+Attribute SYNFUELS_CORPORATION_CUTBACK P(x=YES|C=democrat) = 0.472574
+Attribute SYNFUELS_CORPORATION_CUTBACK P(x=NO|C=democrat) = 0.514768
+Attribute SYNFUELS_CORPORATION_CUTBACK P(x=INDETERMINATE|C=democrat) = 0.0126582
+Class P(C=democrat) = 0.606138
+
+ ------------ PREDICTIONS START ------------
+Attributes: [1,1,1,0,0,0,1,1,1,0,1,0,1,0,1,0,]; actual class: republican; predicted class: democrat
+Attributes: [0,1,0,1,1,1,0,0,0,1,1,1,1,1,0,2,]; actual class: democrat; predicted class: democrat
+Attributes: [0,2,0,1,1,1,0,0,0,1,1,1,1,1,0,2,]; actual class: democrat; predicted class: democrat
+Attributes: [1,1,0,1,0,1,0,0,0,1,1,1,1,0,2,0,]; actual class: democrat; predicted class: republican
+Attributes: [2,1,0,1,1,1,0,0,0,0,0,2,1,1,0,2,]; actual class: democrat; predicted class: democrat
+Attributes: [1,2,0,1,2,2,0,0,0,0,2,2,1,1,0,0,]; actual class: democrat; predicted class: democrat
+Attributes: [1,1,1,0,0,1,1,1,1,1,1,0,1,0,2,0,]; actual class: republican; predicted class: republican
+Attributes: [1,1,1,0,0,0,1,1,1,1,1,0,0,0,1,0,]; actual class: republican; predicted class: republican
+Attributes: [1,2,1,0,0,0,1,1,1,1,1,0,0,0,1,0,]; actual class: republican; predicted class: republican
+Attributes: [0,1,0,0,0,1,0,1,0,0,1,1,0,0,1,0,]; actual class: republican; predicted class: democrat
+Attributes: [0,1,0,1,1,0,0,0,0,0,0,1,1,0,0,0,]; actual class: democrat; predicted class: democrat
+Attributes: [1,1,0,1,1,0,0,0,0,0,1,1,1,0,2,0,]; actual class: democrat; predicted class: democrat
+Attributes: [1,0,1,0,0,0,1,1,1,0,0,0,0,0,1,1,]; actual class: republican; predicted class: republican
+Attributes: [0,1,0,1,1,1,0,0,2,0,0,0,1,0,1,0,]; actual class: democrat; predicted class: democrat
+Attributes: [1,0,0,1,1,1,0,0,2,0,1,1,0,1,0,0,]; actual class: democrat; predicted class: democrat
+Attributes: [0,1,1,1,0,0,2,1,2,1,1,1,1,0,2,1,]; actual class: democrat; predicted class: republican
+Attributes: [1,1,1,0,0,0,1,1,1,1,1,0,0,0,1,1,]; actual class: republican; predicted class: republican
+Attributes: [1,0,0,1,1,1,0,0,0,1,1,1,0,1,2,2,]; actual class: democrat; predicted class: democrat
+Attributes: [1,1,1,0,0,1,1,1,1,0,1,0,0,0,1,1,]; actual class: republican; predicted class: republican
+Attributes: [1,0,1,0,0,0,1,1,1,0,1,0,2,0,1,1,]; actual class: republican; predicted class: republican
+Attributes: [0,2,0,1,1,1,0,0,0,1,1,1,0,1,0,0,]; actual class: democrat; predicted class: democrat
+Attributes: [1,0,0,1,1,2,0,0,0,0,0,1,2,0,0,0,]; actual class: democrat; predicted class: democrat
+Attributes: [1,0,0,1,0,0,0,1,1,1,0,0,0,0,1,0,]; actual class: democrat; predicted class: republican
+Attributes: [0,0,1,0,0,0,1,1,1,0,1,0,0,0,1,0,]; actual class: republican; predicted class: democrat
+Attributes: [1,1,0,1,1,1,0,0,0,0,1,1,0,1,0,0,]; actual class: democrat; predicted class: democrat
+Attributes: [0,2,0,1,1,1,0,0,0,1,0,1,1,1,0,0,]; actual class: democrat; predicted class: democrat
+Attributes: [0,0,0,1,1,1,0,0,0,1,1,1,1,1,0,0,]; actual class: democrat; predicted class: democrat
+Attributes: [1,1,0,0,1,1,0,0,0,0,1,1,1,0,0,0,]; actual class: republican; predicted class: democrat
+Attributes: [1,1,1,0,0,0,1,1,1,1,1,0,0,0,1,1,]; actual class: republican; predicted class: republican
+Attributes: [1,1,0,1,1,1,0,0,0,1,0,1,1,1,0,0,]; actual class: democrat; predicted class: democrat
+Attributes: [0,1,0,1,1,1,0,0,0,2,0,1,1,1,0,2,]; actual class: democrat; predicted class: democrat
+Attributes: [1,2,0,1,0,0,1,0,1,1,0,1,1,1,1,2,]; actual class: democrat; predicted class: republican
+Attributes: [1,0,1,1,0,0,1,1,1,0,0,1,0,0,1,1,]; actual class: democrat; predicted class: republican
+Attributes: [1,0,0,1,0,2,0,1,1,0,0,1,0,1,0,0,]; actual class: democrat; predicted class: republican
+Attributes: [1,1,0,1,0,0,1,1,1,1,2,1,0,0,1,1,]; actual class: democrat; predicted class: republican
+Attributes: [0,2,0,1,1,1,0,0,0,1,1,1,1,1,0,2,]; actual class: democrat; predicted class: democrat
+Attributes: [0,1,0,1,0,0,0,1,2,1,0,1,0,0,0,2,]; actual class: democrat; predicted class: republican
+Attributes: [0,0,1,0,1,1,0,0,0,1,0,1,1,0,1,0,]; actual class: democrat; predicted class: democrat
+Attributes: [0,0,0,1,1,0,0,0,0,0,0,1,0,0,0,0,]; actual class: democrat; predicted class: democrat
+Attributes: [1,0,0,1,1,0,0,0,0,1,2,1,1,1,1,0,]; actual class: democrat; predicted class: democrat
+Attributes: [1,1,1,0,0,1,0,1,0,0,1,1,1,0,1,0,]; actual class: republican; predicted class: democrat
+Attributes: [1,0,1,0,0,0,1,1,1,1,1,0,0,0,1,0,]; actual class: republican; predicted class: republican
+Attributes: [1,0,1,1,1,0,0,1,0,1,0,1,1,1,0,0,]; actual class: democrat; predicted class: republican
+Attributes: [0,1,0,1,1,1,0,0,0,0,1,1,1,0,0,0,]; actual class: democrat; predicted class: democrat
+Results:
+Successful predictions: 30
+Total predictions: 44
+Accuracy: 0.681818
+--------------------- TEST FINISH FOR SUBSET 6 ---------------------
+
+
+--------------------- TEST SUBSET WILL BE 7 ---------------------
+
+NaiveBayesClassifier()
+calculcateProbabilityPerClassAndAttribute()
+
+--- Class republican---
+Attribute EXPORT_ADMINISTRATION_ACT_SOUTH_AFRICA P(x=YES|C=republican) = 0.0728477
+Attribute EXPORT_ADMINISTRATION_ACT_SOUTH_AFRICA P(x=NO|C=republican) = 0.847682
+Attribute EXPORT_ADMINISTRATION_ACT_SOUTH_AFRICA P(x=INDETERMINATE|C=republican) = 0.0794702
+Attribute DUTY_FREE_EXPORTS P(x=YES|C=republican) = 0.940397
+Attribute DUTY_FREE_EXPORTS P(x=NO|C=republican) = 0.0198675
+Attribute DUTY_FREE_EXPORTS P(x=INDETERMINATE|C=republican) = 0.0397351
+Attribute CRIME P(x=YES|C=republican) = 0.807947
+Attribute CRIME P(x=NO|C=republican) = 0.13245
+Attribute CRIME P(x=INDETERMINATE|C=republican) = 0.0596026
+Attribute SUPERFUND_RIGHT_TO_SUE P(x=YES|C=republican) = 0.807947
+Attribute SUPERFUND_RIGHT_TO_SUE P(x=NO|C=republican) = 0.112583
+Attribute SUPERFUND_RIGHT_TO_SUE P(x=INDETERMINATE|C=republican) = 0.0794702
+Attribute EDUCATION_SPENDING P(x=YES|C=republican) = 0.139073
+Attribute EDUCATION_SPENDING P(x=NO|C=republican) = 0.801325
+Attribute EDUCATION_SPENDING P(x=INDETERMINATE|C=republican) = 0.0596026
+Attribute EL_SALVADOR_AID P(x=YES|C=republican) = 0.966887
+Attribute EL_SALVADOR_AID P(x=NO|C=republican) = 0.013245
+Attribute EL_SALVADOR_AID P(x=INDETERMINATE|C=republican) = 0.0198675
+Attribute PHYSICIAN_FEE_FREEZE P(x=YES|C=republican) = 0.139073
+Attribute PHYSICIAN_FEE_FREEZE P(x=NO|C=republican) = 0.834437
+Attribute PHYSICIAN_FEE_FREEZE P(x=INDETERMINATE|C=republican) = 0.0264901
+Attribute ADOPTION_OF_THE_BUDGET_RESOLUTION P(x=YES|C=republican) = 0.450331
+Attribute ADOPTION_OF_THE_BUDGET_RESOLUTION P(x=NO|C=republican) = 0.423841
+Attribute ADOPTION_OF_THE_BUDGET_RESOLUTION P(x=INDETERMINATE|C=republican) = 0.125828
+Attribute HANDICAPPED_INFANTS P(x=YES|C=republican) = 0
+Attribute HANDICAPPED_INFANTS P(x=NO|C=republican) = 1
+Attribute HANDICAPPED_INFANTS P(x=INDETERMINATE|C=republican) = 0
+Attribute WATER_PROJECT_COST_SHARING P(x=YES|C=republican) = 0.18543
+Attribute WATER_PROJECT_COST_SHARING P(x=NO|C=republican) = 0.794702
+Attribute WATER_PROJECT_COST_SHARING P(x=INDETERMINATE|C=republican) = 0.0198675
+Attribute RELIGIOUS_GROUPS_IN_SCHOOLS P(x=YES|C=republican) = 0.933775
+Attribute RELIGIOUS_GROUPS_IN_SCHOOLS P(x=NO|C=republican) = 0.0529801
+Attribute RELIGIOUS_GROUPS_IN_SCHOOLS P(x=INDETERMINATE|C=republican) = 0.013245
+Attribute ANTI_SATELLITE_TEST_BAN P(x=YES|C=republican) = 0.880795
+Attribute ANTI_SATELLITE_TEST_BAN P(x=NO|C=republican) = 0.10596
+Attribute ANTI_SATELLITE_TEST_BAN P(x=INDETERMINATE|C=republican) = 0.013245
+Attribute AID_TO_NICARAGUAN_CONTRAS P(x=YES|C=republican) = 0.231788
+Attribute AID_TO_NICARAGUAN_CONTRAS P(x=NO|C=republican) = 0.735099
+Attribute AID_TO_NICARAGUAN_CONTRAS P(x=INDETERMINATE|C=republican) = 0.0331126
+Attribute MX_MISSILE P(x=YES|C=republican) = 0.152318
+Attribute MX_MISSILE P(x=NO|C=republican) = 0.788079
+Attribute MX_MISSILE P(x=INDETERMINATE|C=republican) = 0.0596026
+Attribute IMMIGRATION P(x=YES|C=republican) = 0.119205
+Attribute IMMIGRATION P(x=NO|C=republican) = 0.86755
+Attribute IMMIGRATION P(x=INDETERMINATE|C=republican) = 0.013245
+Attribute SYNFUELS_CORPORATION_CUTBACK P(x=YES|C=republican) = 0.543046
+Attribute SYNFUELS_CORPORATION_CUTBACK P(x=NO|C=republican) = 0.443709
+Attribute SYNFUELS_CORPORATION_CUTBACK P(x=INDETERMINATE|C=republican) = 0.013245
+Class P(C=republican) = 0.386189
+
+--- Class democrat---
+Attribute EXPORT_ADMINISTRATION_ACT_SOUTH_AFRICA P(x=YES|C=democrat) = 0.625
+Attribute EXPORT_ADMINISTRATION_ACT_SOUTH_AFRICA P(x=NO|C=democrat) = 0.320833
+Attribute EXPORT_ADMINISTRATION_ACT_SOUTH_AFRICA P(x=INDETERMINATE|C=democrat) = 0.0541667
+Attribute DUTY_FREE_EXPORTS P(x=YES|C=democrat) = 0.3375
+Attribute DUTY_FREE_EXPORTS P(x=NO|C=democrat) = 0.629167
+Attribute DUTY_FREE_EXPORTS P(x=INDETERMINATE|C=democrat) = 0.0333333
+Attribute CRIME P(x=YES|C=democrat) = 0.275
+Attribute CRIME P(x=NO|C=democrat) = 0.670833
+Attribute CRIME P(x=INDETERMINATE|C=democrat) = 0.0541667
+Attribute SUPERFUND_RIGHT_TO_SUE P(x=YES|C=democrat) = 0.1375
+Attribute SUPERFUND_RIGHT_TO_SUE P(x=NO|C=democrat) = 0.795833
+Attribute SUPERFUND_RIGHT_TO_SUE P(x=INDETERMINATE|C=democrat) = 0.0666667
+Attribute EDUCATION_SPENDING P(x=YES|C=democrat) = 0.483333
+Attribute EDUCATION_SPENDING P(x=NO|C=democrat) = 0.475
+Attribute EDUCATION_SPENDING P(x=INDETERMINATE|C=democrat) = 0.0416667
+Attribute EL_SALVADOR_AID P(x=YES|C=democrat) = 0.05
+Attribute EL_SALVADOR_AID P(x=NO|C=democrat) = 0.929167
+Attribute EL_SALVADOR_AID P(x=INDETERMINATE|C=democrat) = 0.0208333
+Attribute PHYSICIAN_FEE_FREEZE P(x=YES|C=democrat) = 0.875
+Attribute PHYSICIAN_FEE_FREEZE P(x=NO|C=democrat) = 0.108333
+Attribute PHYSICIAN_FEE_FREEZE P(x=INDETERMINATE|C=democrat) = 0.0166667
+Attribute ADOPTION_OF_THE_BUDGET_RESOLUTION P(x=YES|C=democrat) = 0.454167
+Attribute ADOPTION_OF_THE_BUDGET_RESOLUTION P(x=NO|C=democrat) = 0.441667
+Attribute ADOPTION_OF_THE_BUDGET_RESOLUTION P(x=INDETERMINATE|C=democrat) = 0.104167
+Attribute HANDICAPPED_INFANTS P(x=YES|C=democrat) = 1
+Attribute HANDICAPPED_INFANTS P(x=NO|C=democrat) = 0
+Attribute HANDICAPPED_INFANTS P(x=INDETERMINATE|C=democrat) = 0
+Attribute WATER_PROJECT_COST_SHARING P(x=YES|C=democrat) = 0.604167
+Attribute WATER_PROJECT_COST_SHARING P(x=NO|C=democrat) = 0.370833
+Attribute WATER_PROJECT_COST_SHARING P(x=INDETERMINATE|C=democrat) = 0.025
+Attribute RELIGIOUS_GROUPS_IN_SCHOOLS P(x=YES|C=democrat) = 0.204167
+Attribute RELIGIOUS_GROUPS_IN_SCHOOLS P(x=NO|C=democrat) = 0.758333
+Attribute RELIGIOUS_GROUPS_IN_SCHOOLS P(x=INDETERMINATE|C=democrat) = 0.0375
+Attribute ANTI_SATELLITE_TEST_BAN P(x=YES|C=democrat) = 0.441667
+Attribute ANTI_SATELLITE_TEST_BAN P(x=NO|C=democrat) = 0.529167
+Attribute ANTI_SATELLITE_TEST_BAN P(x=INDETERMINATE|C=democrat) = 0.0291667
+Attribute AID_TO_NICARAGUAN_CONTRAS P(x=YES|C=democrat) = 0.766667
+Attribute AID_TO_NICARAGUAN_CONTRAS P(x=NO|C=democrat) = 0.208333
+Attribute AID_TO_NICARAGUAN_CONTRAS P(x=INDETERMINATE|C=democrat) = 0.025
+Attribute MX_MISSILE P(x=YES|C=democrat) = 0.829167
+Attribute MX_MISSILE P(x=NO|C=democrat) = 0.1625
+Attribute MX_MISSILE P(x=INDETERMINATE|C=democrat) = 0.00833333
+Attribute IMMIGRATION P(x=YES|C=democrat) = 0.704167
+Attribute IMMIGRATION P(x=NO|C=democrat) = 0.220833
+Attribute IMMIGRATION P(x=INDETERMINATE|C=democrat) = 0.075
+Attribute SYNFUELS_CORPORATION_CUTBACK P(x=YES|C=democrat) = 0.454167
+Attribute SYNFUELS_CORPORATION_CUTBACK P(x=NO|C=democrat) = 0.533333
+Attribute SYNFUELS_CORPORATION_CUTBACK P(x=INDETERMINATE|C=democrat) = 0.0125
+Class P(C=democrat) = 0.613811
+
+ ------------ PREDICTIONS START ------------
+Attributes: [1,0,1,0,0,0,1,2,1,0,1,0,0,0,1,2,]; actual class: republican; predicted class: republican
+Attributes: [1,1,0,1,1,1,0,0,0,0,1,1,1,1,1,0,]; actual class: democrat; predicted class: democrat
+Attributes: [2,2,1,1,2,0,2,1,1,1,0,0,1,0,1,2,]; actual class: democrat; predicted class: republican
+Attributes: [1,1,0,1,1,0,0,2,0,0,0,1,1,1,0,0,]; actual class: democrat; predicted class: democrat
+Attributes: [1,1,1,0,0,0,0,0,1,0,1,0,0,0,1,0,]; actual class: republican; predicted class: republican
+Attributes: [0,1,0,1,1,1,0,0,0,0,1,1,1,1,1,0,]; actual class: democrat; predicted class: democrat
+Attributes: [0,0,0,1,1,1,0,0,0,1,1,1,1,1,1,0,]; actual class: democrat; predicted class: democrat
+Attributes: [1,0,0,1,1,0,0,0,1,0,0,1,0,0,1,2,]; actual class: democrat; predicted class: republican
+Attributes: [1,0,0,1,1,0,1,0,0,0,1,1,0,0,1,0,]; actual class: democrat; predicted class: democrat
+Attributes: [0,0,0,1,0,0,1,0,0,1,0,1,1,0,1,2,]; actual class: democrat; predicted class: democrat
+Attributes: [1,1,0,0,0,0,1,1,0,1,1,1,0,0,0,2,]; actual class: democrat; predicted class: republican
+Attributes: [1,0,0,1,1,0,0,0,1,0,1,1,1,1,0,0,]; actual class: democrat; predicted class: democrat
+Attributes: [0,1,0,1,1,1,0,0,0,1,1,1,1,1,0,0,]; actual class: democrat; predicted class: democrat
+Attributes: [1,1,0,1,1,1,0,0,0,1,1,1,1,1,0,0,]; actual class: democrat; predicted class: democrat
+Attributes: [1,1,1,0,0,0,1,1,1,1,1,0,0,0,1,1,]; actual class: republican; predicted class: republican
+Attributes: [2,2,2,2,1,0,0,0,0,0,2,1,0,0,1,2,]; actual class: democrat; predicted class: democrat
+Attributes: [1,0,0,1,1,0,1,0,0,1,0,1,2,2,2,2,]; actual class: democrat; predicted class: democrat
+Attributes: [0,1,0,1,1,1,0,0,0,0,0,1,1,1,0,0,]; actual class: democrat; predicted class: democrat
+Attributes: [1,1,1,0,0,0,1,1,1,0,1,0,0,0,0,1,]; actual class: republican; predicted class: republican
+Attributes: [1,1,1,0,0,0,1,1,1,1,1,0,0,0,1,0,]; actual class: republican; predicted class: republican
+Attributes: [0,1,0,1,1,0,0,0,0,0,0,1,1,1,0,0,]; actual class: democrat; predicted class: democrat
+Attributes: [1,0,1,0,2,0,1,1,1,0,1,0,0,0,1,1,]; actual class: republican; predicted class: republican
+Attributes: [0,1,0,1,0,0,1,1,0,0,1,1,0,0,1,0,]; actual class: democrat; predicted class: democrat
+Attributes: [0,1,0,1,1,1,0,0,0,0,1,1,1,1,1,0,]; actual class: democrat; predicted class: democrat
+Attributes: [1,0,1,0,0,0,1,1,1,0,1,0,0,0,1,1,]; actual class: republican; predicted class: republican
+Attributes: [0,0,1,0,0,0,1,1,1,1,1,1,0,0,1,0,]; actual class: republican; predicted class: republican
+Attributes: [1,0,1,0,0,0,1,1,1,1,1,0,0,0,1,0,]; actual class: republican; predicted class: republican
+Attributes: [1,0,1,0,0,0,1,1,1,1,1,0,2,2,1,2,]; actual class: republican; predicted class: republican
+Attributes: [0,0,0,1,1,2,0,0,0,0,1,1,1,1,0,2,]; actual class: democrat; predicted class: democrat
+Attributes: [0,1,1,0,0,1,0,1,1,0,1,1,1,0,0,0,]; actual class: republican; predicted class: democrat
+Attributes: [0,0,2,2,2,0,1,1,1,1,0,1,0,1,1,0,]; actual class: democrat; predicted class: democrat
+Attributes: [1,0,1,0,0,0,1,1,1,0,1,2,0,0,1,1,]; actual class: republican; predicted class: republican
+Attributes: [1,0,0,1,0,0,1,0,1,1,1,1,1,1,1,0,]; actual class: democrat; predicted class: republican
+Attributes: [1,0,1,0,0,0,1,1,1,1,0,0,1,0,1,1,]; actual class: democrat; predicted class: republican
+Attributes: [1,1,0,0,0,0,1,1,0,0,1,0,0,0,1,0,]; actual class: republican; predicted class: democrat
+Attributes: [2,2,2,2,2,2,2,2,0,2,2,2,2,2,2,2,]; actual class: democrat; predicted class: democrat
+Attributes: [0,2,1,0,0,0,0,1,1,0,1,0,0,0,1,0,]; actual class: republican; predicted class: democrat
+Attributes: [1,1,1,0,0,0,0,1,1,0,1,1,1,0,0,0,]; actual class: republican; predicted class: republican
+Attributes: [1,1,0,1,1,0,0,0,0,0,0,1,1,1,2,0,]; actual class: democrat; predicted class: democrat
+Attributes: [1,1,1,0,0,0,2,2,2,2,1,0,0,0,1,0,]; actual class: republican; predicted class: republican
+Attributes: [0,0,0,1,1,0,0,0,2,0,0,2,1,1,0,2,]; actual class: democrat; predicted class: democrat
+Attributes: [1,1,1,0,0,0,1,1,1,1,1,0,0,0,1,1,]; actual class: republican; predicted class: republican
+Attributes: [1,1,0,1,1,1,0,0,0,1,0,1,1,1,0,0,]; actual class: democrat; predicted class: democrat
+Attributes: [1,1,1,1,0,0,1,1,1,0,0,0,0,0,1,0,]; actual class: democrat; predicted class: republican
+Results:
+Successful predictions: 35
+Total predictions: 44
+Accuracy: 0.795455
+--------------------- TEST FINISH FOR SUBSET 7 ---------------------
+
+
+--------------------- TEST SUBSET WILL BE 8 ---------------------
+
+NaiveBayesClassifier()
+calculcateProbabilityPerClassAndAttribute()
+
+--- Class republican---
+Attribute EXPORT_ADMINISTRATION_ACT_SOUTH_AFRICA P(x=YES|C=republican) = 0.0933333
+Attribute EXPORT_ADMINISTRATION_ACT_SOUTH_AFRICA P(x=NO|C=republican) = 0.833333
+Attribute EXPORT_ADMINISTRATION_ACT_SOUTH_AFRICA P(x=INDETERMINATE|C=republican) = 0.0733333
+Attribute DUTY_FREE_EXPORTS P(x=YES|C=republican) = 0.94
+Attribute DUTY_FREE_EXPORTS P(x=NO|C=republican) = 0.0133333
+Attribute DUTY_FREE_EXPORTS P(x=INDETERMINATE|C=republican) = 0.0466667
+Attribute CRIME P(x=YES|C=republican) = 0.813333
+Attribute CRIME P(x=NO|C=republican) = 0.126667
+Attribute CRIME P(x=INDETERMINATE|C=republican) = 0.06
+Attribute SUPERFUND_RIGHT_TO_SUE P(x=YES|C=republican) = 0.806667
+Attribute SUPERFUND_RIGHT_TO_SUE P(x=NO|C=republican) = 0.12
+Attribute SUPERFUND_RIGHT_TO_SUE P(x=INDETERMINATE|C=republican) = 0.0733333
+Attribute EDUCATION_SPENDING P(x=YES|C=republican) = 0.133333
+Attribute EDUCATION_SPENDING P(x=NO|C=republican) = 0.82
+Attribute EDUCATION_SPENDING P(x=INDETERMINATE|C=republican) = 0.0466667
+Attribute EL_SALVADOR_AID P(x=YES|C=republican) = 0.973333
+Attribute EL_SALVADOR_AID P(x=NO|C=republican) = 0.0133333
+Attribute EL_SALVADOR_AID P(x=INDETERMINATE|C=republican) = 0.0133333
+Attribute PHYSICIAN_FEE_FREEZE P(x=YES|C=republican) = 0.126667
+Attribute PHYSICIAN_FEE_FREEZE P(x=NO|C=republican) = 0.86
+Attribute PHYSICIAN_FEE_FREEZE P(x=INDETERMINATE|C=republican) = 0.0133333
+Attribute ADOPTION_OF_THE_BUDGET_RESOLUTION P(x=YES|C=republican) = 0.46
+Attribute ADOPTION_OF_THE_BUDGET_RESOLUTION P(x=NO|C=republican) = 0.42
+Attribute ADOPTION_OF_THE_BUDGET_RESOLUTION P(x=INDETERMINATE|C=republican) = 0.12
+Attribute HANDICAPPED_INFANTS P(x=YES|C=republican) = 0
+Attribute HANDICAPPED_INFANTS P(x=NO|C=republican) = 1
+Attribute HANDICAPPED_INFANTS P(x=INDETERMINATE|C=republican) = 0
+Attribute WATER_PROJECT_COST_SHARING P(x=YES|C=republican) = 0.2
+Attribute WATER_PROJECT_COST_SHARING P(x=NO|C=republican) = 0.793333
+Attribute WATER_PROJECT_COST_SHARING P(x=INDETERMINATE|C=republican) = 0.00666667
+Attribute RELIGIOUS_GROUPS_IN_SCHOOLS P(x=YES|C=republican) = 0.94
+Attribute RELIGIOUS_GROUPS_IN_SCHOOLS P(x=NO|C=republican) = 0.04
+Attribute RELIGIOUS_GROUPS_IN_SCHOOLS P(x=INDETERMINATE|C=republican) = 0.02
+Attribute ANTI_SATELLITE_TEST_BAN P(x=YES|C=republican) = 0.886667
+Attribute ANTI_SATELLITE_TEST_BAN P(x=NO|C=republican) = 0.1
+Attribute ANTI_SATELLITE_TEST_BAN P(x=INDETERMINATE|C=republican) = 0.0133333
+Attribute AID_TO_NICARAGUAN_CONTRAS P(x=YES|C=republican) = 0.233333
+Attribute AID_TO_NICARAGUAN_CONTRAS P(x=NO|C=republican) = 0.726667
+Attribute AID_TO_NICARAGUAN_CONTRAS P(x=INDETERMINATE|C=republican) = 0.04
+Attribute MX_MISSILE P(x=YES|C=republican) = 0.133333
+Attribute MX_MISSILE P(x=NO|C=republican) = 0.8
+Attribute MX_MISSILE P(x=INDETERMINATE|C=republican) = 0.0666667
+Attribute IMMIGRATION P(x=YES|C=republican) = 0.113333
+Attribute IMMIGRATION P(x=NO|C=republican) = 0.866667
+Attribute IMMIGRATION P(x=INDETERMINATE|C=republican) = 0.02
+Attribute SYNFUELS_CORPORATION_CUTBACK P(x=YES|C=republican) = 0.553333
+Attribute SYNFUELS_CORPORATION_CUTBACK P(x=NO|C=republican) = 0.426667
+Attribute SYNFUELS_CORPORATION_CUTBACK P(x=INDETERMINATE|C=republican) = 0.02
+Class P(C=republican) = 0.383632
+
+--- Class democrat---
+Attribute EXPORT_ADMINISTRATION_ACT_SOUTH_AFRICA P(x=YES|C=democrat) = 0.589212
+Attribute EXPORT_ADMINISTRATION_ACT_SOUTH_AFRICA P(x=NO|C=democrat) = 0.344398
+Attribute EXPORT_ADMINISTRATION_ACT_SOUTH_AFRICA P(x=INDETERMINATE|C=democrat) = 0.06639
+Attribute DUTY_FREE_EXPORTS P(x=YES|C=democrat) = 0.3361
+Attribute DUTY_FREE_EXPORTS P(x=NO|C=democrat) = 0.639004
+Attribute DUTY_FREE_EXPORTS P(x=INDETERMINATE|C=democrat) = 0.0248963
+Attribute CRIME P(x=YES|C=democrat) = 0.282158
+Attribute CRIME P(x=NO|C=democrat) = 0.66805
+Attribute CRIME P(x=INDETERMINATE|C=democrat) = 0.0497925
+Attribute SUPERFUND_RIGHT_TO_SUE P(x=YES|C=democrat) = 0.116183
+Attribute SUPERFUND_RIGHT_TO_SUE P(x=NO|C=democrat) = 0.817427
+Attribute SUPERFUND_RIGHT_TO_SUE P(x=INDETERMINATE|C=democrat) = 0.06639
+Attribute EDUCATION_SPENDING P(x=YES|C=democrat) = 0.481328
+Attribute EDUCATION_SPENDING P(x=NO|C=democrat) = 0.46888
+Attribute EDUCATION_SPENDING P(x=INDETERMINATE|C=democrat) = 0.0497925
+Attribute EL_SALVADOR_AID P(x=YES|C=democrat) = 0.0539419
+Attribute EL_SALVADOR_AID P(x=NO|C=democrat) = 0.912863
+Attribute EL_SALVADOR_AID P(x=INDETERMINATE|C=democrat) = 0.033195
+Attribute PHYSICIAN_FEE_FREEZE P(x=YES|C=democrat) = 0.86722
+Attribute PHYSICIAN_FEE_FREEZE P(x=NO|C=democrat) = 0.107884
+Attribute PHYSICIAN_FEE_FREEZE P(x=INDETERMINATE|C=democrat) = 0.0248963
+Attribute ADOPTION_OF_THE_BUDGET_RESOLUTION P(x=YES|C=democrat) = 0.448133
+Attribute ADOPTION_OF_THE_BUDGET_RESOLUTION P(x=NO|C=democrat) = 0.448133
+Attribute ADOPTION_OF_THE_BUDGET_RESOLUTION P(x=INDETERMINATE|C=democrat) = 0.103734
+Attribute HANDICAPPED_INFANTS P(x=YES|C=democrat) = 1
+Attribute HANDICAPPED_INFANTS P(x=NO|C=democrat) = 0
+Attribute HANDICAPPED_INFANTS P(x=INDETERMINATE|C=democrat) = 0
+Attribute WATER_PROJECT_COST_SHARING P(x=YES|C=democrat) = 0.576763
+Attribute WATER_PROJECT_COST_SHARING P(x=NO|C=democrat) = 0.385892
+Attribute WATER_PROJECT_COST_SHARING P(x=INDETERMINATE|C=democrat) = 0.0373444
+Attribute RELIGIOUS_GROUPS_IN_SCHOOLS P(x=YES|C=democrat) = 0.19917
+Attribute RELIGIOUS_GROUPS_IN_SCHOOLS P(x=NO|C=democrat) = 0.755187
+Attribute RELIGIOUS_GROUPS_IN_SCHOOLS P(x=INDETERMINATE|C=democrat) = 0.0456432
+Attribute ANTI_SATELLITE_TEST_BAN P(x=YES|C=democrat) = 0.460581
+Attribute ANTI_SATELLITE_TEST_BAN P(x=NO|C=democrat) = 0.502075
+Attribute ANTI_SATELLITE_TEST_BAN P(x=INDETERMINATE|C=democrat) = 0.0373444
+Attribute AID_TO_NICARAGUAN_CONTRAS P(x=YES|C=democrat) = 0.763485
+Attribute AID_TO_NICARAGUAN_CONTRAS P(x=NO|C=democrat) = 0.207469
+Attribute AID_TO_NICARAGUAN_CONTRAS P(x=INDETERMINATE|C=democrat) = 0.0290456
+Attribute MX_MISSILE P(x=YES|C=democrat) = 0.825726
+Attribute MX_MISSILE P(x=NO|C=democrat) = 0.161826
+Attribute MX_MISSILE P(x=INDETERMINATE|C=democrat) = 0.0124481
+Attribute IMMIGRATION P(x=YES|C=democrat) = 0.717842
+Attribute IMMIGRATION P(x=NO|C=democrat) = 0.219917
+Attribute IMMIGRATION P(x=INDETERMINATE|C=democrat) = 0.0622407
+Attribute SYNFUELS_CORPORATION_CUTBACK P(x=YES|C=democrat) = 0.477178
+Attribute SYNFUELS_CORPORATION_CUTBACK P(x=NO|C=democrat) = 0.506224
+Attribute SYNFUELS_CORPORATION_CUTBACK P(x=INDETERMINATE|C=democrat) = 0.0165975
+Class P(C=democrat) = 0.616368
+
+ ------------ PREDICTIONS START ------------
+Attributes: [0,0,0,1,0,0,1,1,1,1,0,2,0,0,0,0,]; actual class: democrat; predicted class: republican
+Attributes: [1,1,1,0,0,0,1,1,1,1,1,0,0,0,1,2,]; actual class: republican; predicted class: republican
+Attributes: [1,0,1,1,0,0,1,1,1,1,1,0,0,0,0,0,]; actual class: democrat; predicted class: republican
+Attributes: [1,0,1,0,0,0,1,2,1,1,2,2,2,0,1,2,]; actual class: republican; predicted class: republican
+Attributes: [1,1,1,0,0,0,1,1,1,0,1,0,0,0,1,0,]; actual class: republican; predicted class: republican
+Attributes: [0,1,0,1,1,1,0,0,0,1,1,1,1,1,0,0,]; actual class: democrat; predicted class: democrat
+Attributes: [0,0,0,1,1,1,0,0,0,1,1,1,1,1,1,2,]; actual class: democrat; predicted class: democrat
+Attributes: [1,1,0,0,0,0,0,0,1,0,1,1,1,0,1,0,]; actual class: republican; predicted class: republican
+Attributes: [0,0,0,1,1,1,0,0,0,1,0,1,1,1,1,2,]; actual class: democrat; predicted class: democrat
+Attributes: [1,0,1,1,0,0,1,1,2,1,1,0,0,0,1,0,]; actual class: democrat; predicted class: republican
+Attributes: [1,1,1,0,0,0,1,1,1,1,1,0,0,0,1,1,]; actual class: republican; predicted class: republican
+Attributes: [1,1,1,0,0,0,1,1,1,1,1,0,0,0,1,2,]; actual class: republican; predicted class: republican
+Attributes: [1,1,2,1,0,0,1,1,1,1,0,0,0,0,1,0,]; actual class: democrat; predicted class: republican
+Attributes: [0,0,0,1,1,1,0,0,1,0,0,1,1,2,0,0,]; actual class: democrat; predicted class: democrat
+Attributes: [0,0,0,1,0,0,1,1,2,0,1,1,1,0,0,2,]; actual class: democrat; predicted class: republican
+Attributes: [0,2,0,1,1,1,0,0,0,1,1,1,1,1,0,2,]; actual class: democrat; predicted class: democrat
+Attributes: [1,2,0,1,1,0,1,0,1,0,0,1,1,1,0,0,]; actual class: democrat; predicted class: democrat
+Attributes: [0,1,0,1,1,1,0,0,0,1,1,1,1,1,1,0,]; actual class: democrat; predicted class: democrat
+Attributes: [1,1,1,0,0,0,0,1,1,0,1,0,0,0,1,0,]; actual class: republican; predicted class: republican
+Attributes: [1,0,0,1,1,0,0,0,0,1,0,1,1,0,0,0,]; actual class: democrat; predicted class: republican
+Attributes: [0,0,0,1,1,1,0,0,0,1,1,1,1,1,0,0,]; actual class: democrat; predicted class: democrat
+Attributes: [0,1,0,1,2,1,0,0,0,0,1,0,1,2,0,0,]; actual class: democrat; predicted class: democrat
+Attributes: [2,2,2,2,1,0,1,0,0,1,1,0,0,1,1,2,]; actual class: republican; predicted class: democrat
+Attributes: [0,0,0,0,0,0,0,0,1,0,1,1,0,0,1,0,]; actual class: republican; predicted class: democrat
+Attributes: [0,1,0,1,1,1,0,0,0,0,1,1,1,1,0,0,]; actual class: democrat; predicted class: democrat
+Attributes: [1,0,1,0,0,0,1,1,1,0,0,0,0,0,1,0,]; actual class: republican; predicted class: republican
+Attributes: [1,2,2,0,0,0,1,1,1,0,1,0,0,0,2,0,]; actual class: republican; predicted class: republican
+Attributes: [1,1,1,0,0,0,1,1,1,1,1,0,0,0,1,0,]; actual class: republican; predicted class: republican
+Attributes: [1,0,0,1,1,1,0,0,0,0,0,1,1,1,0,0,]; actual class: democrat; predicted class: democrat
+Attributes: [1,0,1,0,0,0,1,1,1,1,1,0,0,0,1,1,]; actual class: republican; predicted class: republican
+Attributes: [0,0,0,1,1,1,0,0,0,1,1,1,2,2,0,0,]; actual class: democrat; predicted class: democrat
+Attributes: [1,0,1,0,0,1,1,1,1,1,2,2,0,0,1,1,]; actual class: republican; predicted class: republican
+Attributes: [0,0,0,1,1,0,2,0,1,1,0,0,1,0,1,2,]; actual class: democrat; predicted class: democrat
+Attributes: [0,1,0,1,1,1,0,0,0,1,0,1,1,1,0,0,]; actual class: democrat; predicted class: democrat
+Attributes: [1,1,1,0,0,1,1,1,1,1,1,0,0,0,1,0,]; actual class: republican; predicted class: republican
+Attributes: [0,2,0,1,1,1,0,0,0,1,1,1,1,1,0,2,]; actual class: democrat; predicted class: democrat
+Attributes: [0,1,0,1,0,0,1,2,2,1,0,2,2,2,0,0,]; actual class: democrat; predicted class: republican
+Attributes: [1,1,1,0,0,0,1,1,1,1,0,0,0,0,1,1,]; actual class: democrat; predicted class: republican
+Attributes: [1,1,1,0,0,0,1,1,1,0,1,0,1,0,1,0,]; actual class: republican; predicted class: democrat
+Attributes: [1,0,1,0,0,0,1,1,1,0,1,0,0,0,1,2,]; actual class: republican; predicted class: republican
+Attributes: [0,1,0,1,1,0,1,0,2,0,0,0,2,1,1,0,]; actual class: democrat; predicted class: democrat
+Attributes: [1,1,0,1,1,1,0,0,0,0,0,1,1,1,0,0,]; actual class: democrat; predicted class: democrat
+Attributes: [1,1,0,1,1,0,0,0,0,0,1,0,1,0,0,2,]; actual class: democrat; predicted class: democrat
+Attributes: [2,1,0,0,1,0,0,0,0,0,1,0,1,0,1,0,]; actual class: republican; predicted class: democrat
+Results:
+Successful predictions: 32
+Total predictions: 44
+Accuracy: 0.727273
+--------------------- TEST FINISH FOR SUBSET 8 ---------------------
+
+
+--------------------- TEST SUBSET WILL BE 9 ---------------------
+
+NaiveBayesClassifier()
+calculcateProbabilityPerClassAndAttribute()
+
+--- Class republican---
+Attribute EXPORT_ADMINISTRATION_ACT_SOUTH_AFRICA P(x=YES|C=republican) = 0.0805369
+Attribute EXPORT_ADMINISTRATION_ACT_SOUTH_AFRICA P(x=NO|C=republican) = 0.838926
+Attribute EXPORT_ADMINISTRATION_ACT_SOUTH_AFRICA P(x=INDETERMINATE|C=republican) = 0.0805369
+Attribute DUTY_FREE_EXPORTS P(x=YES|C=republican) = 0.939597
+Attribute DUTY_FREE_EXPORTS P(x=NO|C=republican) = 0.0134228
+Attribute DUTY_FREE_EXPORTS P(x=INDETERMINATE|C=republican) = 0.0469799
+Attribute CRIME P(x=YES|C=republican) = 0.798658
+Attribute CRIME P(x=NO|C=republican) = 0.134228
+Attribute CRIME P(x=INDETERMINATE|C=republican) = 0.0671141
+Attribute SUPERFUND_RIGHT_TO_SUE P(x=YES|C=republican) = 0.798658
+Attribute SUPERFUND_RIGHT_TO_SUE P(x=NO|C=republican) = 0.120805
+Attribute SUPERFUND_RIGHT_TO_SUE P(x=INDETERMINATE|C=republican) = 0.0805369
+Attribute EDUCATION_SPENDING P(x=YES|C=republican) = 0.114094
+Attribute EDUCATION_SPENDING P(x=NO|C=republican) = 0.832215
+Attribute EDUCATION_SPENDING P(x=INDETERMINATE|C=republican) = 0.0536913
+Attribute EL_SALVADOR_AID P(x=YES|C=republican) = 0.966443
+Attribute EL_SALVADOR_AID P(x=NO|C=republican) = 0.0134228
+Attribute EL_SALVADOR_AID P(x=INDETERMINATE|C=republican) = 0.0201342
+Attribute PHYSICIAN_FEE_FREEZE P(x=YES|C=republican) = 0.14094
+Attribute PHYSICIAN_FEE_FREEZE P(x=NO|C=republican) = 0.832215
+Attribute PHYSICIAN_FEE_FREEZE P(x=INDETERMINATE|C=republican) = 0.0268456
+Attribute ADOPTION_OF_THE_BUDGET_RESOLUTION P(x=YES|C=republican) = 0.463087
+Attribute ADOPTION_OF_THE_BUDGET_RESOLUTION P(x=NO|C=republican) = 0.422819
+Attribute ADOPTION_OF_THE_BUDGET_RESOLUTION P(x=INDETERMINATE|C=republican) = 0.114094
+Attribute HANDICAPPED_INFANTS P(x=YES|C=republican) = 0
+Attribute HANDICAPPED_INFANTS P(x=NO|C=republican) = 1
+Attribute HANDICAPPED_INFANTS P(x=INDETERMINATE|C=republican) = 0
+Attribute WATER_PROJECT_COST_SHARING P(x=YES|C=republican) = 0.194631
+Attribute WATER_PROJECT_COST_SHARING P(x=NO|C=republican) = 0.785235
+Attribute WATER_PROJECT_COST_SHARING P(x=INDETERMINATE|C=republican) = 0.0201342
+Attribute RELIGIOUS_GROUPS_IN_SCHOOLS P(x=YES|C=republican) = 0.932886
+Attribute RELIGIOUS_GROUPS_IN_SCHOOLS P(x=NO|C=republican) = 0.0469799
+Attribute RELIGIOUS_GROUPS_IN_SCHOOLS P(x=INDETERMINATE|C=republican) = 0.0201342
+Attribute ANTI_SATELLITE_TEST_BAN P(x=YES|C=republican) = 0.879195
+Attribute ANTI_SATELLITE_TEST_BAN P(x=NO|C=republican) = 0.107383
+Attribute ANTI_SATELLITE_TEST_BAN P(x=INDETERMINATE|C=republican) = 0.0134228
+Attribute AID_TO_NICARAGUAN_CONTRAS P(x=YES|C=republican) = 0.241611
+Attribute AID_TO_NICARAGUAN_CONTRAS P(x=NO|C=republican) = 0.718121
+Attribute AID_TO_NICARAGUAN_CONTRAS P(x=INDETERMINATE|C=republican) = 0.0402685
+Attribute MX_MISSILE P(x=YES|C=republican) = 0.147651
+Attribute MX_MISSILE P(x=NO|C=republican) = 0.778523
+Attribute MX_MISSILE P(x=INDETERMINATE|C=republican) = 0.0738255
+Attribute IMMIGRATION P(x=YES|C=republican) = 0.120805
+Attribute IMMIGRATION P(x=NO|C=republican) = 0.85906
+Attribute IMMIGRATION P(x=INDETERMINATE|C=republican) = 0.0201342
+Attribute SYNFUELS_CORPORATION_CUTBACK P(x=YES|C=republican) = 0.536913
+Attribute SYNFUELS_CORPORATION_CUTBACK P(x=NO|C=republican) = 0.442953
+Attribute SYNFUELS_CORPORATION_CUTBACK P(x=INDETERMINATE|C=republican) = 0.0201342
+Class P(C=republican) = 0.376263
+
+--- Class democrat---
+Attribute EXPORT_ADMINISTRATION_ACT_SOUTH_AFRICA P(x=YES|C=democrat) = 0.59919
+Attribute EXPORT_ADMINISTRATION_ACT_SOUTH_AFRICA P(x=NO|C=democrat) = 0.340081
+Attribute EXPORT_ADMINISTRATION_ACT_SOUTH_AFRICA P(x=INDETERMINATE|C=democrat) = 0.0607287
+Attribute DUTY_FREE_EXPORTS P(x=YES|C=democrat) = 0.348178
+Attribute DUTY_FREE_EXPORTS P(x=NO|C=democrat) = 0.611336
+Attribute DUTY_FREE_EXPORTS P(x=INDETERMINATE|C=democrat) = 0.0404858
+Attribute CRIME P(x=YES|C=democrat) = 0.279352
+Attribute CRIME P(x=NO|C=democrat) = 0.663968
+Attribute CRIME P(x=INDETERMINATE|C=democrat) = 0.0566802
+Attribute SUPERFUND_RIGHT_TO_SUE P(x=YES|C=democrat) = 0.1417
+Attribute SUPERFUND_RIGHT_TO_SUE P(x=NO|C=democrat) = 0.793522
+Attribute SUPERFUND_RIGHT_TO_SUE P(x=INDETERMINATE|C=democrat) = 0.0647773
+Attribute EDUCATION_SPENDING P(x=YES|C=democrat) = 0.502024
+Attribute EDUCATION_SPENDING P(x=NO|C=democrat) = 0.449393
+Attribute EDUCATION_SPENDING P(x=INDETERMINATE|C=democrat) = 0.048583
+Attribute EL_SALVADOR_AID P(x=YES|C=democrat) = 0.048583
+Attribute EL_SALVADOR_AID P(x=NO|C=democrat) = 0.919028
+Attribute EL_SALVADOR_AID P(x=INDETERMINATE|C=democrat) = 0.0323887
+Attribute PHYSICIAN_FEE_FREEZE P(x=YES|C=democrat) = 0.854251
+Attribute PHYSICIAN_FEE_FREEZE P(x=NO|C=democrat) = 0.117409
+Attribute PHYSICIAN_FEE_FREEZE P(x=INDETERMINATE|C=democrat) = 0.0283401
+Attribute ADOPTION_OF_THE_BUDGET_RESOLUTION P(x=YES|C=democrat) = 0.449393
+Attribute ADOPTION_OF_THE_BUDGET_RESOLUTION P(x=NO|C=democrat) = 0.453441
+Attribute ADOPTION_OF_THE_BUDGET_RESOLUTION P(x=INDETERMINATE|C=democrat) = 0.097166
+Attribute HANDICAPPED_INFANTS P(x=YES|C=democrat) = 1
+Attribute HANDICAPPED_INFANTS P(x=NO|C=democrat) = 0
+Attribute HANDICAPPED_INFANTS P(x=INDETERMINATE|C=democrat) = 0
+Attribute WATER_PROJECT_COST_SHARING P(x=YES|C=democrat) = 0.578947
+Attribute WATER_PROJECT_COST_SHARING P(x=NO|C=democrat) = 0.384615
+Attribute WATER_PROJECT_COST_SHARING P(x=INDETERMINATE|C=democrat) = 0.0364372
+Attribute RELIGIOUS_GROUPS_IN_SCHOOLS P(x=YES|C=democrat) = 0.206478
+Attribute RELIGIOUS_GROUPS_IN_SCHOOLS P(x=NO|C=democrat) = 0.748988
+Attribute RELIGIOUS_GROUPS_IN_SCHOOLS P(x=INDETERMINATE|C=democrat) = 0.0445344
+Attribute ANTI_SATELLITE_TEST_BAN P(x=YES|C=democrat) = 0.465587
+Attribute ANTI_SATELLITE_TEST_BAN P(x=NO|C=democrat) = 0.502024
+Attribute ANTI_SATELLITE_TEST_BAN P(x=INDETERMINATE|C=democrat) = 0.0323887
+Attribute AID_TO_NICARAGUAN_CONTRAS P(x=YES|C=democrat) = 0.740891
+Attribute AID_TO_NICARAGUAN_CONTRAS P(x=NO|C=democrat) = 0.226721
+Attribute AID_TO_NICARAGUAN_CONTRAS P(x=INDETERMINATE|C=democrat) = 0.0323887
+Attribute MX_MISSILE P(x=YES|C=democrat) = 0.809717
+Attribute MX_MISSILE P(x=NO|C=democrat) = 0.174089
+Attribute MX_MISSILE P(x=INDETERMINATE|C=democrat) = 0.0161943
+Attribute IMMIGRATION P(x=YES|C=democrat) = 0.708502
+Attribute IMMIGRATION P(x=NO|C=democrat) = 0.222672
+Attribute IMMIGRATION P(x=INDETERMINATE|C=democrat) = 0.0688259
+Attribute SYNFUELS_CORPORATION_CUTBACK P(x=YES|C=democrat) = 0.465587
+Attribute SYNFUELS_CORPORATION_CUTBACK P(x=NO|C=democrat) = 0.518219
+Attribute SYNFUELS_CORPORATION_CUTBACK P(x=INDETERMINATE|C=democrat) = 0.0161943
+Class P(C=democrat) = 0.623737
+
+ ------------ PREDICTIONS START ------------
+Attributes: [1,2,1,0,0,0,1,1,1,0,1,0,0,0,1,1,]; actual class: republican; predicted class: republican
+Attributes: [1,2,1,0,0,0,1,1,1,0,1,0,0,0,1,0,]; actual class: republican; predicted class: republican
+Attributes: [1,1,1,0,0,0,1,1,1,1,1,0,0,0,1,1,]; actual class: republican; predicted class: republican
+Attributes: [0,1,0,1,1,0,0,0,0,0,1,1,0,1,1,0,]; actual class: democrat; predicted class: democrat
+Attributes: [1,1,1,0,0,0,1,1,1,1,1,0,0,0,1,0,]; actual class: republican; predicted class: republican
+Attributes: [1,0,1,0,0,0,0,1,1,1,0,0,0,0,1,0,]; actual class: republican; predicted class: republican
+Attributes: [1,0,1,0,0,0,1,1,1,0,1,0,0,0,1,1,]; actual class: republican; predicted class: republican
+Attributes: [0,1,0,0,0,0,0,0,1,0,1,0,1,0,0,0,]; actual class: republican; predicted class: democrat
+Attributes: [1,1,0,1,1,1,0,0,0,0,0,1,1,1,0,0,]; actual class: democrat; predicted class: democrat
+Attributes: [1,0,0,1,1,1,0,0,0,0,1,1,2,1,0,0,]; actual class: democrat; predicted class: democrat
+Attributes: [1,0,1,0,0,0,1,1,1,1,0,0,0,0,1,1,]; actual class: republican; predicted class: republican
+Attributes: [1,2,1,0,0,0,1,1,1,1,1,0,0,0,1,2,]; actual class: republican; predicted class: republican
+Attributes: [0,0,1,0,0,0,1,1,1,0,0,1,0,1,1,1,]; actual class: republican; predicted class: democrat
+Attributes: [0,0,0,1,1,1,0,0,2,0,1,1,1,1,0,2,]; actual class: democrat; predicted class: democrat
+Attributes: [1,1,0,1,1,1,0,0,0,1,1,2,1,1,0,0,]; actual class: democrat; predicted class: democrat
+Attributes: [0,1,0,1,1,0,0,0,0,0,1,2,1,0,1,0,]; actual class: democrat; predicted class: democrat
+Attributes: [1,0,0,0,0,0,1,1,1,1,1,0,0,0,1,2,]; actual class: democrat; predicted class: republican
+Attributes: [0,0,0,1,1,0,0,0,0,1,1,1,1,1,0,0,]; actual class: democrat; predicted class: democrat
+Attributes: [0,2,0,1,2,2,0,0,0,1,1,1,1,1,0,2,]; actual class: democrat; predicted class: democrat
+Attributes: [1,1,1,0,1,1,0,0,0,0,1,1,0,0,1,0,]; actual class: republican; predicted class: democrat
+Attributes: [0,0,0,1,1,1,0,0,0,1,1,1,1,1,2,2,]; actual class: democrat; predicted class: democrat
+Attributes: [1,1,1,0,0,0,1,1,1,0,2,0,0,0,1,1,]; actual class: republican; predicted class: republican
+Attributes: [0,0,0,1,1,1,0,0,0,1,0,1,1,1,0,0,]; actual class: democrat; predicted class: democrat
+Attributes: [1,1,1,0,0,0,1,1,1,0,0,0,1,0,1,0,]; actual class: republican; predicted class: democrat
+Attributes: [0,1,0,1,1,1,0,0,2,1,1,1,1,1,1,2,]; actual class: democrat; predicted class: democrat
+Attributes: [1,0,1,0,0,0,1,1,1,1,1,0,0,0,1,0,]; actual class: republican; predicted class: republican
+Attributes: [0,1,0,1,1,1,0,0,0,1,1,1,1,1,0,2,]; actual class: democrat; predicted class: democrat
+Attributes: [0,2,0,1,1,1,0,0,0,1,1,1,1,1,0,0,]; actual class: democrat; predicted class: democrat
+Attributes: [0,0,0,1,0,0,1,0,1,0,0,1,0,0,1,2,]; actual class: democrat; predicted class: republican
+Attributes: [1,0,0,0,0,0,1,1,1,0,0,1,0,0,1,1,]; actual class: democrat; predicted class: republican
+Attributes: [1,1,1,0,0,0,1,1,1,1,1,0,0,0,0,1,]; actual class: republican; predicted class: republican
+Attributes: [0,1,0,1,1,1,0,0,0,1,1,1,1,1,1,0,]; actual class: democrat; predicted class: democrat
+Attributes: [1,2,0,1,1,1,0,0,0,1,1,1,1,1,0,0,]; actual class: democrat; predicted class: democrat
+Attributes: [1,1,1,0,0,0,1,1,1,0,1,2,0,0,1,2,]; actual class: republican; predicted class: republican
+Attributes: [0,0,0,1,0,0,0,0,1,0,0,1,1,1,0,2,]; actual class: democrat; predicted class: democrat
+Attributes: [1,1,1,0,0,0,1,1,1,0,1,0,0,0,1,0,]; actual class: republican; predicted class: republican
+Attributes: [1,2,0,1,1,0,0,0,1,0,1,1,1,1,0,2,]; actual class: democrat; predicted class: republican
+Attributes: [1,0,1,0,0,0,1,1,1,0,1,0,0,0,1,2,]; actual class: republican; predicted class: republican
+Attributes: [1,1,1,0,0,0,1,1,1,0,1,0,0,0,1,1,]; actual class: republican; predicted class: republican
+Results:
+Successful predictions: 31
+Total predictions: 39
+Accuracy: 0.794872
+--------------------- TEST FINISH FOR SUBSET 9 ---------------------
+
+Mean of all accuracies: 0.763578
