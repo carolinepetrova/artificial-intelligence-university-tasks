@@ -161,7 +161,7 @@ class NaiveBayesClassifier {
   };
 
   // predict class with attributes vector< attribute id>
-  int predict(vector<int> attributes) {
+  string predict(vector<int> attributes) {
     int maxProbabilityClassId = -1;
     double maxProbability = 0;
     for (const auto &[currentClassId, currentClassProbability] :
@@ -183,7 +183,7 @@ class NaiveBayesClassifier {
     cout << "Predict Class : " << classIdToStringMap.at(maxProbabilityClassId)
          << " P(C|x1,x2,...,xN) = " << maxProbability << endl;
 
-    return maxProbabilityClassId;
+    return classIdToStringMap.at(maxProbabilityClassId);
   }
 };
 
@@ -236,9 +236,10 @@ vector<InputEntries> splitIntoSubsets(InputEntries data, int numberOfSubsets) {
       ceil(static_cast<double>(data.size()) / numberOfSubsets);
   cout << "numberOfElementsInSubset = [" << numberOfElementsInSubset << "]\n";
 
-  int numberOfElementsInLastSubset = data.size() - (numberOfElementsInSubset * (numberOfSubsets - 1));
-  cout << "Number of elements in last subset should be equal to [" << numberOfElementsInLastSubset
-       << "]\n";
+  int numberOfElementsInLastSubset =
+      data.size() - (numberOfElementsInSubset * (numberOfSubsets - 1));
+  cout << "Number of elements in last subset should be equal to ["
+       << numberOfElementsInLastSubset << "]\n";
 
   vector<InputEntries> result;
 
@@ -262,7 +263,8 @@ vector<InputEntries> splitIntoSubsets(InputEntries data, int numberOfSubsets) {
     inputEntries.push_back(data[i]);
   }
   result.push_back(inputEntries);
-  cout << "Number of elements in last subset is equal to: [" << inputEntries.size() << "]\n";
+  cout << "Number of elements in last subset is equal to: ["
+       << inputEntries.size() << "]\n";
 
   return result;
 }
