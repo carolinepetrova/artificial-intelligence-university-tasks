@@ -7,3 +7,7 @@
 3. [Third homework: Solving travelling salesman problem using genetic algorithm](https://github.com/stiliangoranov/artificial-intelligence-university-tasks/tree/master/homework3_travelling_salesman)
 
 4. [Fourth homework: Tic tac toe game user vs AI using minimax with alpha-beta pruning](https://github.com/stiliangoranov/artificial-intelligence-university-tasks/tree/master/homework4_minimax_alpha_beta_pruning_tic_tac_toe)
+
+5. [Fifth homework: Naive Bayes Classifier](https://github.com/stiliangoranov/artificial-intelligence-university-tasks/tree/master/homework5_naive_bayes)
+
+6. [Sixth homework: ID3 Algorithm](https://github.com/stiliangoranov/artificial-intelligence-university-tasks/tree/master/homework6_id3_decision_tree)
