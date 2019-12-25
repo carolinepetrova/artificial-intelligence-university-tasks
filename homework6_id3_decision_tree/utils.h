@@ -10,7 +10,7 @@ using namespace std;
 
 namespace id3 {
 
-class InvalidVectorOfProbabilitiesException : public std::exception {
+class InvalidSumOfProbabilitiesException : public std::exception {
  public:
   virtual const char* what() const noexcept override {
     return "Sum of all probabilites is not 1!";
@@ -38,7 +38,7 @@ double calculateEntropy(const vector<double>& probabilities) {
   }
 
   if (sumOfProbabilites != 1) {
-    throw InvalidVectorOfProbabilitiesException();
+    throw InvalidSumOfProbabilitiesException();
   }
 
   double entropy = 0;

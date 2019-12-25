@@ -7,5 +7,5 @@ TEST_CASE("Entropy is calculated correctly") {
   REQUIRE(id3::calculateEntropy({0.25, 0.25, 0.25, 0.25}) == 2);
   REQUIRE(id3::calculateEntropy({1}) == 0);
   REQUIRE_THROWS_AS(id3::calculateEntropy({0.5, 0.6}),
-                    id3::InvalidVectorOfProbabilitiesException);
+                    id3::InvalidSumOfProbabilitiesException);
 }
