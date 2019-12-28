@@ -130,4 +130,6 @@ Entropy Entries::calculateAttributeEntropy(int attributeId,
   return calculateEntropy(classToCountMap);
 }
 
+vector<vector<string>> Entries::getData() const { return data; }
+
 }  // namespace id3

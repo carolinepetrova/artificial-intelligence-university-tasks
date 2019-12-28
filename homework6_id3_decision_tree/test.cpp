@@ -54,6 +54,19 @@ TEST_CASE(
       entries.getAttributeWithHighestInformationGain();
 
   CAPTURE(attributeWithHighestInformationGain);
-  REQUIRE(attributeWithHighestInformationGain == 1);  // entry[1] is the 'Outlook'
-                                                      // attribute
+  REQUIRE(attributeWithHighestInformationGain == 1);  // entry[1] is the
+                                                      // 'Outlook' attribute
+}
+
+TEST_CASE(
+    "Generating subset of entries with given attribute value works correctly") {
+  auto entries = id3::Entries{generateTestData()};
+  auto subsetWithSunnyOutlook =
+      id3::generateSubset(entries, 1 /* 1 is Outlook */, "Sunny");
+  REQUIRE(subsetWithSunnyOutlook.getData() ==
+          vector<vector<string>>{{"No", "Sunny", "Hot", "High", "Weak"},
+                                 {"No", "Sunny", "Hot", "High", "Strong"},
+                                 {"No", "Sunny", "Mild", "High", "Weak"},
+                                 {"Yes", "Sunny", "Cool", "Normal", "Weak"},
+                                 {"Yes", "Sunny", "Mild", "Normal", "Strong"}});
 }

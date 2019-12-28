@@ -1,4 +1,5 @@
 #include "utils.h"
+#include "entries.h"
 
 namespace id3 {
 
@@ -64,6 +65,18 @@ Entropy calculateAverageInformationEntropy(
         (static_cast<double>(entriesCount) / totalNumberOfEntries) * entropy;
   }
   return averageInformationEntropy;
+}
+
+Entries generateSubset(const Entries& entries, int attributeId,
+                       const string& attributeValue) {
+  vector<vector<string>> data = entries.getData();
+
+  data.erase(remove_if(data.begin(), data.end(),
+                       [&](const vector<string>& entry) {
+                         return entry[attributeId] != attributeValue;
+                       }),
+             data.end());
+  return Entries{data};
 }
 
 }  // namespace id3

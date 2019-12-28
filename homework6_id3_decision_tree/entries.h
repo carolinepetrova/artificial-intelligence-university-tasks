@@ -19,7 +19,9 @@ class Entries {
   vector<vector<string>> data;
 
  public:
-  Entries(const vector<vector<string>>& entries);
+  explicit Entries(const vector<vector<string>>& entries);
+
+  vector<vector<string>> getData() const;
 
   bool areAllEntriesWithSameClass() const;
   bool isEmpty() const;

@@ -14,6 +14,8 @@ using namespace std;
 
 namespace id3 {
 
+class Entries;
+
 class InvalidNumberOfEntriesException : public std::exception {
  private:
   std::string m_strErrMsg;
@@ -73,6 +75,12 @@ Entropy calculateAverageInformationEntropy(
     int totalNumberOfEntries,
     const unordered_map<string, pair<EntriesCount, Entropy>>&
         attributeValueToEntriesCountAndEntropyMap);
+
+/**
+ * @brief generate subset of entries with specific attribute value
+ */
+Entries generateSubset(const Entries& entries, int attributeId,
+                       const string& attributeValue);
 
 }  // namespace id3
 
