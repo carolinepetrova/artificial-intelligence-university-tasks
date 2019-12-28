@@ -11,6 +11,8 @@ namespace id3 {
 
 using namespace std;
 
+Entries::Entries() {}
+
 Entries::Entries(const vector<vector<string>>& entries) : data{entries} {}
 
 bool Entries::areAllEntriesWithSameClass() const {

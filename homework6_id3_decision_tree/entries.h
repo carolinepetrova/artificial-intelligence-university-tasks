@@ -19,6 +19,7 @@ class Entries {
   vector<vector<string>> data;
 
  public:
+  Entries();
   explicit Entries(const vector<vector<string>>& entries);
 
   vector<vector<string>> getData() const;
@@ -28,11 +29,6 @@ class Entries {
 
   AttributeId getAttributeWithHighestInformationGain() const;
 
- private:
-  /**
-   * Helper methods
-   */
-
   /**
    * @brief get all possible classes from the data
    *
@@ -40,6 +36,11 @@ class Entries {
    * 0th element is expected to correspond to the class
    */
   unordered_set<string> getClasses() const;
+
+ private:
+  /**
+   * Helper methods
+   */
 
   int countEntriesByAttributeValue(int attributeId,
                                    string attributeValue) const;

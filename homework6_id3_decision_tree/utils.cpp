@@ -1,4 +1,5 @@
 #include "utils.h"
+
 #include "entries.h"
 
 namespace id3 {
@@ -8,6 +9,13 @@ InvalidNumberOfEntriesException::InvalidNumberOfEntriesException(
     : m_strErrMsg{strErrMsg} {}
 
 const char* InvalidNumberOfEntriesException::what() const noexcept {
+  return m_strErrMsg.c_str();
+}
+
+EmptyEntriesException::EmptyEntriesException(const std::string& strErrMsg)
+    : m_strErrMsg{strErrMsg} {}
+
+const char* EmptyEntriesException::what() const noexcept {
   return m_strErrMsg.c_str();
 }
 

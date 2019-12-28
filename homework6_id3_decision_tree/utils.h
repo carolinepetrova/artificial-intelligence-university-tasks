@@ -25,6 +25,15 @@ class InvalidNumberOfEntriesException : public std::exception {
   virtual const char* what() const noexcept override;
 };
 
+class EmptyEntriesException : public std::exception {
+ private:
+  std::string m_strErrMsg;
+
+ public:
+  explicit EmptyEntriesException(const std::string& strErrMsg);
+  virtual const char* what() const noexcept override;
+};
+
 using AttributeId = int;
 using AttributeValue = string;
 using EntriesCount = int;

@@ -21,7 +21,7 @@ class Node {
 
   optional<AttributeId> optAttributeId;
   optional<Class> optClass;
-  bool isLeaf;
+  bool m_bIsLeaf;
 
   /**
    *  @brief map all attribute values to child nodes
@@ -41,11 +41,13 @@ class Node {
    * contain a class, which is the decision itself
    */
   optional<AttributeId> getAttribute();
+  void setAttribute(optional<AttributeId> attributeId);
 
   /**
    * If then node is leaf, then it will contain a class (the decision itself)
    */
   optional<Class> getClass();
+  void setClass(optional<Class> cl);
 };
 
 }  // namespace id3
