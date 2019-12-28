@@ -84,6 +84,9 @@ class Entries {
 
     // start from 1, because the 0th index belongs to the class
     for (int attributeId = 1; attributeId < data.size(); attributeId++) {
+      const unordered_map<string, pair<EntriesCount, Entropy>>
+          attributeValueToEntriesCountAndEntropyMap;
+
         
     }
   }

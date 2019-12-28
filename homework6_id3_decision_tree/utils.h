@@ -13,18 +13,6 @@ using namespace std;
 
 namespace id3 {
 
-class InvalidSumOfProbabilitiesException : public std::exception {
- private:
-  std::string m_strErrMsg;
-
- public:
-  explicit InvalidSumOfProbabilitiesException(const std::string& strErrMsg)
-      : m_strErrMsg{strErrMsg} {}
-  virtual const char* what() const noexcept override {
-    return m_strErrMsg.c_str();
-  }
-};
-
 class InvalidNumberOfEntriesException : public std::exception {
  private:
   std::string m_strErrMsg;
@@ -39,37 +27,34 @@ class InvalidNumberOfEntriesException : public std::exception {
 
 using EntriesCount = int;
 using Entropy = double;
+using Class = string;
 
 /**
- * @brief Calculate entropy for a given attribute
+ * @brief calculate entropy for some dataset
  *
- * @param probabilities - P(class 0) = probabilites[0], P(class 1) =
- * probabilities[1] and so on...
+ * @param data - maps class to number of entries with this class
  *
- * The sum of the vector should be 1
+ * For example, if we have the sequence of classes A A A A B B C D,
+ * we have P(A) = 1/2, P(B) = 1/4, P(C) = P(D) = 1/8
  *
- * For example, if we have 3 shapes for an apple, and shape 0 has probability of
- * 0.5, then probabilites[0] = 0.5 The other 2 could be probabilites[1] = 0.3
- * and probabilites[2] = 0.2
+ * The data unordered_map in this example will be this:
+ * {"A" -> 4}, {"B" -> 2}, {"C" -> 1}, {"D" -> 1}
  *
- * @return the entropy
+ * The entropy will be:
+ * -1/2*log2(1/2) - 1/4*log2(1/4) - 1/8*log2(1/8) - 1/8*log2(1/8) =
+ * 1/2 + 1/2 + 3/8 + 3/8 = 1 + 3/4 = 1.75
  *
- * @throw InvalidVectorOfProbabilitiesException if the sum of the probabilities
- * is not 1
  */
-Entropy calculateEntropy(const vector<double>& probabilities) {
-  double sumOfProbabilites = 0;
-  for (auto probability : probabilities) {
-    sumOfProbabilites += probability;
-  }
-
-  if (sumOfProbabilites != 1) {
-    throw InvalidSumOfProbabilitiesException(
-        "Sum of all probabilites is not 1!");
+Entropy calculateEntropy(unordered_map<Class, EntriesCount> data) {
+  int totalNumberOfEntries = 0;
+  for (const auto& [currentClass, entriesCount] : data) {
+    totalNumberOfEntries += entriesCount;
   }
 
   Entropy entropy = 0;
-  for (auto probability : probabilities) {
+  for (const auto& [currentClass, entriesCount] : data) {
+    double probability =
+        static_cast<double>(entriesCount) / totalNumberOfEntries;
     entropy -= probability * log2(probability);
   }
   return entropy;

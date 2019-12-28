@@ -9,11 +9,10 @@ bool double_equals(double a, double b, double epsilon = 0.001) {
 }
 
 TEST_CASE("Entropy is calculated correctly") {
-  REQUIRE(id3::calculateEntropy({0.5, 0.25, 0.125, 0.125}) == 1.75);
-  REQUIRE(id3::calculateEntropy({0.25, 0.25, 0.25, 0.25}) == 2);
-  REQUIRE(id3::calculateEntropy({1}) == 0);
-  REQUIRE_THROWS_AS(id3::calculateEntropy({0.5, 0.6}),
-                    id3::InvalidSumOfProbabilitiesException);
+  REQUIRE(id3::calculateEntropy({{"A", 4}, {"B", 2}, {"C", 1}, {"D", 1}}) ==
+          1.75);
+  REQUIRE(id3::calculateEntropy({{"A", 2}, {"B", 2}, {"C", 2}, {"D", 2}}) == 2);
+  REQUIRE(id3::calculateEntropy({{"A", 2}}) == 0);
 }
 
 TEST_CASE("Average information entropy is calculated correctly") {
