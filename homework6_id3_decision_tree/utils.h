@@ -48,6 +48,11 @@ using Class = string;
  *
  */
 Entropy calculateEntropy(unordered_map<Class, EntriesCount> data) {
+  cout << "\ncalculateEntropy() called with map: \n";
+  for (const auto& [cl, entriesCount] : data) {
+    cout << "{" << cl << " -> " << entriesCount << "}\n";
+  }
+
   int totalNumberOfEntries = 0;
   for (const auto& [currentClass, entriesCount] : data) {
     totalNumberOfEntries += entriesCount;
@@ -55,9 +60,11 @@ Entropy calculateEntropy(unordered_map<Class, EntriesCount> data) {
 
   Entropy entropy = 0;
   for (const auto& [currentClass, entriesCount] : data) {
-    double probability =
-        static_cast<double>(entriesCount) / totalNumberOfEntries;
-    entropy -= probability * log2(probability);
+    if (entriesCount != 0) {
+      double probability =
+          static_cast<double>(entriesCount) / totalNumberOfEntries;
+      entropy -= probability * log2(probability);
+    }
   }
   return entropy;
 }
@@ -89,15 +96,14 @@ Entropy calculateAverageInformationEntropy(
     int totalNumberOfEntries,
     const unordered_map<string, pair<EntriesCount, Entropy>>&
         attributeValueToEntriesCountAndEntropyMap) {
-  cout << "calculateAverageInformationEntropy() called with "
+  cout << "\ncalculateAverageInformationEntropy() called with "
           "totalNumberOfEntries = ["
        << totalNumberOfEntries << "] and map:\n";
 
   for (const auto& [attributeValue, entriesCountAndEntropyPair] :
        attributeValueToEntriesCountAndEntropyMap) {
-    cout << "{" << attributeValue << " -> {"
-         << entriesCountAndEntropyPair.first << ", "
-         << entriesCountAndEntropyPair.second << "}}\n";
+    cout << "{" << attributeValue << " -> {" << entriesCountAndEntropyPair.first
+         << ", " << entriesCountAndEntropyPair.second << "}}\n";
   }
 
   Entropy averageInformationEntropy = 0;

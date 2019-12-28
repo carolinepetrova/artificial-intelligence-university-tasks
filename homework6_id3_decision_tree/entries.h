@@ -71,7 +71,7 @@ class Entries {
 
       if (currentAverageInformationEntropy < lowestAverageInformationEntropy) {
         attributeWithHighestInformationGain = attributeId;
-        currentAverageInformationEntropy = lowestAverageInformationEntropy;
+        lowestAverageInformationEntropy = currentAverageInformationEntropy;
       }
     }
 
