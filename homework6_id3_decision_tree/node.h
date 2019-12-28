@@ -4,6 +4,7 @@
 #include <optional>
 #include <unordered_map>
 
+#include "entries.h"
 #include "utils.h"
 
 namespace id3 {
@@ -12,8 +13,15 @@ using namespace std;
 
 class Node {
  private:
+  /**
+   * The data for the id3 algorithm on each tree node; if
+   * the node is leaf, the entries will be 0
+   */
+  Entries entries;
+
   optional<AttributeId> optAttributeId;
   optional<Class> optClass;
+  bool isLeaf;
 
   /**
    *  @brief map all attribute values to child nodes
@@ -24,6 +32,8 @@ class Node {
   unordered_map<AttributeValue, Node*> children;
 
  public:
+  Node(const Entries& dataEntries);
+
   bool isLeaf() const;
 
   /**
