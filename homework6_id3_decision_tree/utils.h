@@ -19,11 +19,8 @@ class InvalidNumberOfEntriesException : public std::exception {
   std::string m_strErrMsg;
 
  public:
-  explicit InvalidNumberOfEntriesException(const std::string& strErrMsg)
-      : m_strErrMsg{strErrMsg} {}
-  virtual const char* what() const noexcept override {
-    return m_strErrMsg.c_str();
-  }
+  explicit InvalidNumberOfEntriesException(const std::string& strErrMsg);
+  virtual const char* what() const noexcept override;
 };
 
 using AttributeId = int;
@@ -47,27 +44,7 @@ using Class = string;
  * 1/2 + 1/2 + 3/8 + 3/8 = 1 + 3/4 = 1.75
  *
  */
-Entropy calculateEntropy(unordered_map<Class, EntriesCount> data) {
-  cout << "\ncalculateEntropy() called with map: \n";
-  for (const auto& [cl, entriesCount] : data) {
-    cout << "{" << cl << " -> " << entriesCount << "}\n";
-  }
-
-  int totalNumberOfEntries = 0;
-  for (const auto& [currentClass, entriesCount] : data) {
-    totalNumberOfEntries += entriesCount;
-  }
-
-  Entropy entropy = 0;
-  for (const auto& [currentClass, entriesCount] : data) {
-    if (entriesCount != 0) {
-      double probability =
-          static_cast<double>(entriesCount) / totalNumberOfEntries;
-      entropy -= probability * log2(probability);
-    }
-  }
-  return entropy;
-}
+Entropy calculateEntropy(unordered_map<Class, EntriesCount> data);
 
 // clang-format off
 /**
@@ -95,36 +72,7 @@ Entropy calculateEntropy(unordered_map<Class, EntriesCount> data) {
 Entropy calculateAverageInformationEntropy(
     int totalNumberOfEntries,
     const unordered_map<string, pair<EntriesCount, Entropy>>&
-        attributeValueToEntriesCountAndEntropyMap) {
-  cout << "\ncalculateAverageInformationEntropy() called with "
-          "totalNumberOfEntries = ["
-       << totalNumberOfEntries << "] and map:\n";
-
-  for (const auto& [attributeValue, entriesCountAndEntropyPair] :
-       attributeValueToEntriesCountAndEntropyMap) {
-    cout << "{" << attributeValue << " -> {" << entriesCountAndEntropyPair.first
-         << ", " << entriesCountAndEntropyPair.second << "}}\n";
-  }
-
-  Entropy averageInformationEntropy = 0;
-
-  for (const auto& [attributeValue, entriesCountAndEntropyPair] :
-       attributeValueToEntriesCountAndEntropyMap) {
-    const auto& [entriesCount, entropy] = entriesCountAndEntropyPair;
-    if (entriesCount > totalNumberOfEntries) {
-      stringstream error;
-      error << "The number of entries for attribute value [" << attributeValue
-            << "] is [" << entriesCount
-            << "] which is higher than the total number of entries ["
-            << totalNumberOfEntries << "].";
-      throw InvalidNumberOfEntriesException(error.str());
-    }
-
-    averageInformationEntropy +=
-        (static_cast<double>(entriesCount) / totalNumberOfEntries) * entropy;
-  }
-  return averageInformationEntropy;
-}
+        attributeValueToEntriesCountAndEntropyMap);
 
 }  // namespace id3
 
