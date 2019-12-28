@@ -38,32 +38,9 @@ class Entries {
       cout << "\n---------------------------\nStarting calculations for "
               "attribute with id "
            << attributeId << endl;
-      unordered_map<string, pair<EntriesCount, Entropy>>
-          attributeValueToEntriesCountAndEntropyPairMap;
-
-      auto allPossibleAttributeValues =
-          getAllPossibleAttributeValues(attributeId);
-
-      cout << "All possible values are: \n";
-      for (const auto& attributeValue : allPossibleAttributeValues) {
-        cout << attributeValue << " ";
-      }
-      cout << endl;
-
-      for (const auto& attributeValue : allPossibleAttributeValues) {
-        auto currentEntropy =
-            calculateAttributeEntropy(attributeId, attributeValue);
-        auto entriesWithCurrentAttributeValue =
-            countEntriesByAttributeValue(attributeId, attributeValue);
-        attributeValueToEntriesCountAndEntropyPairMap.insert(
-            {attributeValue,
-             {entriesWithCurrentAttributeValue, currentEntropy}});
-      }
 
       auto currentAverageInformationEntropy =
-          calculateAverageInformationEntropy(
-              totalNumberOfEntries,
-              attributeValueToEntriesCountAndEntropyPairMap);
+          calculateAttributeAverageInformationEntropy(attributeId);
 
       cout << "Average information entropy for the attribute is: "
            << currentAverageInformationEntropy << endl
@@ -111,6 +88,34 @@ class Entries {
       result.insert(entry[attributeId]);
     });
     return result;
+  }
+
+  Entropy calculateAttributeAverageInformationEntropy(int attributeId) const {
+    const int totalNumberOfEntries = data.size();
+
+    unordered_map<string, pair<EntriesCount, Entropy>>
+        attributeValueToEntriesCountAndEntropyPairMap;
+
+    auto allPossibleAttributeValues =
+        getAllPossibleAttributeValues(attributeId);
+
+    cout << "All possible values are: \n";
+    for (const auto& attributeValue : allPossibleAttributeValues) {
+      cout << attributeValue << " ";
+    }
+    cout << endl;
+
+    for (const auto& attributeValue : allPossibleAttributeValues) {
+      auto currentEntropy =
+          calculateAttributeEntropy(attributeId, attributeValue);
+      auto entriesWithCurrentAttributeValue =
+          countEntriesByAttributeValue(attributeId, attributeValue);
+      attributeValueToEntriesCountAndEntropyPairMap.insert(
+          {attributeValue, {entriesWithCurrentAttributeValue, currentEntropy}});
+    }
+
+    return calculateAverageInformationEntropy(
+        totalNumberOfEntries, attributeValueToEntriesCountAndEntropyPairMap);
   }
 
   /**
