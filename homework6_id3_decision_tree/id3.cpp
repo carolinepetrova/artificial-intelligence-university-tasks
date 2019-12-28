@@ -2,10 +2,12 @@
 
 using namespace std;
 
+namespace id3 {
 
-
-
-int main()
-{
+class ID3Algorithm {
+    
+};
 
 }
+
+int main() {}
