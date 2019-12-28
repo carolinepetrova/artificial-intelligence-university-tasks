@@ -69,4 +69,7 @@ TEST_CASE(
                                  {"No", "Sunny", "Mild", "High", "Weak"},
                                  {"Yes", "Sunny", "Cool", "Normal", "Weak"},
                                  {"Yes", "Sunny", "Mild", "Normal", "Strong"}});
+
+  // test if empty subset is created with invalid attribute value
+  REQUIRE(id3::generateSubset(entries, 1, "Smunny").isEmpty());
 }
