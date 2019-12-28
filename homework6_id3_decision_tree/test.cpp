@@ -46,7 +46,10 @@ TEST_CASE(
 
   id3::Entries entries{data};
 
-  CAPTURE(entries.getAttributeWithHighestInformationGain() == 1);
+  auto attributeWithHighestInformationGain =
+      entries.getAttributeWithHighestInformationGain();
+
+  CAPTURE(attributeWithHighestInformationGain);
   REQUIRE(entries.getAttributeWithHighestInformationGain() ==
           1);  // entry[1] is the Outlook attribute
 }
