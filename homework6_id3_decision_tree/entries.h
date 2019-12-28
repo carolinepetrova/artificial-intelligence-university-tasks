@@ -53,7 +53,7 @@ class Entries {
   Entropy calculateAttributeEntropy(int attributeId,
                                     string attributeValue) const {
     // 1. Create dataset only from entries which have the given attribute value
-    // 2. Map each class to number of entries which belong to the class
+    // 2. Map each class to number of entries which belong to the class in the dataset
     // 3. Call utility function to do the math
 
     // ------------------------
