@@ -27,7 +27,8 @@ class Node {
   bool isLeaf() const;
 
   /**
-   * If the node is leaf, then it will not contain attribute
+   * If the node is leaf, then it will not contain attribute, because it will
+   * contain a class, which is the decision itself
    */
   optional<AttributeId> getAttribute();
 
