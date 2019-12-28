@@ -2,6 +2,7 @@
 #define ENTIRES_H
 
 #include <algorithm>
+#include <iostream>
 #include <numeric>
 #include <string>
 #include <unordered_set>
@@ -32,13 +33,22 @@ class Entries {
     int lowestAverageInformationEntropy = 10000;
 
     // start from 1, because the 0th index belongs to the class
-    for (AttributeId attributeId = 1; attributeId < data.size();
+    for (AttributeId attributeId = 1; attributeId < data[0].size();
          attributeId++) {
+      cout << "\n---------------------------\nStarting calculations for "
+              "attribute with id "
+           << attributeId << endl;
       unordered_map<string, pair<EntriesCount, Entropy>>
           attributeValueToEntriesCountAndEntropyPairMap;
 
       auto allPossibleAttributeValues =
           getAllPossibleAttributeValues(attributeId);
+
+      cout << "All possible values are: \n";
+      for (const auto& attributeValue : allPossibleAttributeValues) {
+        cout << attributeValue << " ";
+      }
+      cout << endl;
 
       for (const auto& attributeValue : allPossibleAttributeValues) {
         auto currentEntropy =
@@ -48,17 +58,20 @@ class Entries {
         attributeValueToEntriesCountAndEntropyPairMap.insert(
             {attributeValue,
              {entriesWithCurrentAttributeValue, currentEntropy}});
+      }
 
-        auto currentAverageInformationEntropy =
-            calculateAverageInformationEntropy(
-                totalNumberOfEntries,
-                attributeValueToEntriesCountAndEntropyPairMap);
+      auto currentAverageInformationEntropy =
+          calculateAverageInformationEntropy(
+              totalNumberOfEntries,
+              attributeValueToEntriesCountAndEntropyPairMap);
 
-        if (currentAverageInformationEntropy <
-            lowestAverageInformationEntropy) {
-          attributeWithHighestInformationGain = attributeId;
-          currentAverageInformationEntropy = lowestAverageInformationEntropy;
-        }
+      cout << "Average information entropy for the attribute is: "
+           << currentAverageInformationEntropy << endl
+           << "------------------------------------\n";
+
+      if (currentAverageInformationEntropy < lowestAverageInformationEntropy) {
+        attributeWithHighestInformationGain = attributeId;
+        currentAverageInformationEntropy = lowestAverageInformationEntropy;
       }
     }
 
