@@ -50,6 +50,6 @@ TEST_CASE(
       entries.getAttributeWithHighestInformationGain();
 
   CAPTURE(attributeWithHighestInformationGain);
-  REQUIRE(entries.getAttributeWithHighestInformationGain() ==
-          1);  // entry[1] is the Outlook attribute
+  REQUIRE(attributeWithHighestInformationGain == 1);  // entry[1] is the Outlook
+                                                      // attribute
 }
