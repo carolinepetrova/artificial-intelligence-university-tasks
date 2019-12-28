@@ -26,6 +26,7 @@ class InvalidNumberOfEntriesException : public std::exception {
 };
 
 using AttributeId = int;
+using AttributeValue = string;
 using EntriesCount = int;
 using Entropy = double;
 using Class = string;
