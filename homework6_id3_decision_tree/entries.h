@@ -30,27 +30,16 @@ class Entries {
     return result;
   }
 
-  /**
-   * Example:
-   * If the function returns vector 'probabilities' with values {0.2, 0.3, 0.5},
-   * this means that the attribute has 3 possible values;
-   * The 1st value of the attribute has probability of occuring 0.2, i.e.
-   * probabilites[0] = 0.2; same for the 2 other possible values of the
-   * attribute - probabilities[1] = 0.3, probabilities[2] = 0.5
-   */
-  vector<double> calculateProbabilityForEachAttributeValue(int attributeId) {
-    vector<double> probabilites;
-
-    unordered_set<string> possibleAttributeValues =
-        getAllPossibleAttributeValues(attributeId);
-
-    for (const auto& attributeValue : possibleAttributeValues) {
-      probabilites.push_back(
-          calculateProbabilityForAttributeValue(attributeId, attributeValue));
-    }
+  int countEntriesByAttributeValue(int attributeId,
+                                   string attributeValue) const {
+    int result = 0;
+    for_each(data.begin(), data.end(), [&result](const auto& entry) {
+      if (entry[attributeId] == attributeValue) result++;
+    });
+    return result;
   }
 
-  unordered_set<string> getAllPossibleAttributeValues(int attributeId) {
+  unordered_set<string> getAllPossibleAttributeValues(int attributeId) const {
     unordered_set<string> result;
     for_each(data.begin(), data.end(), [&result](const auto& entry) {
       result.insert(entry[attributeId]);
@@ -58,36 +47,75 @@ class Entries {
     return result;
   }
 
-  double calculateProbabilityForAttributeValue(int attributeId,
-                                               string attributeValue) {
-    int totalEntriesWithGivenAttributeValue = 0;
-    for (const auto& entry : data) {
-      if (entry[attributeId] == attributeValue)
-        ++totalEntriesWithGivenAttributeValue;
+  /**
+   * @brief calculate E(A=x), e.g. E(Outlook=sunny)
+   */
+  Entropy calculateAttributeEntropy(int attributeId,
+                                    string attributeValue) const {
+    // 1. Create dataset only from entries which have the given attribute value
+    // 2. Map each class to number of entries which belong to the class
+    // 3. Call utility function to do the math
+
+    // ------------------------
+
+    unordered_map<Class, EntriesCount> classToCountMap;
+
+    // initialize map with zeros
+    for (const auto& c : getClasses()) {
+      classToCountMap[c] = 0;
     }
 
-    return static_cast<double>(totalEntriesWithGivenAttributeValue) /
-           data.size();
+    // fill the map
+    for_each(data.begin(), data.end(), [&classToCountMap](const auto& entry) {
+      if (entry[attributeId] == attributeValue) {
+        const string& currentClass = entry[0];
+        classToCountMap[currentClass]++;
+      }
+    });
+
+    return calculateEntropy(classToCountMap);
   }
 
  public:
   bool areAllEntriesWithSameClass() const { return getClasses().size() == 1; }
   bool isEmpty() const { return data.empty(); }
 
-  int getAttributeWithHighestInformationGain() const {
+  AttributeId getAttributeWithHighestInformationGain() const {
     const int totalNumberOfEntries = data.size();
 
     // we will find the attribute which has the lowest average
     // information entropy - this corresponds to highest information gain
     int attributeWithHighestInformationGain;
-    int lowestEntropy = 10000;
+    int lowestAverageInformationEntropy = 10000;
 
     // start from 1, because the 0th index belongs to the class
     for (int attributeId = 1; attributeId < data.size(); attributeId++) {
-      const unordered_map<string, pair<EntriesCount, Entropy>>
-          attributeValueToEntriesCountAndEntropyMap;
+      unordered_map<string, pair<EntriesCount, Entropy>>
+          attributeValueToEntriesCountAndEntropyPairMap;
 
-        
+      auto allPossibleAttributeValues =
+          getAllPossibleAttributeValues(attributeId);
+
+      for (const auto& attributeValue : allPossibleAttributeValues) {
+        auto currentEntropy =
+            calculateAttributeEntropy(attributeId, attributeValue);
+        auto entriesWithCurrentAttributeValue =
+            countEntriesByAttributeValue(attributeId, attributeValue);
+        attributeValueToEntriesCountAndEntropyPairMap.insert(
+            {attributeValue,
+             {entriesWithCurrentAttributeValue, currentEntropy}});
+
+        auto currentAverageInformationEntropy =
+            calculateAverageInformationEntropy(
+                totalNumberOfEntries,
+                attributeValueToEntriesCountAndEntropyPairMap);
+
+        if (currentAverageInformationEntropy <
+            lowestAverageInformationEntropy) {
+          attributeWithHighestInformationGain = attributeId;
+          currentAverageInformationEntropy = lowestAverageInformationEntropy;
+        }
+      }
     }
   }
 };
