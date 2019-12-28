@@ -4,6 +4,7 @@
 #include <algorithm>
 #include <cmath>
 #include <exception>
+#include <iostream>
 #include <sstream>
 #include <unordered_map>
 #include <utility>
@@ -88,6 +89,17 @@ Entropy calculateAverageInformationEntropy(
     int totalNumberOfEntries,
     const unordered_map<string, pair<EntriesCount, Entropy>>&
         attributeValueToEntriesCountAndEntropyMap) {
+  cout << "calculateAverageInformationEntropy() called with "
+          "totalNumberOfEntries = ["
+       << totalNumberOfEntries << "] and map:\n";
+
+  for (const auto& [attributeValue, entriesCountAndEntropyPair] :
+       attributeValueToEntriesCountAndEntropyMap) {
+    cout << "{" << attributeValue << " -> {"
+         << entriesCountAndEntropyPair.first << ", "
+         << entriesCountAndEntropyPair.second << "}}\n";
+  }
+
   Entropy averageInformationEntropy = 0;
 
   for (const auto& [attributeValue, entriesCountAndEntropyPair] :
