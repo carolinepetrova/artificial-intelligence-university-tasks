@@ -5,6 +5,7 @@
 #include <cmath>
 #include <exception>
 #include <sstream>
+#include <unordered_map>
 #include <utility>
 #include <vector>
 
@@ -36,7 +37,7 @@ class InvalidNumberOfEntriesException : public std::exception {
   }
 };
 
-using Count = int;
+using EntriesCount = int;
 using Entropy = double;
 
 /**
@@ -85,6 +86,13 @@ Entropy calculateEntropy(const vector<double>& probabilities) {
  * (number of entries with overcast outlook / total number of entries) * entropy(Outlook = overcast) +
  * (number of entries with sunny outlook / total number of entries) * entropy(Outlook = sunny)
  *
+ * @param totalNumberOfEntries - the total number of entries
+ * @param attributeValueToEntriesCountAndEntropyMap - in this map, the keys correspond to the
+ * possible attribute values (hence the size of the map corresponds to the total
+ * number of possible values for an attribute); the value for a given key (which is a pair)
+ * gives information about how many entries are there with the given attribute value
+ * and what is the entropy for that specific attribute value
+ *
  * @return the average information entropy
  * @throw InvalidNumberOfEntriesException if number of entries for specific attribute value is higher than
  * the total number of entries
@@ -92,19 +100,24 @@ Entropy calculateEntropy(const vector<double>& probabilities) {
 // clang-format on
 Entropy calculateAverageInformationEntropy(
     int totalNumberOfEntries,
-    const vector<pair<Count, Entropy>>& attributeAndItsEntropyPair) {
+    const unordered_map<string, pair<EntriesCount, Entropy>>&
+        attributeValueToEntriesCountAndEntropyMap) {
   Entropy averageInformationEntropy = 0;
-  for (const auto& [count, entropy] : attributeAndItsEntropyPair) {
-    if (count > totalNumberOfEntries) {
+
+  for (const auto& [attributeValue, entriesCountAndEntropyPair] :
+       attributeValueToEntriesCountAndEntropyMap) {
+    const auto& [entriesCount, entropy] = entriesCountAndEntropyPair;
+    if (entriesCount > totalNumberOfEntries) {
       stringstream error;
-      error << "The number of entries for specific attribute value (" << count
-            << ") cannot be higher than the total number of entries ("
-            << totalNumberOfEntries << ").";
+      error << "The number of entries for attribute value [" << attributeValue
+            << "] is [" << entriesCount
+            << "] which is higher than the total number of entries ["
+            << totalNumberOfEntries << "].";
       throw InvalidNumberOfEntriesException(error.str());
     }
 
     averageInformationEntropy +=
-        (static_cast<double>(count) / totalNumberOfEntries) * entropy;
+        (static_cast<double>(entriesCount) / totalNumberOfEntries) * entropy;
   }
   return averageInformationEntropy;
 }

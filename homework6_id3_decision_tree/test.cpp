@@ -17,7 +17,9 @@ TEST_CASE("Entropy is calculated correctly") {
 }
 
 TEST_CASE("Average information entropy is calculated correctly") {
-  REQUIRE(double_equals(id3::calculateAverageInformationEntropy(
-                            14, {{5, 0.971}, {5, 0.971}, {4, 0}}),
-                        0.693));
+  REQUIRE(double_equals(
+      id3::calculateAverageInformationEntropy(
+          14,
+          {{"value1", {5, 0.971}}, {"value2", {5, 0.971}}, {"value3", {4, 0}}}),
+      0.693));
 }
