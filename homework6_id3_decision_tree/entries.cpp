@@ -22,6 +22,11 @@ bool Entries::areAllEntriesWithSameClass() const {
 bool Entries::isEmpty() const { return data.empty(); }
 
 AttributeId Entries::getAttributeWithHighestInformationGain() const {
+  if (data.empty() || areAllEntriesWithSameClass() == 1) {
+    throw "Calling getAttributeWithHighestInformationGain() in an invalid context -"
+          " either no distinct classes or empty dataset.";
+  }
+
   const int totalNumberOfEntries = data.size();
 
   // we will find the attribute which has the lowest average
