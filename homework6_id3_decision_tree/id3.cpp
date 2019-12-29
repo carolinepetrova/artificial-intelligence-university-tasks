@@ -20,8 +20,6 @@ unique_ptr<Node> ID3Algorithm::generateDecisionTree(const Entries& inputData) {
     return make_unique<Node>(*inputData.getClasses().begin());
   }
 
-  assert(false);  // just test it works
-
   AttributeId attributeWithHighestInformationGain =
       inputData.getAttributeWithHighestInformationGain();
 
