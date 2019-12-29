@@ -3,6 +3,7 @@
 
 #include "catch.hpp"
 #include "entries.h"
+#include "id3.h"
 #include "utils.h"
 
 bool double_equals(double a, double b, double epsilon = 0.001) {
@@ -27,6 +28,9 @@ vector<vector<string>> generateTestData() {
       {"No", "Rainy", "Mild", "High", "Strong"},
   };
 }
+
+const unordered_map<string, int> testDataAttributeStringToIdMap = {
+    {"Outlook", 1}, {"Temperature", 2}, {"Humidity", 3}, {"Windy", 4}};
 
 TEST_CASE("Entropy is calculated correctly") {
   REQUIRE(id3::calculateEntropy({{"A", 4}, {"B", 2}, {"C", 1}, {"D", 1}}) ==
@@ -54,15 +58,15 @@ TEST_CASE(
       entries.getAttributeWithHighestInformationGain();
 
   CAPTURE(attributeWithHighestInformationGain);
-  REQUIRE(attributeWithHighestInformationGain == 1);  // entry[1] is the
-                                                      // 'Outlook' attribute
+  REQUIRE(attributeWithHighestInformationGain ==
+          testDataAttributeStringToIdMap.at("Outlook"));
 }
 
 TEST_CASE(
     "Generating subset of entries with given attribute value works correctly") {
   auto entries = id3::Entries{generateTestData()};
-  auto subsetWithSunnyOutlook =
-      id3::generateSubset(entries, 1 /* 1 is Outlook */, "Sunny");
+  auto subsetWithSunnyOutlook = id3::generateSubset(
+      entries, testDataAttributeStringToIdMap.at("Outlook"), "Sunny");
   REQUIRE(subsetWithSunnyOutlook.getData() ==
           vector<vector<string>>{{"No", "Sunny", "Hot", "High", "Weak"},
                                  {"No", "Sunny", "Hot", "High", "Strong"},
@@ -70,6 +74,21 @@ TEST_CASE(
                                  {"Yes", "Sunny", "Cool", "Normal", "Weak"},
                                  {"Yes", "Sunny", "Mild", "Normal", "Strong"}});
 
-  // test if empty subset is created with invalid attribute value
-  REQUIRE(id3::generateSubset(entries, 1, "Smunny").isEmpty());
+  // test if empty subset is created with invalid attribute value [Smunny]
+  REQUIRE(id3::generateSubset(
+              entries, testDataAttributeStringToIdMap.at("Outlook"), "Smunny")
+              .isEmpty());
+}
+
+/**
+ * Can be seen in the file 'test_final_tree.png'
+ */
+TEST_CASE("Id3 algorithm generates correct final decision tree") {
+  id3::ID3Algorithm algorithm;
+  auto rootNode =
+      algorithm.generateDecisionTree(id3::Entries{generateTestData()});
+
+  REQUIRE(get<id3::AttributeId>(rootNode->getValue()) ==
+          testDataAttributeStringToIdMap.at("Outlook"));
+    
 }
