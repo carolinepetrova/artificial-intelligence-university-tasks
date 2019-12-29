@@ -12,8 +12,9 @@ using namespace std;
 
 class ID3Algorithm {
  private:
+  void generateDecisionTreeHelper(shared_ptr<Node> rootNode);
  public:
-  unique_ptr<Node> generateDecisionTree(const Entries& inputData);
+  shared_ptr<Node> generateDecisionTree(const Entries& inputData);
 };
 
 }  // namespace id3

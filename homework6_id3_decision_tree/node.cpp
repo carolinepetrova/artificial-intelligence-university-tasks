@@ -1,16 +1,19 @@
 #include "node.h"
 
+#include <assert.h>
+
+#include "unistd.h"
 #include "utils.h"
 
 namespace id3 {
 
-Node::Node(const Entries& entries, AttributeId attributeId) : m_bIsLeaf{false} {
+Node::Node(const Entries& entries) : m_bIsLeaf{false} {
   if (entries.isEmpty()) {
     throw EmptyEntriesException("Trying to create a node without any entries!");
   }
 
   m_Entries = entries;
-  m_value = attributeId;
+  m_value = entries.getAttributeWithHighestInformationGain();
 }
 
 Node::Node(Class cl) : m_bIsLeaf{true}, m_value{cl} {}
@@ -32,19 +35,24 @@ void Node::generateChildren() {
         generateSubset(m_Entries, currentAttributeId, currentAttributeValue);
 
     if (subset.isEmpty()) {
+      cout << "Inserting leaf 1...\n";
+
       // insert leaf node with decision
       m_mapChildren.insert({currentAttributeValue,
                             make_shared<Node>(m_Entries.getMostCommonClass())});
+      assert(m_mapChildren[currentAttributeValue]->isLeaf());
     } else if (subset.areAllEntriesWithSameClass()) {
+      cout << "Inserting leaf 2...\n";
+
       // insert leaf node with decision
       m_mapChildren.insert({currentAttributeValue,
                             make_shared<Node>(*subset.getClasses().begin())});
+      assert(m_mapChildren[currentAttributeValue]->isLeaf());
     } else {
+      cout << "Inserting non-leaf...\n";
       // insert non-leaf node for further ID3 algorithm work
-      m_mapChildren.insert(
-          {currentAttributeValue,
-           make_shared<Node>(
-               subset, m_Entries.getAttributeWithHighestInformationGain())});
+      m_mapChildren.insert({currentAttributeValue, make_shared<Node>(subset)});
+      assert(!m_mapChildren[currentAttributeValue]->isLeaf());
     }
   }
 }
