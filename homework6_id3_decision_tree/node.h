@@ -1,8 +1,8 @@
 #ifndef NODE_H
 #define NODE_H
 
-#include <optional>
 #include <unordered_map>
+#include <variant>
 
 #include "entries.h"
 #include "utils.h"
@@ -17,37 +17,32 @@ class Node {
    * The data for the id3 algorithm on each tree node; if
    * the node is leaf, the entries will be 0
    */
-  Entries entries;
-
-  optional<AttributeId> optAttributeId;
-  optional<Class> optClass;
-  bool m_bIsLeaf;
+  Entries m_Entries;
 
   /**
-   *  @brief map all attribute values to child nodes
+   * ID3 Decision tree:
+   * If the node is leaf, it will contain class (the decision)
+   * If the node is not leaf, it will containt an attribute
+   */
+  variant<AttributeId, Class> m_value;
+
+  const bool m_bIsLeaf;
+
+  /**
+   * Map all attribute values to child nodes
    *
    * If the node is leaf then it will not contain any child nodes, and the map
    * will be empty
    */
-  unordered_map<AttributeValue, Node*> children;
+  unordered_map<AttributeValue, Node*> m_mapChildren;
 
  public:
-  Node(const Entries& dataEntries);
+  explicit Node(const Entries& entries, AttributeId attributeId);
+  explicit Node(const Entries& entries, Class cl);
 
   bool isLeaf() const;
 
-  /**
-   * If the node is leaf, then it will not contain attribute, because it will
-   * contain a class, which is the decision itself
-   */
-  optional<AttributeId> getAttribute();
-  void setAttribute(optional<AttributeId> attributeId);
-
-  /**
-   * If then node is leaf, then it will contain a class (the decision itself)
-   */
-  optional<Class> getClass();
-  void setClass(optional<Class> cl);
+  variant<AttributeId, Class> getValue() const;
 };
 
 }  // namespace id3

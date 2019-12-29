@@ -4,36 +4,26 @@
 
 namespace id3 {
 
-Node::Node(const Entries& dataEntries) {
-  if (dataEntries.isEmpty()) {
+Node::Node(const Entries& entries, AttributeId attributeId) : m_bIsLeaf{false} {
+  if (entries.isEmpty()) {
     throw EmptyEntriesException("Trying to create a node without any entries!");
-  } else if (dataEntries.areAllEntriesWithSameClass()) {
-    Class cl = *dataEntries.getClasses().begin();
-    optClass = make_optional(cl);
-    m_bIsLeaf = true;
   }
 
-  entries = dataEntries;
+  m_Entries = entries;
+  m_value = attributeId;
+}
+
+Node::Node(const Entries& entries, Class cl) : m_bIsLeaf{true} {
+  if (entries.isEmpty()) {
+    throw EmptyEntriesException("Trying to create a node without any entries!");
+  }
+
+  m_Entries = entries;
+  m_value = cl;
 }
 
 bool Node::isLeaf() const { return m_bIsLeaf; }
 
-optional<AttributeId> Node::getAttribute() { return optAttributeId; }
-
-void Node::setAttribute(optional<AttributeId> attributeId) {
-  if (isLeaf()) {
-    throw "Calling setAttribute() on a node which is marked to be a leaf!";
-  }
-  optAttributeId = attributeId;
-}
-
-optional<Class> Node::getClass() { return optClass; }
-
-void Node::setClass(optional<Class> cl) {
-  if (!isLeaf()) {
-    throw "Calling setClass() on a node which is marked not to be a leaf!";
-  }
-  optClass = cl;
-}
+variant<AttributeId, Class> Node::getValue() const { return m_value; }
 
 }  // namespace id3
