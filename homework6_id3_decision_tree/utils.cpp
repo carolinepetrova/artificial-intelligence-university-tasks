@@ -20,10 +20,10 @@ const char* EmptyEntriesException::what() const noexcept {
 }
 
 Entropy calculateEntropy(unordered_map<Class, EntriesCount> data) {
-  cout << "\ncalculateEntropy() called with map: \n";
-  for (const auto& [cl, entriesCount] : data) {
-    cout << "{" << cl << " -> " << entriesCount << "}\n";
-  }
+//   cout << "\ncalculateEntropy() called with map: \n";
+//   for (const auto& [cl, entriesCount] : data) {
+//     cout << "{" << cl << " -> " << entriesCount << "}\n";
+//   }
 
   int totalNumberOfEntries = 0;
   for (const auto& [currentClass, entriesCount] : data) {
@@ -45,14 +45,14 @@ Entropy calculateAverageInformationEntropy(
     int totalNumberOfEntries,
     const unordered_map<string, pair<EntriesCount, Entropy>>&
         attributeValueToEntriesCountAndEntropyMap) {
-  cout << "\ncalculateAverageInformationEntropy() called with "
-          "totalNumberOfEntries = ["
-       << totalNumberOfEntries << "] and map:\n";
+//   cout << "\ncalculateAverageInformationEntropy() called with "
+//           "totalNumberOfEntries = ["
+//        << totalNumberOfEntries << "] and map:\n";
 
   for (const auto& [attributeValue, entriesCountAndEntropyPair] :
        attributeValueToEntriesCountAndEntropyMap) {
-    cout << "{" << attributeValue << " -> {" << entriesCountAndEntropyPair.first
-         << ", " << entriesCountAndEntropyPair.second << "}}\n";
+    // cout << "{" << attributeValue << " -> {" << entriesCountAndEntropyPair.first
+    //      << ", " << entriesCountAndEntropyPair.second << "}}\n";
   }
 
   Entropy averageInformationEntropy = 0;

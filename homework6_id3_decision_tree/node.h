@@ -68,7 +68,11 @@ class Node {
 
   vector<shared_ptr<Node>> getChildren();
 
+  unordered_map<AttributeValue, shared_ptr<Node>> getChildrenMap();
+
   Entries getEntries() const;
+
+  void printAttributeValuesToChildren(std::ostream& os = std::cout) const;
 };
 
 }  // namespace id3

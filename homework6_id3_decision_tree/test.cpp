@@ -86,6 +86,9 @@ TEST_CASE("Id3 algorithm generates correct final decision tree") {
   auto rootNode =
       algorithm.generateDecisionTree(id3::Entries{generateTestData()});
 
+  cout << "PRINT CHILDREN\n";
+  rootNode->printAttributeValuesToChildren();
+
   REQUIRE(get<id3::AttributeId>(rootNode->getValue()) ==
           testDataAttributeStringToIdMap.at("Outlook"));
 
@@ -100,14 +103,11 @@ TEST_CASE("Id3 algorithm generates correct final decision tree") {
     }
   };
 
+  // TEST FIRST LEVEL CHILDREN
   const auto firstLevelChildren = rootNode->getChildren();
   cout << "\n\n--------------\n";
   printNodes(firstLevelChildren);
   cout << "--------------\n\n";
-
-  cout << "--------------\n";
-  printNodes(firstLevelChildren[0]->getChildren());
-  cout << "--------------\n";
 
   REQUIRE(firstLevelChildren.size() == 3);
 
@@ -119,6 +119,8 @@ TEST_CASE("Id3 algorithm generates correct final decision tree") {
       });
 
   REQUIRE(itFirstLevelLeaf != firstLevelChildren.end());
+  REQUIRE(*itFirstLevelLeaf == rootNode->getChildrenMap()["Overcast"]);
+
 
   // one child shoud be non-leaf with attribute "humidity"
   auto itFirstLevelHumidity =
@@ -126,9 +128,11 @@ TEST_CASE("Id3 algorithm generates correct final decision tree") {
               [](shared_ptr<id3::Node> child) {
                 return !child->isLeaf() &&
                        get<id3::AttributeId>(child->getValue()) ==
-                           testDataAttributeStringToIdMap.at("Humidity") - 1;
+                           testDataAttributeStringToIdMap.at("Humidity") -
+                               1;  // -1 because we are with 1 less attribute
               });
   REQUIRE(itFirstLevelHumidity != firstLevelChildren.end());
+  REQUIRE(*itFirstLevelHumidity == rootNode->getChildrenMap()["Sunny"]);
 
   // one child shoud be non-leaf with attribute "windy"
   auto itFirstLevelWindy =
@@ -136,7 +140,38 @@ TEST_CASE("Id3 algorithm generates correct final decision tree") {
               [](shared_ptr<id3::Node> child) {
                 return !child->isLeaf() &&
                        get<id3::AttributeId>(child->getValue()) ==
-                           testDataAttributeStringToIdMap.at("Windy") - 1;
+                           testDataAttributeStringToIdMap.at("Windy") -
+                               1;  // -1 because we are with 1 less attribute
               });
   REQUIRE(itFirstLevelWindy != firstLevelChildren.end());
+  REQUIRE((*itFirstLevelWindy) == rootNode->getChildrenMap()["Rainy"]);
+
+  // TEST SECOND LEVEL CHILDREN
+  const auto secondLevelChildren1 = (*itFirstLevelWindy)->getChildren();
+  const auto secondLevelChildren2 = (*itFirstLevelHumidity)->getChildren();
+
+  REQUIRE((*itFirstLevelWindy)->getChildren().size() == 2);
+  REQUIRE((*itFirstLevelHumidity)->getChildren().size() == 2);
+
+  REQUIRE((*itFirstLevelWindy)->getChildrenMap()["Weak"]->isLeaf());
+  REQUIRE(get<id3::Class>(
+              (*itFirstLevelWindy)->getChildrenMap()["Weak"]->getValue()) ==
+          "Yes");
+
+  REQUIRE((*itFirstLevelWindy)->getChildrenMap()["Strong"]->isLeaf());
+  REQUIRE(get<id3::Class>(
+              (*itFirstLevelWindy)->getChildrenMap()["Strong"]->getValue()) ==
+          "No");
+  // ----
+
+  REQUIRE((*itFirstLevelHumidity)->getChildrenMap()["High"]->isLeaf());
+  REQUIRE(get<id3::Class>(
+              (*itFirstLevelHumidity)->getChildrenMap()["High"]->getValue()) ==
+          "No");
+
+  REQUIRE((*itFirstLevelHumidity)->getChildrenMap()["Normal"]->isLeaf());
+  REQUIRE(
+      get<id3::Class>(
+          (*itFirstLevelHumidity)->getChildrenMap()["Normal"]->getValue()) ==
+      "Yes");
 }

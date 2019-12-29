@@ -32,7 +32,7 @@ AttributeId Entries::getAttributeWithHighestInformationGain() const {
   // we will find the attribute which has the lowest average
   // information entropy - this corresponds to highest information gain
   int attributeWithHighestInformationGain;
-  int lowestAverageInformationEntropy = 10000;
+  double lowestAverageInformationEntropy = 10000;
 
   // start from 1, because the 0th index belongs to the class
   for (AttributeId attributeId = 1; attributeId < data[0].size();
@@ -50,7 +50,11 @@ AttributeId Entries::getAttributeWithHighestInformationGain() const {
 
     if (currentAverageInformationEntropy < lowestAverageInformationEntropy) {
       attributeWithHighestInformationGain = attributeId;
+      cout << "attributeWithHighestInformationGain = ["
+           << attributeWithHighestInformationGain << "]\n";
       lowestAverageInformationEntropy = currentAverageInformationEntropy;
+      cout << "lowestAverageInformationEntropy = ["
+           << lowestAverageInformationEntropy << "]\n";
     }
   }
 

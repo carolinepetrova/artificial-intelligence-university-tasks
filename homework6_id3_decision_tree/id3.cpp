@@ -26,9 +26,6 @@ shared_ptr<Node> ID3Algorithm::generateDecisionTree(const Entries& inputData) {
     return rootNode;
   }
 
-  auto attributeWithHighestInformationGain =
-      inputData.getAttributeWithHighestInformationGain();
-
   auto rootNode = make_shared<Node>(inputData);
 
   assert(!rootNode->isLeaf());
