@@ -64,8 +64,8 @@ unordered_set<string> Entries::getClasses() const {
   return result;
 }
 
-int Entries::countEntriesByAttributeValue(int attributeId,
-                                          string attributeValue) const {
+int Entries::countEntriesByAttribute(int attributeId,
+                                     string attributeValue) const {
   int result = 0;
   for_each(data.begin(), data.end(), [&](const vector<string>& entry) {
     if (entry[attributeId] == attributeValue) result++;
@@ -101,7 +101,7 @@ Entropy Entries::calculateAttributeAverageInformationEntropy(
     auto currentEntropy =
         calculateAttributeEntropy(attributeId, attributeValue);
     auto entriesWithCurrentAttributeValue =
-        countEntriesByAttributeValue(attributeId, attributeValue);
+        countEntriesByAttribute(attributeId, attributeValue);
     attributeValueToEntriesCountAndEntropyPairMap.insert(
         {attributeValue, {entriesWithCurrentAttributeValue, currentEntropy}});
   }

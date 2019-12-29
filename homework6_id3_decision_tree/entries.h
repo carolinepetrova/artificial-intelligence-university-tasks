@@ -42,10 +42,13 @@ class Entries {
    * Helper methods
    */
 
-  int countEntriesByAttributeValue(int attributeId,
-                                   string attributeValue) const;
+  /**
+   * @brief count the number of entries with specific attribute value
+   */
+  int countEntriesByAttribute(int attributeId, string attributeValue) const;
 
   unordered_set<string> getAllPossibleAttributeValues(int attributeId) const;
+
   Entropy calculateAttributeAverageInformationEntropy(int attributeId) const;
 
   /**
