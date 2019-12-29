@@ -28,7 +28,7 @@ unique_ptr<Node> ID3Algorithm::generateDecisionTree(const Entries& inputData) {
 
   auto rootNode =
       make_unique<Node>(inputData, attributeWithHighestInformationGain);
-  assert(rootNode->isLeaf());
+  assert(!rootNode->isLeaf());
 
   rootNode->generateChildren();
 
