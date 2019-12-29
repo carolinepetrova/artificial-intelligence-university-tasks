@@ -62,4 +62,8 @@ class Entries {
 
 }  // namespace id3
 
+std::ostream& operator<<(std::ostream& os, const id3::Entries& entries);
+
+bool operator==(const id3::Entries& lhs, const id3::Entries& rhs);
+
 #endif

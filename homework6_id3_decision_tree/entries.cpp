@@ -177,3 +177,23 @@ Class Entries::getMostCommonClass() const {
 }
 
 }  // namespace id3
+
+std::ostream& operator<<(std::ostream& os, const id3::Entries& entries) {
+  for (const auto& entry : entries.getData()) {
+    for (const auto& str : entry) {
+      os << str << " ";
+    }
+    os << endl;
+  }
+  return os;
+}
+
+bool operator==(const id3::Entries& lhs, const id3::Entries& rhs) {
+  if (lhs.getData().size() != rhs.getData().size()) return false;
+
+  for (int i = 0; i < lhs.getData().size(); i++) {
+    if (lhs.getData()[i] != rhs.getData()[i]) return false;
+  }
+
+  return true;
+}

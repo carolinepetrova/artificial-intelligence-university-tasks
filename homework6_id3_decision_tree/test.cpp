@@ -50,9 +50,7 @@ TEST_CASE("Average information entropy should be calculated correctly") {
 TEST_CASE(
     "The attribute with highest information gain should be calculated "
     "correctly") {
-  const vector<vector<string>> data = generateTestData();
-
-  id3::Entries entries{data};
+  id3::Entries entries{generateTestData()};
 
   auto attributeWithHighestInformationGain =
       entries.getAttributeWithHighestInformationGain();
@@ -68,11 +66,11 @@ TEST_CASE(
   auto subsetWithSunnyOutlook = id3::generateSubset(
       entries, testDataAttributeStringToIdMap.at("Outlook"), "Sunny");
   REQUIRE(subsetWithSunnyOutlook.getData() ==
-          vector<vector<string>>{{"No", "Sunny", "Hot", "High", "Weak"},
-                                 {"No", "Sunny", "Hot", "High", "Strong"},
-                                 {"No", "Sunny", "Mild", "High", "Weak"},
-                                 {"Yes", "Sunny", "Cool", "Normal", "Weak"},
-                                 {"Yes", "Sunny", "Mild", "Normal", "Strong"}});
+          vector<vector<string>>{{"No", "Hot", "High", "Weak"},
+                                 {"No", "Hot", "High", "Strong"},
+                                 {"No", "Mild", "High", "Weak"},
+                                 {"Yes", "Cool", "Normal", "Weak"},
+                                 {"Yes", "Mild", "Normal", "Strong"}});
 
   // test if empty subset is created with invalid attribute value [Smunny]
   REQUIRE(id3::generateSubset(
@@ -81,7 +79,7 @@ TEST_CASE(
 }
 
 /**
- * Can be seen in the file 'test_final_tree.png'
+ * The resulting tree can be seen in the file 'test_final_tree.png'
  */
 TEST_CASE("Id3 algorithm generates correct final decision tree") {
   id3::ID3Algorithm algorithm;
@@ -90,5 +88,4 @@ TEST_CASE("Id3 algorithm generates correct final decision tree") {
 
   REQUIRE(get<id3::AttributeId>(rootNode->getValue()) ==
           testDataAttributeStringToIdMap.at("Outlook"));
-    
 }

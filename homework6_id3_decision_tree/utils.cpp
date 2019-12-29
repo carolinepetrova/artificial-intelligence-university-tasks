@@ -84,6 +84,10 @@ Entries generateSubset(const Entries& entries, int attributeId,
                          return entry[attributeId] != attributeValue;
                        }),
              data.end());
+
+  for (auto& entry : data) {
+    entry.erase(entry.begin() + attributeId);
+  }
   return Entries{data};
 }
 

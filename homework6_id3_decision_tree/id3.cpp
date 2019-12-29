@@ -20,11 +20,14 @@ shared_ptr<Node> ID3Algorithm::generateDecisionTree(const Entries& inputData) {
   if (inputData.areAllEntriesWithSameClass()) {
     cout << "Returning leaf node. All entries are with the same class: ["
          << *inputData.getClasses().begin() << "]\n";
-    return make_shared<Node>(*inputData.getClasses().begin());
+
+    auto rootNode = make_shared<Node>(*inputData.getClasses().begin());
+    assert(rootNode->isLeaf());
+    return rootNode;
   }
 
-  cout << "Attribute with highest information gain is ["
-       << inputData.getAttributeWithHighestInformationGain() << "]\n";
+  auto attributeWithHighestInformationGain =
+      inputData.getAttributeWithHighestInformationGain();
 
   auto rootNode = make_shared<Node>(inputData);
 
@@ -41,7 +44,9 @@ void ID3Algorithm::generateDecisionTreeHelper(shared_ptr<Node> rootNode) {
   if (attr != 1) {
     sleep(2);
   }
+  cout << "Before rootNode->generateChildren()\n";
   rootNode->generateChildren();
+  cout << "After rootNode->generateChildren()\n";
   for (const auto& child : rootNode->getChildren()) {
     if (!child->isLeaf()) {
       cout << "child has value attr id: "

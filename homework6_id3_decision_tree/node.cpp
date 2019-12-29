@@ -14,6 +14,10 @@ Node::Node(const Entries& entries) : m_bIsLeaf{false} {
 
   m_Entries = entries;
   m_value = entries.getAttributeWithHighestInformationGain();
+
+  cout << "Node() Entries: \n" << entries << endl;
+  cout << "Node() Attribute with highest information gain is ["
+       << get<AttributeId>(m_value) << "]\n";
 }
 
 Node::Node(Class cl) : m_bIsLeaf{true}, m_value{cl} {}
@@ -28,11 +32,18 @@ void Node::generateChildren() {
   }
 
   const auto currentAttributeId = std::get<AttributeId>(m_value);
+  cout << "generateChildren() currentAttributeId = " << currentAttributeId
+       << endl;
 
   for (const auto& currentAttributeValue :
        m_Entries.getAllPossibleAttributeValues(currentAttributeId)) {
+
+    cout << "generateChildren() m_Entries:\n" << m_Entries << endl;
     auto subset =
         generateSubset(m_Entries, currentAttributeId, currentAttributeValue);
+    cout << "generateChildren() subset:\n" << subset << endl;
+
+    cout << "subset equal to m_Entries? " << (m_Entries == subset)<< endl;
 
     if (subset.isEmpty()) {
       cout << "Inserting leaf 1...\n";
