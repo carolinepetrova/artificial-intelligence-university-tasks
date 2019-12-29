@@ -37,6 +37,10 @@ class Entries {
    */
   unordered_set<string> getClasses() const;
 
+  unordered_set<string> getAllPossibleAttributeValues(int attributeId) const;
+
+  Class getMostCommonClass() const;
+
  private:
   /**
    * Helper methods
@@ -46,8 +50,6 @@ class Entries {
    * @brief count the number of entries with specific attribute value
    */
   int countEntriesByAttribute(int attributeId, string attributeValue) const;
-
-  unordered_set<string> getAllPossibleAttributeValues(int attributeId) const;
 
   Entropy calculateAttributeAverageInformationEntropy(int attributeId) const;
 

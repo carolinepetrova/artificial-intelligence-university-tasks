@@ -139,4 +139,41 @@ Entropy Entries::calculateAttributeEntropy(int attributeId,
 
 vector<vector<string>> Entries::getData() const { return data; }
 
+Class Entries::getMostCommonClass() const {
+  cout << "getMostCommonClass()\n";
+  if (isEmpty()) {
+    throw "Calling getMostCommonClass() on empty entries.";
+  }
+
+  unordered_map<Class, EntriesCount> classToCountMap;
+
+  // initialize map with zeros
+  for (const auto& c : getClasses()) {
+    classToCountMap[c] = 0;
+  }
+
+  // fill the map
+  for_each(data.begin(), data.end(),
+           [&classToCountMap](const vector<string>& entry) {
+             const auto& currentClass = entry[0];
+             classToCountMap[currentClass]++;
+           });
+
+  Class mostCommonClass;
+  int maxCount = -5000;
+
+  for (const auto& [cl, count] : classToCountMap) {
+    cout << "{" << cl << " -> " << count << "}\n";
+
+    if (count > maxCount) {
+      maxCount = count;
+      mostCommonClass = cl;
+    }
+  }
+
+  cout << "getMostCommonClass() end\n";
+
+  return mostCommonClass;
+}
+
 }  // namespace id3
