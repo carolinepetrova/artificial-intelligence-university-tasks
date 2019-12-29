@@ -41,9 +41,6 @@ shared_ptr<Node> ID3Algorithm::generateDecisionTree(const Entries& inputData) {
 void ID3Algorithm::generateDecisionTreeHelper(shared_ptr<Node> rootNode) {
   auto attr = std::get<id3::AttributeId>(rootNode->getValue());
   cout << "generateDecisionTreeHelper() " << attr << endl;
-  if (attr != 1) {
-    sleep(2);
-  }
   cout << "Before rootNode->generateChildren()\n";
   rootNode->generateChildren();
   cout << "After rootNode->generateChildren()\n";

@@ -39,7 +39,8 @@ class Node {
 
  public:
   /**
-   * Creates non-leaf node containing entries for the ID3 algorithm to work on
+   * Creates non-leaf node containing an attribute
+   * and entries for the ID3 algorithm to work on
    */
   explicit Node(const Entries& entries);
 

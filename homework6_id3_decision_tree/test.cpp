@@ -88,4 +88,55 @@ TEST_CASE("Id3 algorithm generates correct final decision tree") {
 
   REQUIRE(get<id3::AttributeId>(rootNode->getValue()) ==
           testDataAttributeStringToIdMap.at("Outlook"));
+
+  auto printNodes = [](vector<shared_ptr<id3::Node>> nodes) {
+    for (auto nodePtr : nodes) {
+      if (nodePtr->isLeaf()) {
+        cout << "Leaf. Class: " << get<id3::Class>(nodePtr->getValue()) << endl;
+      } else {
+        cout << "Non-leaf. Attribute: "
+             << get<id3::AttributeId>(nodePtr->getValue()) << endl;
+      }
+    }
+  };
+
+  const auto firstLevelChildren = rootNode->getChildren();
+  cout << "\n\n--------------\n";
+  printNodes(firstLevelChildren);
+  cout << "--------------\n\n";
+
+  cout << "--------------\n";
+  printNodes(firstLevelChildren[0]->getChildren());
+  cout << "--------------\n";
+
+  REQUIRE(firstLevelChildren.size() == 3);
+
+  // one child should be leaf with class "Yes"
+  auto itFirstLevelLeaf = find_if(
+      firstLevelChildren.begin(), firstLevelChildren.end(),
+      [](shared_ptr<id3::Node> child) {
+        return child->isLeaf() && get<id3::Class>(child->getValue()) == "Yes";
+      });
+
+  REQUIRE(itFirstLevelLeaf != firstLevelChildren.end());
+
+  // one child shoud be non-leaf with attribute "humidity"
+  auto itFirstLevelHumidity =
+      find_if(firstLevelChildren.begin(), firstLevelChildren.end(),
+              [](shared_ptr<id3::Node> child) {
+                return !child->isLeaf() &&
+                       get<id3::AttributeId>(child->getValue()) ==
+                           testDataAttributeStringToIdMap.at("Humidity") - 1;
+              });
+  REQUIRE(itFirstLevelHumidity != firstLevelChildren.end());
+
+  // one child shoud be non-leaf with attribute "windy"
+  auto itFirstLevelWindy =
+      find_if(firstLevelChildren.begin(), firstLevelChildren.end(),
+              [](shared_ptr<id3::Node> child) {
+                return !child->isLeaf() &&
+                       get<id3::AttributeId>(child->getValue()) ==
+                           testDataAttributeStringToIdMap.at("Windy") - 1;
+              });
+  REQUIRE(itFirstLevelWindy != firstLevelChildren.end());
 }
