@@ -6,6 +6,13 @@
 #include <unordered_map>
 #include <vector>
 
+/*
+TODO SG:
+Parse input file and figure out a way to generate an image with colored
+clusters. If python is a good tool for that, probably use this library
+https://github.com/pybind/pybind11 ?
+*/
+
 using namespace std;
 
 namespace k_means {
