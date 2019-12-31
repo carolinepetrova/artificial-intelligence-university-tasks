@@ -3,8 +3,10 @@
 #include <iostream>
 #include <limits>
 #include <random>
+#include <sstream>
 #include <unordered_map>
-#include <vector>
+
+#include "input_parser.h"
 
 /*
 TODO SG:
@@ -17,9 +19,11 @@ using namespace std;
 
 namespace k_means {
 
-struct Point {
-  double x{0}, y{0};
-};
+using Centroid = Point;
+using Centroids = vector<Centroid>;
+using DataFrame = vector<Point>;
+using Means = vector<Point>;
+using PointIndexInDataFrame = int;
 
 bool operator==(const Point& lhs, const Point& rhs) {
   return lhs.x == rhs.x && lhs.y == rhs.y;
@@ -29,13 +33,6 @@ ostream& operator<<(ostream& os, const Point& p) {
   return os << "(" << p.x << ", " << p.y << ")";
 }
 
-bool operator!=(const Point& lhs, const Point& rhs) { return !(lhs == rhs); }
-
-using Centroid = Point;
-using Centroids = vector<Centroid>;
-using DataFrame = vector<Point>;
-using Means = vector<Point>;
-using PointIndexInDataFrame = int;
 namespace util {
 double square(double value) { return value * value; }
 
@@ -178,4 +175,21 @@ void simpleTest(ostream& logOs = cout) {
   }
 }
 
-int main() { simpleTest(); }
+void testInputParser(ostream& logOs = cout) {
+  logOs << "testInputParser()\n";
+  std::stringstream ss;
+
+  ss << static_cast<double>(1.0) << static_cast<double>(1.2)
+     << static_cast<double>(1.0) << static_cast<double>(1.2);
+
+  auto points = k_means::input_parse::parse(ss);
+
+  for (const auto& point : points) {
+    logOs << point << " ";
+  }
+}
+
+int main() {
+  // simpleTest();
+  testInputParser();
+}
