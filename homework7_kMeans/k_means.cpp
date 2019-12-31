@@ -1,3 +1,4 @@
+#include <algorithm>
 #include <cmath>
 #include <iostream>
 #include <limits>
@@ -13,9 +14,16 @@ struct Point {
   double x{0}, y{0};
 };
 
+bool operator==(const Point& lhs, const Point& rhs) {
+  return lhs.x == rhs.x && lhs.y == rhs.y;
+}
+
+bool operator!=(const Point& lhs, const Point& rhs) { return !(lhs == rhs); }
+
 using Centroid = Point;
 using Centroids = vector<Centroid>;
 using DataFrame = vector<Point>;
+using PointIndexInDataFrame = int;
 namespace util {
 double square(double value) { return value * value; }
 
@@ -35,30 +43,71 @@ int generateRandomInteger(int start, int end) {
 
 }  // namespace util
 
-Centroids k_means(int k, const DataFrame& inputPoints,
-                  int maxNumberOfIterations = 99999) {
+void initializeCentroidsRandomly(Centroids& centroids, long long from = 0,
+                                 long long to = 999999);
+
+vector<Point> findPointsBelongingToCentroid(
+    const Centroid& centroid, const DataFrame& inputPoints,
+    const unordered_map<PointIndexInDataFrame, Centroid>&
+        mapPointIndexToCentroid);
+
+Centroid findClosestCentroidForAPoint(const Point& point,
+                                      const Centroids& centroids);
+
+Centroids k_means(long unsigned k, const DataFrame& inputPoints,
+                  int maxNumberOfIterations = 999999) {
   // Create k centroids
   Centroids centroids{k};
-
-  // Initialize all the k centroids randomly
-  for (auto& centroid : centroids) {
-    centroid.x = util::generateRandomInteger(0, inputPoints.size());
-    centroid.y = util::generateRandomInteger(0, inputPoints.size());
-  }
+  initializeCentroidsRandomly(centroids, 0, inputPoints.size());
 
   // Assign to each point in the input dataframe a centroid (thus mapping each
   // point index to a centroid)
-  using PointIndexInDataFrame = int;
+
   unordered_map<PointIndexInDataFrame, Centroid> mapPointIndexToCentroid;
 
   for (int iteration = 0; iteration < maxNumberOfIterations; iteration++) {
+    // Assign to each point a centroid
     for (int pointIndex = 0; pointIndex < inputPoints.size(); ++pointIndex) {
       mapPointIndexToCentroid[pointIndex] =
           findClosestCentroidForAPoint(inputPoints[pointIndex], centroids);
     }
+
+    // Find the mean point for each centroid
+    for (const auto& centroid : centroids) {
+      double x{0}, y{0};
+      const auto pointsBelongingToCentroid = findPointsBelongingToCentroid(
+          centroid, inputPoints, mapPointIndexToCentroid);
+      for (const auto& point : pointsBelongingToCentroid) {
+        x += point.x;
+        y += point.y;
+      }
+
+      x = x / max<size_t>(pointsBelongingToCentroid.size(), 1);
+      y = y / max<size_t>(pointsBelongingToCentroid.size(), 1);
+    }
   }
 
   return centroids;
+}
+
+vector<Point> findPointsBelongingToCentroid(
+    const Centroid& centroid, const DataFrame& inputPoints,
+    const unordered_map<PointIndexInDataFrame, Centroid>&
+        mapPointIndexToCentroid) {
+  vector<Point> result;
+  for (int pointIndex = 0; pointIndex < inputPoints.size(); ++pointIndex) {
+    if (mapPointIndexToCentroid.at(pointIndex) == centroid) {
+      result.push_back(inputPoints[pointIndex]);
+    }
+  }
+  return result;
+}
+
+void initializeCentroidsRandomly(Centroids& centroids, long long from, long long to) {
+  for (auto& centroid : centroids) {
+    centroid.x = util::generateRandomInteger(from, to);
+    centroid.y = util::generateRandomInteger(from, to);
+  }
 }
 
 Centroid findClosestCentroidForAPoint(const Point& point,
