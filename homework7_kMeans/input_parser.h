@@ -16,6 +16,10 @@ istream& operator>>(istream& is, Point& point) {
   return is >> point.x >> point.y;
 }
 
+ostream& operator<<(ostream& os, const Point& point) {
+  return os << "(" << point.x << ", " << point.y << ")";
+}
+
 namespace input_parse {
 
 vector<Point> parse(istream& is) {

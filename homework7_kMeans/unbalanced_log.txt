@@ -1,0 +1,6 @@
+k_means() algorithm begins. Number of iterations = 500
+Creating 8 centroids and initializing them randomly.
+Begin of 500 iterations.
+End of 500 iterations.
+Generated means by k-means algorithm:
+(182089, 382606) (148143, 348002) (151730, 352048) (207621, 348895) (212189, 350991) (490037, 349763) (180888, 376942) (176801, 380155) 

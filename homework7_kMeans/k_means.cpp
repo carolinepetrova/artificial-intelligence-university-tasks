@@ -1,5 +1,6 @@
 #include <algorithm>
 #include <cmath>
+#include <fstream>
 #include <iostream>
 #include <limits>
 #include <random>
@@ -10,12 +11,19 @@
 
 /*
 TODO SG:
-Parse input file and figure out a way to generate an image with colored
-clusters. If python is a good tool for that, probably use this library
-https://github.com/pybind/pybind11 ?
+Figure out a way to generate an image with colored clusters. If python is a good
+tool for that, probably use this library https://github.com/pybind/pybind11 ?
 */
 
 using namespace std;
+
+template <typename Container>
+void printContainer(const Container& container, ostream& logOs = cout) {
+  for (const auto& element : container) {
+    logOs << element << ' ';
+  }
+  logOs << endl;
+}
 
 namespace k_means {
 
@@ -27,10 +35,6 @@ using PointIndexInDataFrame = int;
 
 bool operator==(const Point& lhs, const Point& rhs) {
   return lhs.x == rhs.x && lhs.y == rhs.y;
-}
-
-ostream& operator<<(ostream& os, const Point& p) {
-  return os << "(" << p.x << ", " << p.y << ")";
 }
 
 namespace util {
@@ -72,16 +76,13 @@ Means k_means(long unsigned k, const DataFrame& inputPoints,
   logOs << "k_means() algorithm begins. Number of iterations = "
         << numberOfIterations << "\n";
 
-  logOs << "Input points:\n";
-  for (const Point& point : inputPoints) {
-    logOs << point << " ";
-  }
-  logOs << endl;
-
-  logOs << "Creating k centroids and initializing them randomly.\n";
-  // Create k centroids
+  logOs << "Creating " << k << " centroids and initializing them randomly.\n";
   Centroids centroids{k};
-  initializeCentroidsRandomly(centroids, 0, inputPoints.size());
+
+  // Pick centroids as random points from the dataset.
+  for (auto& centroid : centroids) {
+    centroid = inputPoints[util::generateRandomInteger(0, inputPoints.size())];
+  }
 
   // Assign to each point in the input dataframe a centroid (thus mapping each
   // point index to a centroid)
@@ -89,10 +90,15 @@ Means k_means(long unsigned k, const DataFrame& inputPoints,
 
   logOs << "Begin of " << numberOfIterations << " iterations.\n";
   for (int iteration = 0; iteration < numberOfIterations; iteration++) {
+    // logOs << "Printing centroids...\n";
+    // printContainer(centroids, logOs);
+    cout << iteration << '\n';
+
     // Assign to each point a centroid
     for (int pointIndex = 0; pointIndex < inputPoints.size(); ++pointIndex) {
       mapPointIndexToCentroid[pointIndex] =
           findClosestCentroidForAPoint(inputPoints[pointIndex], centroids);
+      // logOs << "CLOSEST = " << mapPointIndexToCentroid[pointIndex] << '\n';
     }
 
     // Find the mean point for each centroid and assign to the centroid that
@@ -131,14 +137,6 @@ vector<Point> findPointsBelongingToCentroid(
     }
   }
   return result;
-}
-
-void initializeCentroidsRandomly(Centroids& centroids, long long from,
-                                 long long to) {
-  for (auto& centroid : centroids) {
-    centroid.x = util::generateRandomInteger(from, to);
-    centroid.y = util::generateRandomInteger(from, to);
-  }
 }
 
 Centroid findClosestCentroidForAPoint(const Point& point,
@@ -188,7 +186,78 @@ void testInputParser(ostream& logOs = cout) {
   logOs << endl;
 }
 
+void testNormalDataset(ostream& logOs = cout) {
+  const std::string NORMAL_DATASET_FILE = "datasets/normal/normal.txt";
+  const int k = 4;
+
+  ifstream ifs{NORMAL_DATASET_FILE};
+
+  const auto points = k_means::input_parse::parse(ifs);
+  const auto means = k_means::k_means(k, points, 500, logOs);
+
+  logOs << "Generated means by k-means algorithm:\n";
+  for (const auto& mean : means) {
+    logOs << mean << ' ';
+  }
+  logOs << endl;
+
+  auto getMeanId = [&means](k_means::Centroid mean) {
+    for (int i = 0; i < means.size(); i++) {
+      if (means[i] == mean) return i;
+    }
+    throw "Mean is not in the vector of means!";
+  };
+
+  ofstream ofs{"normal_output.txt"};
+  for (const auto& point : points) {
+    auto cluster = k_means::findClosestCentroidForAPoint(point, means);
+    ofs << point.x << "\t" << point.y << "\t" << getMeanId(cluster) << '\n';
+  }
+}
+
+void testUnbalancedDataset(ostream& logOs = cout) {
+  const std::string UNBALANCE_DATASET_FILE = "datasets/unbalance/unbalance.txt";
+  const int k = 8;
+
+  ifstream ifs{UNBALANCE_DATASET_FILE};
+
+  const auto points = k_means::input_parse::parse(ifs);
+  const auto means = k_means::k_means(k, points, 500, logOs);
+
+  logOs << "Generated means by k-means algorithm:\n";
+  for (const auto& mean : means) {
+    logOs << mean << ' ';
+  }
+  logOs << endl;
+
+  auto getMeanId = [&means](k_means::Centroid mean) {
+    for (int i = 0; i < means.size(); i++) {
+      if (means[i] == mean) return i;
+    }
+    throw "Mean is not in the vector of means!";
+  };
+
+  ofstream ofs{"unbalanced_output.txt"};
+  for (const auto& point : points) {
+    auto cluster = k_means::findClosestCentroidForAPoint(point, means);
+    ofs << point.x << "\t" << point.y << "\t" << getMeanId(cluster) << '\n';
+  }
+}
+
 int main() {
   // simpleTest();
-  testInputParser();
+  // testInputParser();
+
+  ofstream ofs_normal{"normal_log.txt"};
+  if (!ofs_normal) {
+    throw "Could not open 'normal_log.txt'";
+  }
+
+  ofstream ofs_unbalanced{"unbalanced_log.txt"};
+  if (!ofs_unbalanced) {
+    throw "Could not open 'unbalanced_log.txt'";
+  }
+
+  testNormalDataset(ofs_normal);
+  testUnbalancedDataset(ofs_unbalanced);
 }
