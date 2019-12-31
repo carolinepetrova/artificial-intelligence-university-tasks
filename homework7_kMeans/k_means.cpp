@@ -177,16 +177,15 @@ void simpleTest(ostream& logOs = cout) {
 
 void testInputParser(ostream& logOs = cout) {
   logOs << "testInputParser()\n";
-  std::stringstream ss;
-
-  ss << static_cast<double>(1.0) << static_cast<double>(1.2)
-     << static_cast<double>(1.0) << static_cast<double>(1.2);
+  std::string test = "23.45 40.53 23.44 60.69";
+  std::stringstream ss{test};
 
   auto points = k_means::input_parse::parse(ss);
 
   for (const auto& point : points) {
     logOs << point << " ";
   }
+  logOs << endl;
 }
 
 int main() {
