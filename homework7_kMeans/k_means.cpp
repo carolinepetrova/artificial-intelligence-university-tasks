@@ -9,12 +9,6 @@
 
 #include "input_parser.h"
 
-/*
-TODO SG:
-Figure out a way to generate an image with colored clusters. If python is a good
-tool for that, probably use this library https://github.com/pybind/pybind11 ?
-*/
-
 using namespace std;
 
 template <typename Container>
