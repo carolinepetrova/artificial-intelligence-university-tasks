@@ -11,3 +11,5 @@
 5. [Fifth homework: Naive Bayes Classifier](https://github.com/stiliangoranov/artificial-intelligence-university-tasks/tree/master/homework5_naive_bayes)
 
 6. [Sixth homework: ID3 Algorithm](https://github.com/stiliangoranov/artificial-intelligence-university-tasks/tree/master/homework6_id3_decision_tree)
+
+7. [Seventh homework: kMeans Algorithm](https://github.com/stiliangoranov/artificial-intelligence-university-tasks/tree/master/homework7_kMeans)
